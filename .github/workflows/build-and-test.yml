@@ -390,7 +390,7 @@ jobs:
           make distdir VERSION=${{ matrix.config.os }}
           echo ::endgroup::
 
-          cd rupx-${{ matrix.config.os }}
+          cd rupaya-${{ matrix.config.os }}
 
           echo ::group::Configure
           ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL ${{ matrix.config.BITCOIN_CONFIG }} || ( cat config.log && false)
@@ -398,27 +398,27 @@ jobs:
 
       - name: Build Native Wallet
         run: |
-          cd build/rupx-${{ matrix.config.os }}/
+          cd build/rupaya-${{ matrix.config.os }}/
           make -j2 ${{ matrix.config.goal }} || ( echo "Build failure. Verbose build follows." && make ${{ matrix.config.goal }} V=1 ; false )
 
       - name: Run Unit Tests
         if: matrix.config.unit_tests == true
         run: |
-          cd build/rupx-${{ matrix.config.os }}/
+          cd build/rupaya-${{ matrix.config.os }}/
           make -j2 check VERBOSE=1
 
       - name: Create Tar Archive
         if: matrix.config.functional_tests == true
         run: |
-          strip build/rupx-${{ matrix.config.os }}/src/rupxd
-          strip build/rupx-${{ matrix.config.os }}/src/rupx-cli
+          strip build/rupaya-${{ matrix.config.os }}/src/rupxd
+          strip build/rupaya-${{ matrix.config.os }}/src/rupx-cli
           tar -hcvf native-${{ matrix.config.os }}-built.tar \
-            build/rupx-${{ matrix.config.os }}/share/rpcauth/ \
-            build/rupx-${{ matrix.config.os }}/test/ \
-            build/rupx-${{ matrix.config.os }}/params/ \
-            build/rupx-${{ matrix.config.os }}/src/rupxd \
-            build/rupx-${{ matrix.config.os }}/src/rupx-cli \
-            build/rupx-${{ matrix.config.os }}/src/test/data/asmap.raw
+            build/rupaya-${{ matrix.config.os }}/share/rpcauth/ \
+            build/rupaya-${{ matrix.config.os }}/test/ \
+            build/rupaya-${{ matrix.config.os }}/params/ \
+            build/rupaya-${{ matrix.config.os }}/src/rupxd \
+            build/rupaya-${{ matrix.config.os }}/src/rupx-cli \
+            build/rupaya-${{ matrix.config.os }}/src/test/data/asmap.raw
 
       - name: Upload Build Artifact
         if: matrix.config.functional_tests == true
@@ -492,12 +492,12 @@ jobs:
 
       - name: Install Rupaya Params
         run: |
-          cd build/rupx-${{ matrix.config.os }}/params/
+          cd build/rupaya-${{ matrix.config.os }}/params/
           ./install-params.sh
 
       - name: Run Functional Tests
         run: |
-          cd build/rupx-${{ matrix.config.os }}/
+          cd build/rupaya-${{ matrix.config.os }}/
           test/functional/test_runner.py --combinedlogslen=4000 ${{ matrix.config.test_runner_extra }}
 
   # Job to compile all dependencies deterministically using the depends build system.
@@ -765,7 +765,7 @@ jobs:
           make distdir VERSION=${{ matrix.config.host }}
           echo ::endgroup::
 
-          cd rupx-${{ matrix.config.host }}
+          cd rupaya-${{ matrix.config.host }}
 
           echo ::group::Configure
           ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL ${{ matrix.config.BITCOIN_CONFIG }} || ( cat config.log && false)
@@ -773,40 +773,40 @@ jobs:
 
       - name: Build Wallet
         run: |
-          cd build/rupx-${{ matrix.config.host }}/
+          cd build/rupaya-${{ matrix.config.host }}/
           make -j2 ${{ matrix.config.goal }} || ( echo "Build failure. Verbose build follows." && make ${{ matrix.config.goal }} V=1 ; false )
 
       - name: Check Security
         run: |
-          cd build/rupx-${{ matrix.config.host }}/
+          cd build/rupaya-${{ matrix.config.host }}/
           make -j2 -C src check-security
 
       - name: Check Exported Symbols
         if: matrix.config.symbol_check == true
         run: |
-          cd build/rupx-${{ matrix.config.host }}/
+          cd build/rupaya-${{ matrix.config.host }}/
           make -j2 -C src check-symbols
 
       - name: Run Unit Tests
         if: matrix.config.unit_tests == true
         run: |
-          cd build/rupx-${{ matrix.config.host }}
+          cd build/rupaya-${{ matrix.config.host }}
           make -j2 check VERBOSE=1
 
       - name: Create Tar Archive
         if: matrix.config.functional_tests == true
         run: |
           if [[ ${{ matrix.config.host }} != *apple* ]]; then
-            strip build/rupx-${{ matrix.config.host }}/src/rupxd
-            strip build/rupx-${{ matrix.config.host }}/src/rupx-cli
+            strip build/rupaya-${{ matrix.config.host }}/src/rupxd
+            strip build/rupaya-${{ matrix.config.host }}/src/rupx-cli
           fi
           tar -hcvf ${{ matrix.config.host }}-built.tar \
-            build/rupx-${{ matrix.config.host }}/share/rpcauth \
-            build/rupx-${{ matrix.config.host }}/test/ \
-            build/rupx-${{ matrix.config.host }}/params/ \
-            build/rupx-${{ matrix.config.host }}/src/rupxd \
-            build/rupx-${{ matrix.config.host }}/src/rupx-cli \
-            build/rupx-${{ matrix.config.host }}/src/test/data/asmap.raw
+            build/rupaya-${{ matrix.config.host }}/share/rpcauth \
+            build/rupaya-${{ matrix.config.host }}/test/ \
+            build/rupaya-${{ matrix.config.host }}/params/ \
+            build/rupaya-${{ matrix.config.host }}/src/rupxd \
+            build/rupaya-${{ matrix.config.host }}/src/rupx-cli \
+            build/rupaya-${{ matrix.config.host }}/src/test/data/asmap.raw
 
       - name: Upload Build Artifact
         if: matrix.config.functional_tests == true
@@ -821,7 +821,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: rupaya-win64-setup
-          path: build/rupx-${{ matrix.config.host }}/src/rupaya-*-win64-setup.exe
+          path: build/rupaya-${{ matrix.config.host }}/src/rupaya-*-win64-setup.exe
           retention-days: 30
 
       - name: Upload macOS DMG
@@ -829,7 +829,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: rupaya-macos-dmg
-          path: build/rupx-${{ matrix.config.host }}/src/*.dmg
+          path: build/rupaya-${{ matrix.config.host }}/src/*.dmg
           retention-days: 30
 
       - name: Upload Linux Binaries
@@ -838,9 +838,9 @@ jobs:
         with:
           name: rupaya-linux-x86_64
           path: |
-            build/rupx-${{ matrix.config.host }}/src/rupxd
-            build/rupx-${{ matrix.config.host }}/src/rupx-cli
-            build/rupx-${{ matrix.config.host }}/src/rupx-qt
+            build/rupaya-${{ matrix.config.host }}/src/rupxd
+            build/rupaya-${{ matrix.config.host }}/src/rupx-cli
+            build/rupaya-${{ matrix.config.host }}/src/rupx-qt
           retention-days: 30
 
   # Job to run the python functional test suite for depends based linux builds.
@@ -908,12 +908,12 @@ jobs:
 
       - name: Install Rupaya Params
         run: |
-          cd build/rupx-${{ matrix.config.host }}/params/
+          cd build/rupaya-${{ matrix.config.host }}/params/
           ./install-params.sh
 
       - name: Run Functional Tests
         run: |
-          cd build/rupx-${{ matrix.config.host }}/
+          cd build/rupaya-${{ matrix.config.host }}/
           if [[ ${{ matrix.config.os }} = macos* ]]; then
             sed -i.old 's/home/Users/' test/config.ini
           fi

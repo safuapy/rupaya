@@ -5,8 +5,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_CHAINPARAMS_H
-#define PIVX_CHAINPARAMS_H
+#ifndef RUPX_CHAINPARAMS_H
+#define RUPX_CHAINPARAMS_H
 
 #include "chainparamsbase.h"
 #include "consensus/params.h"
@@ -145,4 +145,4 @@ void SelectParams(const std::string& chain);
  */
 void UpdateNetworkUpgradeParameters(Consensus::UpgradeIndex idx, int nActivationHeight);
 
-#endif // PIVX_CHAINPARAMS_H
+#endif // RUPX_CHAINPARAMS_H

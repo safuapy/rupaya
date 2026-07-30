@@ -2,6 +2,7 @@
 #
 # Copyright (c) 2015-2020 The Zcash developers
 # Copyright (c) 2020-2021 The PIVX Core developers
+# Copyright (c) 2024 The Rupaya Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,9 +14,9 @@ if [ -n "${1:-}" ]; then
     PARAMS_DIR="$1"
 else
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        PARAMS_DIR="$HOME/Library/Application Support/PIVXParams"
+        PARAMS_DIR="$HOME/Library/Application Support/RupayaParams"
     else
-        PARAMS_DIR="$HOME/.pivx-params"
+        PARAMS_DIR="$HOME/.rupx-params"
     fi
 fi
 
@@ -42,7 +43,7 @@ function install_params {
     # if the params don't exist in the current directory, assume we're running from release tarballs
     if ! [ -f "$filename" ]
     then
-        filename="share/pivx/$filename"
+        filename="share/rupx/$filename"
     fi
 
     if ! [ -f "$output" ]; then

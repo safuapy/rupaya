@@ -532,13 +532,13 @@ void PrintExceptionContinue(const std::exception* pex, const char* pszThread)
 
 fs::path GetDefaultDataDir()
 {
-// Windows < Vista: C:\Documents and Settings\Username\Application Data\PIVX
-// Windows >= Vista: C:\Users\Username\AppData\Roaming\PIVX
-// Mac: ~/Library/Application Support/PIVX
-// Unix: ~/.pivx
+// Windows < Vista: C:\Documents and Settings\Username\Application Data\Rupaya
+// Windows >= Vista: C:\Users\Username\AppData\Roaming\Rupaya
+// Mac: ~/Library/Application Support/Rupaya
+// Unix: ~/.rupx
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "PIVX";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "Rupaya";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -550,10 +550,10 @@ fs::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     TryCreateDirectories(pathRet);
-    return pathRet / "PIVX";
+    return pathRet / "Rupaya";
 #else
     // Unix
-    return pathRet / ".pivx";
+    return pathRet / ".rupx";
 #endif
 #endif
 }
@@ -567,13 +567,13 @@ static RecursiveMutex csPathCached;
 static fs::path ZC_GetBaseParamsDir()
 {
     // Copied from GetDefaultDataDir and adapter for zcash params.
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\PIVXParams
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\PIVXParams
-    // Mac: ~/Library/Application Support/PIVXParams
-    // Unix: ~/.pivx-params
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\RupayaParams
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\RupayaParams
+    // Mac: ~/Library/Application Support/RupayaParams
+    // Unix: ~/.rupx-params
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "PIVXParams";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "RupayaParams";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -585,10 +585,10 @@ static fs::path ZC_GetBaseParamsDir()
     // Mac
     pathRet /= "Library/Application Support";
     TryCreateDirectories(pathRet);
-    return pathRet / "PIVXParams";
+    return pathRet / "RupayaParams";
 #else
     // Unix
-    return pathRet / ".pivx-params";
+    return pathRet / ".rupx-params";
 #endif
 #endif
 }

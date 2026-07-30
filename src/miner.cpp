@@ -25,7 +25,6 @@
 #ifdef ENABLE_WALLET
 #include "wallet/wallet.h"
 #endif
-#include "invalid.h"
 #include "policy/policy.h"
 
 #include <boost/thread.hpp>

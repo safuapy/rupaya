@@ -129,7 +129,6 @@ UniValue blockheaderToJSON(const CBlockIndex* tip, const CBlockIndex* blockindex
     result.pushKV("bits", strprintf("%08x", blockindex->nBits));
     result.pushKV("difficulty", GetDifficulty(blockindex));
     result.pushKV("chainwork", blockindex->nChainWork.GetHex());
-    result.pushKV("acc_checkpoint", blockindex->nAccumulatorCheckpoint.GetHex());
     // Sapling shield pool value
     result.pushKV("shield_pool_value", ValuePoolDesc(blockindex->nChainSaplingValue, blockindex->nSaplingValue));
     if (blockindex->pprev)
@@ -151,7 +150,6 @@ UniValue blockToJSON(const CBlock& block, const CBlockIndex* tip, const CBlockIn
     result.pushKV("height", blockindex->nHeight);
     result.pushKV("version", block.nVersion);
     result.pushKV("merkleroot", block.hashMerkleRoot.GetHex());
-    result.pushKV("acc_checkpoint", block.nAccumulatorCheckpoint.GetHex());
     result.pushKV("finalsaplingroot", block.hashFinalSaplingRoot.GetHex());
     UniValue txs(UniValue::VARR);
     for (const auto& txIn : block.vtx) {
@@ -965,15 +963,12 @@ static UniValue SoftForkMajorityDesc(int version, const CBlockIndex* pindex, con
         idx = Consensus::BASE_NETWORK;
         break;
     case 4:
-        idx = Consensus::UPGRADE_ZC;
-        break;
-    case 5:
         idx = Consensus::UPGRADE_BIP65;
         break;
-    case 6:
+    case 5:
         idx = Consensus::UPGRADE_V3_4;
         break;
-    case 7:
+    case 6:
         idx = Consensus::UPGRADE_V4_0;
         break;
     default:
@@ -1417,10 +1412,6 @@ UniValue getblockindexstats(const JSONRPCRequest& request) {
         // loop through each tx in block and save size and fee (except for coinbase/coinstake)
         for (int idx = firstTxIndex; idx < ntx; idx++) {
             const CTransaction& tx = *(block.vtx[idx]);
-
-            // zerocoin txes have fixed fee, don't count them here.
-            if (tx.ContainsZerocoins())
-                continue;
 
             // Transaction size
             nBytes += GetSerializeSize(tx, CLIENT_VERSION);

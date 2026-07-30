@@ -6,7 +6,6 @@
 #include "coins.h"
 
 #include "consensus/consensus.h"
-#include "invalid.h"
 #include "logging.h"
 #include "random.h"
 #include "version.h"
@@ -94,7 +93,6 @@ bool CCoinsViewCache::GetCoin(const COutPoint& outpoint, Coin& coin) const
 void CCoinsViewCache::AddCoin(const COutPoint& outpoint, Coin&& coin, bool possible_overwrite) {
     assert(!coin.IsSpent());
     if (coin.out.scriptPubKey.IsUnspendable()) return;
-    if (coin.out.IsZerocoinMint()) return;
     CCoinsMap::iterator it;
     bool inserted;
     std::tie(it, inserted) = cacheCoins.emplace(std::piecewise_construct, std::forward_as_tuple(outpoint), std::tuple<>());
@@ -113,18 +111,13 @@ void CCoinsViewCache::AddCoin(const COutPoint& outpoint, Coin&& coin, bool possi
     cachedCoinsUsage += it->second.coin.DynamicMemoryUsage();
 }
 
-void AddCoins(CCoinsViewCache& cache, const CTransaction& tx, int nHeight, bool check, bool fSkipInvalid)
+void AddCoins(CCoinsViewCache& cache, const CTransaction& tx, int nHeight, bool check)
 {
     bool fCoinbase = tx.IsCoinBase();
     bool fCoinstake = tx.IsCoinStake();
     const uint256& txid = tx.GetHash();
     for (size_t i = 0; i < tx.vout.size(); ++i) {
         const COutPoint out(txid, i);
-        // Don't add fraudulent/banned outputs
-        if (fSkipInvalid && invalid_out::ContainsOutPoint(out)) {
-            cache.SpendCoin(out);   // no-op if the coin is not in the cache
-            continue;
-        }
         bool overwrite = check && cache.HaveCoin(out);
         cache.AddCoin(out, Coin(tx.vout[i], nHeight, fCoinbase, fCoinstake), overwrite);
     }
@@ -341,11 +334,7 @@ CAmount CCoinsViewCache::GetValueIn(const CTransaction& tx) const
 
     CAmount nResult = 0;
     for (const CTxIn& in : tx.vin) {
-        if (in.IsZerocoinSpend() || in.IsZerocoinPublicSpend()) {
-            nResult += in.nSequence * COIN;
-        } else {
-            nResult += AccessCoin(in.prevout).out.nValue;
-        }
+        nResult += AccessCoin(in.prevout).out.nValue;
     }
 
     // Sapling
@@ -356,7 +345,7 @@ CAmount CCoinsViewCache::GetValueIn(const CTransaction& tx) const
 
 bool CCoinsViewCache::HaveInputs(const CTransaction& tx) const
 {
-    if (!tx.IsCoinBase() && !tx.HasZerocoinSpendInputs()) {
+    if (!tx.IsCoinBase()) {
         for (unsigned int i = 0; i < tx.vin.size(); i++) {
             if (!HaveCoin(tx.vin[i].prevout)) {
                 return false;
@@ -388,20 +377,6 @@ CAmount CCoinsViewCache::GetTotalAmount() const
     }
 
     return nTotal;
-}
-
-bool CCoinsViewCache::PruneInvalidEntries()
-{
-    // Prune zerocoin Mints and fraudulent/frozen outputs
-    bool loaded = invalid_out::LoadOutpoints();
-    assert(loaded);
-    for (const COutPoint& out: invalid_out::setInvalidOutPoints) {
-        if (HaveCoin(out)) {
-            LogPrintf("Pruning invalid output %s\n", out.ToString());
-            SpendCoin(out);
-        }
-    }
-    return Flush();
 }
 
 static const size_t MAX_OUTPUTS_PER_BLOCK = MAX_BLOCK_SIZE_CURRENT /  ::GetSerializeSize(CTxOut(), PROTOCOL_VERSION); // TODO: merge with similar definition in undo.h.

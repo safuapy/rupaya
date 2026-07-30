@@ -886,7 +886,6 @@ void DashboardWidget::onHideChartsChanged(bool fHide)
             stakesFilter->setFilterCaseSensitivity(Qt::CaseInsensitive);
             stakesFilter->setTypeFilter(TransactionFilterProxy::TYPE(TransactionRecord::StakeMint) |
                                         TransactionFilterProxy::TYPE(TransactionRecord::Generated) |
-                                        TransactionFilterProxy::TYPE(TransactionRecord::StakeZPIV) |
                                         TransactionFilterProxy::TYPE(TransactionRecord::StakeDelegated) |
                                         TransactionFilterProxy::TYPE(TransactionRecord::MNReward));
         }

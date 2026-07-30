@@ -559,8 +559,6 @@ int32_t ComputeBlockVersion(const Consensus::Params& consensus, int nHeight)
         return 6;
     } else if (consensus.NetworkUpgradeActive(nHeight, Consensus::UPGRADE_BIP65)) {
         return 5;
-    } else if (consensus.NetworkUpgradeActive(nHeight, Consensus::UPGRADE_ZC)) {
-        return 4;
     } else {
         return 3;
     }

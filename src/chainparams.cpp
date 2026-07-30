@@ -228,25 +228,6 @@ public:
         consensus.nTime_EnforceNewSporkKey = 0;
         consensus.nTime_RejectOldSporkKey = 0;
 
-        // Rupaya: no PIVX legacy heights — clean chain
-        consensus.height_last_invalid_UTXO = -1;
-        consensus.height_last_ZC_AccumCheckpoint = -1;
-        consensus.height_last_ZC_WrappedSerials = -1;
-
-        // validation by-pass — disabled for Rupaya
-        consensus.nPivxBadBlockTime = 0;
-        consensus.nPivxBadBlockBits = 0;
-
-        // Zerocoin-related params — disabled, never activated on Rupaya
-        consensus.ZC_Modulus = "";
-        consensus.ZC_MaxPublicSpendsPerTx = 0;
-        consensus.ZC_MaxSpendsPerTx = 0;
-        consensus.ZC_MinMintConfirmations = 0;
-        consensus.ZC_MinMintFee = 0;
-        consensus.ZC_MinStakeDepth = 0;
-        consensus.ZC_TimeStart = 0;
-        consensus.ZC_HeightStart = 0;
-
         // Network upgrades — Rupaya starts with latest rules from block 1
         // PoS activates at block 101 (after 100-block PoW premine)
         consensus.vUpgrades[Consensus::BASE_NETWORK].nActivationHeight =
@@ -256,14 +237,8 @@ public:
         consensus.vUpgrades[Consensus::UPGRADE_POS].nActivationHeight           = 101;
         consensus.vUpgrades[Consensus::UPGRADE_POS_V2].nActivationHeight        =
                 Consensus::NetworkUpgrade::ALWAYS_ACTIVE;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC].nActivationHeight            =
-                Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;  // Zerocoin never activated
-        consensus.vUpgrades[Consensus::UPGRADE_ZC_V2].nActivationHeight         =
-                Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
         consensus.vUpgrades[Consensus::UPGRADE_BIP65].nActivationHeight         =
                 Consensus::NetworkUpgrade::ALWAYS_ACTIVE;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC_PUBLIC].nActivationHeight     =
-                Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
         consensus.vUpgrades[Consensus::UPGRADE_V3_4].nActivationHeight          =
                 Consensus::NetworkUpgrade::ALWAYS_ACTIVE;
         consensus.vUpgrades[Consensus::UPGRADE_V4_0].nActivationHeight          =
@@ -281,11 +256,8 @@ public:
         consensus.vUpgrades[Consensus::UPGRADE_V6_0].nActivationHeight =
                 Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;  // DMN — future
 
-        // No PIVX hashActivationBlock values
-        consensus.vUpgrades[Consensus::UPGRADE_ZC].hashActivationBlock = nullopt;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC_V2].hashActivationBlock = nullopt;
+        // No hashActivationBlock values
         consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock = nullopt;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC_PUBLIC].hashActivationBlock = nullopt;
         consensus.vUpgrades[Consensus::UPGRADE_V3_4].hashActivationBlock = nullopt;
         consensus.vUpgrades[Consensus::UPGRADE_V4_0].hashActivationBlock = nullopt;
 
@@ -397,21 +369,6 @@ public:
         consensus.nTime_EnforceNewSporkKey = 0;
         consensus.nTime_RejectOldSporkKey = 0;
 
-        // height based activations — clean chain
-        consensus.height_last_invalid_UTXO = -1;
-        consensus.height_last_ZC_AccumCheckpoint = -1;
-        consensus.height_last_ZC_WrappedSerials = -1;
-        consensus.ZC_HeightStart = 0;
-
-        // Zerocoin-related params — disabled
-        consensus.ZC_Modulus = "";
-        consensus.ZC_MaxPublicSpendsPerTx = 0;
-        consensus.ZC_MaxSpendsPerTx = 0;
-        consensus.ZC_MinMintConfirmations = 0;
-        consensus.ZC_MinMintFee = 0;
-        consensus.ZC_MinStakeDepth = 0;
-        consensus.ZC_TimeStart = 0;
-
         // Network upgrades — testnet starts with latest rules, PoS from block 201
         consensus.vUpgrades[Consensus::BASE_NETWORK].nActivationHeight =
                 Consensus::NetworkUpgrade::ALWAYS_ACTIVE;
@@ -419,13 +376,7 @@ public:
                 Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
         consensus.vUpgrades[Consensus::UPGRADE_POS].nActivationHeight           = 201;
         consensus.vUpgrades[Consensus::UPGRADE_POS_V2].nActivationHeight        = 201;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC].nActivationHeight            =
-                Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC_V2].nActivationHeight         =
-                Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
         consensus.vUpgrades[Consensus::UPGRADE_BIP65].nActivationHeight         = 201;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC_PUBLIC].nActivationHeight     =
-                Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
         consensus.vUpgrades[Consensus::UPGRADE_V3_4].nActivationHeight          = 201;
         consensus.vUpgrades[Consensus::UPGRADE_V4_0].nActivationHeight          = 201;
         consensus.vUpgrades[Consensus::UPGRADE_V5_0].nActivationHeight          = 201;
@@ -541,21 +492,6 @@ public:
         consensus.nTime_EnforceNewSporkKey = 0;
         consensus.nTime_RejectOldSporkKey = 0;
 
-        // height based activations
-        consensus.height_last_invalid_UTXO = -1;
-        consensus.height_last_ZC_AccumCheckpoint = 310;     // no checkpoints on regtest
-        consensus.height_last_ZC_WrappedSerials = -1;
-
-        // Regtest Zerocoin params — disabled
-        consensus.ZC_Modulus = "";
-        consensus.ZC_MaxPublicSpendsPerTx = 0;
-        consensus.ZC_MaxSpendsPerTx = 0;
-        consensus.ZC_MinMintConfirmations = 0;
-        consensus.ZC_MinMintFee = 0;
-        consensus.ZC_MinStakeDepth = 0;
-        consensus.ZC_TimeStart = 0;                 // not implemented on regtest
-        consensus.ZC_HeightStart = 0;
-
         // Network upgrades
         consensus.vUpgrades[Consensus::BASE_NETWORK].nActivationHeight =
                 Consensus::NetworkUpgrade::ALWAYS_ACTIVE;
@@ -563,11 +499,8 @@ public:
                 Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
         consensus.vUpgrades[Consensus::UPGRADE_POS].nActivationHeight           = 251;
         consensus.vUpgrades[Consensus::UPGRADE_POS_V2].nActivationHeight        = 251;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC].nActivationHeight            = 300;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC_V2].nActivationHeight         = 300;
         consensus.vUpgrades[Consensus::UPGRADE_BIP65].nActivationHeight         =
                 Consensus::NetworkUpgrade::ALWAYS_ACTIVE;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC_PUBLIC].nActivationHeight     = 400;
         consensus.vUpgrades[Consensus::UPGRADE_V3_4].nActivationHeight          = 251;
         consensus.vUpgrades[Consensus::UPGRADE_V4_0].nActivationHeight          =
                 Consensus::NetworkUpgrade::ALWAYS_ACTIVE;

@@ -68,49 +68,6 @@ bool TransactionRecord::decomposeCoinStake(const CWallet* wallet, const CWalletT
     return true;
 }
 
-bool TransactionRecord::decomposeZcSpendTx(const CWallet* wallet, const CWalletTx& wtx,
-                                           const CAmount& nCredit, const CAmount& nDebit,
-                                           QList<TransactionRecord>& parts)
-{
-
-    // Return if it's not a zc spend
-    if (!wtx.tx->HasZerocoinSpendInputs()) {
-        return false;
-    }
-
-    // Basic values
-    const uint256& hash = wtx.GetHash();
-    int64_t nTime = wtx.GetTxTime();
-
-    //zerocoin spend outputs
-    for (unsigned int nOut = 0; nOut < wtx.tx->vout.size(); nOut++) {
-        const CTxOut& txout = wtx.tx->vout[nOut];
-        // change that was reminted as zerocoins
-        if (txout.IsZerocoinMint()) {
-            continue;
-        }
-
-        std::string strAddress;
-        CTxDestination address;
-        if (ExtractDestination(txout.scriptPubKey, address))
-            strAddress = EncodeDestination(address);
-
-        // a zerocoinspend that was sent to an address held by this wallet
-        isminetype mine = wallet->IsMine(txout);
-        if (mine) {
-            TransactionRecord sub(hash, nTime, wtx.tx->GetTotalSize());
-            sub.involvesWatchAddress = mine & ISMINE_WATCH_ONLY;
-            sub.type = TransactionRecord::RecvFromZerocoinSpend;
-            sub.credit = txout.nValue;
-            sub.address = (!strAddress.empty()) ? strAddress : getValueOrReturnEmpty(wtx.mapValue, "recvzerocoinspend");
-            sub.idx = (int) nOut;
-            parts.append(sub);
-            continue;
-        }
-    }
-    return true;
-}
-
 bool TransactionRecord::decomposeP2CS(const CWallet* wallet, const CWalletTx& wtx,
                                            const CAmount& nCredit, const CAmount& nDebit,
                                            QList<TransactionRecord>& parts)
@@ -324,15 +281,9 @@ bool TransactionRecord::decomposeDebitTransaction(const CWallet* wallet, const C
         if (ExtractDestination(txout.scriptPubKey, address)) {
             //This is most likely only going to happen when resyncing deterministic wallet without the knowledge of the
             //private keys that the change was sent to. Do not display a "sent to" here.
-            if (wtx.tx->HasZerocoinMintOutputs())
-                continue;
             // Sent to PIVX Address
             sub.type = TransactionRecord::SendToAddress;
             sub.address = EncodeDestination(address);
-        } else if (txout.IsZerocoinMint()){
-            sub.type = TransactionRecord::ZerocoinMint;
-            sub.address = getValueOrReturnEmpty(wtx.mapValue, "zerocoinmint");
-            sub.credit += txout.nValue;
         } else {
             // Sent to IP, or other non-address transaction like OP_EVAL
             sub.type = TransactionRecord::SendToOther;
@@ -418,11 +369,6 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* 
         return parts;
     }
 
-    // Decompose zerocoin spend tx if needed (if it's not a zc spend, the method will not perform any action)
-    if (decomposeZcSpendTx(wallet, wtx, nCredit, nDebit, parts)) {
-        return parts;
-    }
-
     // Credit/Debit decomposing flow
     CAmount nNet = nCredit - nDebit;
 
@@ -467,7 +413,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* 
     }
 
     // Check if the tx is debit and decompose it.
-    if (fAllFromMe || wtx.tx->HasZerocoinMintOutputs()) {
+    if (fAllFromMe) {
         if (decomposeDebitTransaction(wallet, wtx, nDebit, involvesWatchAddress, parts)) {
             return parts;
         }
@@ -618,7 +564,6 @@ void TransactionRecord::updateStatus(const CWalletTx& wtx, int chainHeight)
     // For generated transactions, determine maturity
     else if (type == TransactionRecord::Generated ||
             type == TransactionRecord::StakeMint ||
-            type == TransactionRecord::StakeZPIV ||
             type == TransactionRecord::MNReward ||
             type == TransactionRecord::BudgetPayment ||
             type == TransactionRecord::StakeDelegated ||
@@ -661,7 +606,7 @@ int TransactionRecord::getOutputIndex() const
 
 bool TransactionRecord::isCoinStake() const
 {
-    return type == TransactionRecord::StakeMint || type == TransactionRecord::Generated || type == TransactionRecord::StakeZPIV;
+    return type == TransactionRecord::StakeMint || type == TransactionRecord::Generated;
 }
 
 bool TransactionRecord::isMNReward() const

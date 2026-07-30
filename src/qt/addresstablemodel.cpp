@@ -23,7 +23,6 @@
 
 const QString AddressTableModel::Send = "S";
 const QString AddressTableModel::Receive = "R";
-const QString AddressTableModel::Zerocoin = "X";
 const QString AddressTableModel::Delegator = "D";
 const QString AddressTableModel::Delegable = "E";
 const QString AddressTableModel::ColdStaking = "C";
@@ -35,7 +34,6 @@ struct AddressTableEntry {
     enum Type {
         Sending,
         Receiving,
-        Zerocoin,
         Delegator,
         Delegable,
         ColdStaking,
@@ -48,11 +46,9 @@ struct AddressTableEntry {
     Type type;
     QString label{};
     QString address{};
-    QString pubcoin{};
     uint creationTime{0};
 
     AddressTableEntry() = delete;   // need to specify a type
-    AddressTableEntry(Type _type, const QString& _pubcoin):    type(_type), pubcoin(_pubcoin) {}
     AddressTableEntry(Type _type, const QString& _label, const QString& _address, const uint _creationTime) :
         type(_type),
         label(_label),
@@ -266,39 +262,6 @@ public:
         }
     }
 
-    void updateEntry(const QString &pubCoin, const QString &isUsed, int status)
-    {
-        // Find address / label in model
-        QList<AddressTableEntry>::iterator lower = std::lower_bound(
-            cachedAddressTable.begin(), cachedAddressTable.end(), pubCoin, AddressTableEntryLessThan());
-        QList<AddressTableEntry>::iterator upper = std::upper_bound(
-            cachedAddressTable.begin(), cachedAddressTable.end(), pubCoin, AddressTableEntryLessThan());
-        int lowerIndex = (lower - cachedAddressTable.begin());
-        bool inModel = (lower != upper);
-        AddressTableEntry::Type newEntryType = AddressTableEntry::Zerocoin;
-
-        switch(status)
-        {
-            case CT_NEW:
-                if (inModel) {
-                    qWarning() << "AddressTablePriv_ZC::updateEntry : Warning: Got CT_NEW, but entry is already in model";
-                }
-                parent->beginInsertRows(QModelIndex(), lowerIndex, lowerIndex);
-                cachedAddressTable.insert(lowerIndex, AddressTableEntry(newEntryType, isUsed, pubCoin, 0));
-                parent->endInsertRows();
-                break;
-            case CT_UPDATED:
-                if (!inModel) {
-                    qWarning() << "AddressTablePriv_ZC::updateEntry : Warning: Got CT_UPDATED, but entry is not in model";
-                    break;
-                }
-                lower->type = newEntryType;
-                lower->label = isUsed;
-                parent->emitDataChanged(lowerIndex);
-                break;
-        }
-    }
-
     int size() { return cachedAddressTable.size(); }
     int sizeSend() { return sendNum; }
     int sizeRecv() { return recvNum; }
@@ -497,13 +460,6 @@ void AddressTableModel::updateEntry(const QString& address,
 {
     // Update address book model from Pivx core
     priv->updateEntry(address, label, isMine, purpose, status);
-}
-
-
-void AddressTableModel::updateEntry(const QString &pubCoin, const QString &isUsed, int status)
-{
-    // Update stealth address book model from Bitcoin core
-    priv->updateEntry(pubCoin, isUsed, status);
 }
 
 

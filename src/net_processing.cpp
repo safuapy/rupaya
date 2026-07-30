@@ -1783,12 +1783,6 @@ bool static ProcessMessage(CNode* pfrom, std::string strCommand, CDataStream& vR
         pfrom->setAskFor.erase(inv.hash);
         mapAlreadyAskedFor.erase(inv);
 
-        if (ptx->ContainsZerocoins()) {
-            // Don't even try to check zerocoins at all.
-            Misbehaving(pfrom->GetId(), 100, strprintf("received a zc transaction"));
-            return false;
-        }
-
         if (AcceptToMemoryPool(mempool, state, ptx, true, &fMissingInputs, false, ignoreFees)) {
             mempool.check(pcoinsTip.get());
             RelayTransaction(tx, connman);

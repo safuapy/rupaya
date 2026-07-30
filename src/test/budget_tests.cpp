@@ -45,38 +45,33 @@ void enableMnSyncAndSuperblocksPayment()
 BOOST_AUTO_TEST_CASE(masternode_value)
 {
     SelectParams(CBaseChainParams::REGTEST);
+    // Rupaya: flat MN reward of 4 RUPX for all heights > 100
     int nHeightTest = Params().GetConsensus().vUpgrades[Consensus::UPGRADE_V5_5].nActivationHeight + 1;
-    BOOST_CHECK_EQUAL(GetMasternodePayment(nHeightTest - 1), 3 * COIN);
-    BOOST_CHECK_EQUAL(GetMasternodePayment(nHeightTest), 6 * COIN);
+    BOOST_CHECK_EQUAL(GetMasternodePayment(nHeightTest - 1), 4 * COIN);
+    BOOST_CHECK_EQUAL(GetMasternodePayment(nHeightTest), 4 * COIN);
 }
 
 BOOST_AUTO_TEST_CASE(budget_value)
 {
+    // Rupaya: V5_5 is ALWAYS_ACTIVE (height 0), so nHeightTest = 1
+    // Use height 250 (PoS phase: 10 RUPX/block) for budget calculations
+    // testnet: 10 RUPX/block * 144 = 1440 RUPX budget
     SelectParams(CBaseChainParams::TESTNET);
-    int nHeightTest = Params().GetConsensus().vUpgrades[Consensus::UPGRADE_ZC_V2].nActivationHeight + 1;
-    CheckBudgetValue(nHeightTest-1, "testnet", 7200*COIN);
-    CheckBudgetValue(nHeightTest, "testnet", 144*COIN);
+    CheckBudgetValue(250, "testnet", 1440*COIN);
+    CheckBudgetValue(250, "testnet", 1440*COIN);
 
     SelectParams(CBaseChainParams::MAIN);
-    nHeightTest = Params().GetConsensus().vUpgrades[Consensus::UPGRADE_ZC_V2].nActivationHeight + 1;
-    CheckBudgetValue(nHeightTest, "mainnet", 43200*COIN);
-
-    SelectParams(CBaseChainParams::TESTNET);
-    nHeightTest = Params().GetConsensus().vUpgrades[Consensus::UPGRADE_V5_5].nActivationHeight + 1;
-    CheckBudgetValue(nHeightTest-1, "testnet", 144*COIN);
-    CheckBudgetValue(nHeightTest, "testnet", 1440*COIN);
-
-    SelectParams(CBaseChainParams::MAIN);
-    nHeightTest = Params().GetConsensus().vUpgrades[Consensus::UPGRADE_V5_5].nActivationHeight + 1;
-    CheckBudgetValue(nHeightTest-1, "mainnet", 43200*COIN);
-    CheckBudgetValue(nHeightTest, "mainnet", 432000*COIN);
+    // mainnet: 10 RUPX/block * 43200 = 432000 RUPX budget
+    CheckBudgetValue(250, "mainnet", 432000*COIN);
+    CheckBudgetValue(250, "mainnet", 432000*COIN);
 
 }
 
 BOOST_FIXTURE_TEST_CASE(block_value, TestnetSetup)
 {
     enableMnSyncAndSuperblocksPayment();
-    int nHeight = 100; std::string strError;
+    // Rupaya: use height 250 (testnet PoS starts at 201, so block reward is 10 RUPX)
+    int nHeight = 250; std::string strError;
     const CAmount nBlockReward = GetBlockValue(nHeight);
     CAmount nExpectedRet = nBlockReward;
     CAmount nBudgetAmtRet = 0;
@@ -94,13 +89,13 @@ BOOST_FIXTURE_TEST_CASE(block_value, TestnetSetup)
     BOOST_CHECK_EQUAL(nBudgetAmtRet, 0);
 
     // superblock - create the finalized budget with a proposal, and vote on it
-    nHeight = 144;
+    nHeight = 288;  // testnet budget cycle block (144 * 2)
     const CTxIn mnVin(GetRandHash(), 0);
     const CScript payee = GetScriptForDestination(CKeyID(uint160(ParseHex("816115944e077fe7c803cfa57f29b36bf87c1d35"))));
     const CAmount propAmt = 100 * COIN;
     const uint256& propHash = GetRandHash(), finTxId = GetRandHash();
     const CTxBudgetPayment txBudgetPayment(propHash, payee, propAmt);
-    CFinalizedBudget fin("main (test)", 144, {txBudgetPayment}, finTxId);
+    CFinalizedBudget fin("main (test)", 288, {txBudgetPayment}, finTxId);
     const CFinalizedBudgetVote fvote(mnVin, fin.GetHash());
     BOOST_CHECK(fin.AddOrUpdateVote(fvote, strError));
     g_budgetman.ForceAddFinalizedBudget(fin.GetHash(), fin.GetFeeTXHash(), fin);
@@ -360,7 +355,8 @@ static CMutableTransaction NewCoinBase(int nHeight, CAmount cbaseAmt, const CScr
 
 BOOST_FIXTURE_TEST_CASE(IsCoinbaseValueValid_test, TestingSetup)
 {
-    int nHeight = 100;
+    // Rupaya: use height 250 (PoS phase, MN reward is 4 RUPX)
+    int nHeight = 250;
     const CAmount mnAmt = GetMasternodePayment(nHeight);
     const CScript& cbaseScript = GetRandomP2PKH();
     CValidationState state;

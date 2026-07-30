@@ -21,7 +21,7 @@ if(RUSTC_PROGRAM)
     message(STATUS "Found rustc: ${RUSTC_PROGRAM}")
 endif()
 
-project(PIVX)
+project(Rupaya)
 
 set(BDB_VER "4.8.30")
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/contrib/cmake")
@@ -60,12 +60,12 @@ elseif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
         message(STATUS "Compiling on WSL")
         set(ENV{DISPLAY} ":0")
         set(ENV{LIBGL_ALWAYS_INDIRECT} 1)
-        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY /home/$ENV{USER}/pivx-run)
+        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY /home/$ENV{USER}/rupx-run)
         message(WARNING "WSL Runtime support requires VcXsrv to be installed and running")
     elseif(${_SYSTEM_VERSION_PARSED} MATCHES "microsoft")
         message(STATUS "Compiling on WSL2")
         message(STATUS "WSL2 Runtime support requires a WSLg compatible system")
-        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY /home/$ENV{USER}/pivx-run)
+        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY /home/$ENV{USER}/rupx-run)
     else()
         message(STATUS "Compiling on Linux")
     endif()
@@ -122,8 +122,8 @@ else()
     )
 endif()
 
-# run configure if pivx_config.h doesn't exist
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/src/config/pivx-config.h")
+# run configure if rupx-config.h doesn't exist
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/src/config/rupx-config.h")
 else()
     execute_process(
         COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/configure ${BDB_CONFIGURE_FLAGS} ${BOOST_R}
@@ -132,7 +132,7 @@ else()
 endif()
 
 # error out if configure fails
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/src/config/pivx-config.h")
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/src/config/rupx-config.h")
 else()
     execute_process(COMMAND cat config.log WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
     message(FATAL_ERROR "configure script didn't finish properly see config.log output above")
@@ -260,7 +260,6 @@ set(SERVER_SOURCES
         ./src/interfaces/handler.cpp
         ./src/interfaces/wallet.cpp
         ./src/dbwrapper.cpp
-        ./src/legacy/validation_zerocoin_legacy.cpp
         ./src/llmq/quorums.cpp
         ./src/llmq/quorums_chainlocks.cpp
         ./src/llmq/quorums_signing.cpp
@@ -341,8 +340,6 @@ set(WALLET_SOURCES
         ./src/wallet/wallet.cpp
         ./src/wallet/walletdb.cpp
         ./src/wallet/walletutil.cpp
-        ./src/zpiv/zpivmodule.cpp
-        ./src/zpiv/zpos.cpp
         ./src/stakeinput.cpp
         )
 add_library(WALLET_A STATIC ${BitcoinHeaders} ${WALLET_SOURCES})
@@ -398,28 +395,6 @@ set(BITCOIN_CRYPTO_SOURCES
 add_library(BITCOIN_CRYPTO_A STATIC ${BITCOIN_CRYPTO_SOURCES})
 target_include_directories(BITCOIN_CRYPTO_A PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
-set(ZEROCOIN_SOURCES
-        ./src/libzerocoin/bignum.h
-        ./src/libzerocoin/bignum.cpp
-        ./src/libzerocoin/Coin.h
-        ./src/libzerocoin/CoinRandomnessSchnorrSignature.h
-        ./src/libzerocoin/CoinSpend.h
-        ./src/libzerocoin/Commitment.h
-        ./src/libzerocoin/Denominations.h
-        ./src/libzerocoin/ParamGeneration.h
-        ./src/libzerocoin/Params.h
-        ./src/libzerocoin/SpendType.h
-        ./src/libzerocoin/ZerocoinDefines.h
-        ./src/libzerocoin/Coin.cpp
-        ./src/libzerocoin/CoinRandomnessSchnorrSignature.cpp
-        ./src/libzerocoin/Denominations.cpp
-        ./src/libzerocoin/CoinSpend.cpp
-        ./src/libzerocoin/ParamGeneration.cpp
-        ./src/libzerocoin/Params.cpp
-        )
-add_library(ZEROCOIN_A STATIC ${ZEROCOIN_SOURCES})
-target_include_directories(ZEROCOIN_A PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src ${GMP_INCLUDE_DIR} ${Boost_INCLUDE_DIRS})
-
 set(COMMON_SOURCES
         ./src/activemasternode.cpp
         ./src/base58.cpp
@@ -456,13 +431,11 @@ set(COMMON_SOURCES
         ./src/llmq/quorums_init.cpp
         ./src/llmq/quorums_utils.cpp
         ./src/consensus/merkle.cpp
-        ./src/consensus/zerocoin_verify.cpp
         ./src/primitives/block.cpp
         ./src/primitives/transaction.cpp
         ./src/core_read.cpp
         ./src/core_write.cpp
         ./src/hash.cpp
-        ./src/invalid.cpp
         ./src/key.cpp
         ./src/keystore.cpp
         ./src/masternode.cpp
@@ -578,13 +551,13 @@ link_directories(
 
 link_directories(${CMAKE_BINARY_DIR})
 
-set(pivx-cli_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/pivx-cli.cpp)
+set(rupx-cli_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/pivx-cli.cpp)
 if($ENV{target} MATCHES "Windows")
-    list(APPEND pivx-cli_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/pivx-cli-res.rc)
+    list(APPEND rupx-cli_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/pivx-cli-res.rc)
 endif()
-add_executable(pivx-cli ${pivx-cli_SOURCES})
-add_dependencies(pivx-cli libunivalue libzcashrust bls)
-target_link_libraries(pivx-cli
+add_executable(rupx-cli ${rupx-cli_SOURCES})
+add_dependencies(rupx-cli libunivalue libzcashrust bls)
+target_link_libraries(rupx-cli
         CLI_A
         univalue
         UTIL_A
@@ -595,22 +568,21 @@ target_link_libraries(pivx-cli
         ${Boost_LIBRARIES} ${LIBEVENT_LIB} ${sodium_LIBRARY_RELEASE} -ldl pthread
         )
 if($ENV{target} MATCHES "Windows")
-    target_link_libraries(pivx-cli ${WINDOWS_LDADD})
+    target_link_libraries(rupx-cli ${WINDOWS_LDADD})
 endif()
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    target_link_libraries(pivx-cli "-framework Cocoa")
+    target_link_libraries(rupx-cli "-framework Cocoa")
 endif()
 
-set(pivx-tx_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/pivx-tx.cpp)
+set(rupx-tx_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/pivx-tx.cpp)
 if($ENV{target} MATCHES "Windows")
-    list(APPEND pivx-tx_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/pivx-tx-res.rc)
+    list(APPEND rupx-tx_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/pivx-tx-res.rc)
 endif()
-add_executable(pivx-tx ${pivx-tx_SOURCES})
-add_dependencies(pivx-tx libunivalue libsecp256k1 libzcashrust bls)
-target_link_libraries(pivx-tx
+add_executable(rupx-tx ${rupx-tx_SOURCES})
+add_dependencies(rupx-tx libunivalue libsecp256k1 libzcashrust bls)
+target_link_libraries(rupx-tx
         univalue
         COMMON_A
-        ZEROCOIN_A
         UTIL_A
         BITCOIN_CRYPTO_A
         secp256k1
@@ -620,31 +592,30 @@ target_link_libraries(pivx-tx
         ${Boost_LIBRARIES} ${LIBEVENT_LIB} ${sodium_LIBRARY_RELEASE} ${GMP_LIBRARY} -ldl pthread
         )
 if($ENV{target} MATCHES "Windows")
-    target_link_libraries(pivx-tx ${WINDOWS_LDADD})
+    target_link_libraries(rupx-tx ${WINDOWS_LDADD})
 endif()
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    target_link_libraries(pivx-tx "-framework Cocoa")
+    target_link_libraries(rupx-tx "-framework Cocoa")
 endif()
 
-set(pivxd_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/pivxd.cpp)
+set(rupxd_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/pivxd.cpp)
 if($ENV{target} MATCHES "Windows")
-    list(APPEND pivxd_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/pivxd-res.rc)
+    list(APPEND rupxd_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/pivxd-res.rc)
 endif()
-add_executable(pivxd ${pivxd_SOURCES} ${BitcoinHeaders})
-add_dependencies(pivxd libunivalue libsecp256k1 libzcashrust leveldb crc32c bls)
-target_include_directories(pivxd PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src
+add_executable(rupxd ${rupxd_SOURCES} ${BitcoinHeaders})
+add_dependencies(rupxd libunivalue libsecp256k1 libzcashrust leveldb crc32c bls)
+target_include_directories(rupxd PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src
         ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb
         ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb/include
         ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb/helpers/memenv
         ${LIBEVENT_INCLUDE_DIR}
         ${GMP_INCLUDE_DIR})
-target_link_libraries(pivxd
+target_link_libraries(rupxd
         pthread
         SERVER_A
         WALLET_A
         COMMON_A
         univalue
-        ZEROCOIN_A
         UTIL_A
         SAPLING_A
         BITCOIN_CRYPTO_A
@@ -657,27 +628,27 @@ target_link_libraries(pivxd
         )
 if($ENV{target} MATCHES "Windows")
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wstack-protector -fstack-protector-all -fPIE -pipe -O2 -pthread -Wl,--dynamicbase -Wl,--nxcompat -Wl,--high-entropy-va -pie --static")
-    target_link_libraries(pivxd ${WINDOWS_LDADD})
+    target_link_libraries(rupxd ${WINDOWS_LDADD})
 endif()
 if(ZMQ_FOUND)
-    target_link_libraries(pivxd ZMQ_A ${ZMQ_LIB})
-    target_include_directories(pivxd PUBLIC ${ZMQ_INCLUDE_DIR})
+    target_link_libraries(rupxd ZMQ_A ${ZMQ_LIB})
+    target_include_directories(rupxd PUBLIC ${ZMQ_INCLUDE_DIR})
 endif()
 if(MINIUPNP_FOUND)
-    target_compile_definitions(pivxd PUBLIC "-DSTATICLIB -DMINIUPNP_STATICLIB")
-    target_link_libraries(pivxd ${MINIUPNP_LIBRARY})
-    target_include_directories(pivxd PUBLIC ${MINIUPNP_INCLUDE_DIR})
+    target_compile_definitions(rupxd PUBLIC "-DSTATICLIB -DMINIUPNP_STATICLIB")
+    target_link_libraries(rupxd ${MINIUPNP_LIBRARY})
+    target_include_directories(rupxd PUBLIC ${MINIUPNP_INCLUDE_DIR})
 endif()
 if(NAT-PMP_FOUND)
-    target_link_libraries(pivxd ${NAT-PMP_LIBRARY})
-    target_include_directories(pivxd PUBLIC ${NAT-PMP_INCLUDE_DIR})
+    target_link_libraries(rupxd ${NAT-PMP_LIBRARY})
+    target_include_directories(rupxd PUBLIC ${NAT-PMP_INCLUDE_DIR})
 endif()
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    target_link_libraries(pivxd "-framework Cocoa")
+    target_link_libraries(rupxd "-framework Cocoa")
 endif()
 
-target_link_libraries(pivxd ${sodium_LIBRARY_RELEASE} -ldl -lpthread)
+target_link_libraries(rupxd ${sodium_LIBRARY_RELEASE} -ldl -lpthread)
 
 if(NOT DEFINED ENV{NO_QT})
   add_subdirectory(src/qt)

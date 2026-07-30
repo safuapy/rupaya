@@ -55,10 +55,10 @@ set(BITCOIN_BENCH_SUITE
         ${CMAKE_CURRENT_SOURCE_DIR}/walletprocessblock.cpp
         )
 
-set(bench_bench_pivx_SOURCES ${BITCOIN_BENCH_SUITE} ${BITCOIN_TESTS})
-add_executable(bench_pivx ${bench_bench_pivx_SOURCES} ${BitcoinHeaders})
-add_dependencies(bench_pivx genHeaders genRaws2 libunivalue libsecp256k1 libzcashrust leveldb crc32c bls)
-target_include_directories(bench_pivx PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}
+set(bench_bench_rupx_SOURCES ${BITCOIN_BENCH_SUITE} ${BITCOIN_TESTS})
+add_executable(bench_rupx ${bench_bench_rupx_SOURCES} ${BitcoinHeaders})
+add_dependencies(bench_rupx genHeaders genRaws2 libunivalue libsecp256k1 libzcashrust leveldb crc32c bls)
+target_include_directories(bench_rupx PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_SOURCE_DIR}/src/leveldb
         ${CMAKE_SOURCE_DIR}/src/leveldb/include
         ${CMAKE_SOURCE_DIR}/src/leveldb/helpers/memenv
@@ -66,13 +66,12 @@ target_include_directories(bench_pivx PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}
         ${GMP_INCLUDE_DIR}
         ${Boost_INCLUDE_DIRS}
         ${sodium_INCLUDE_DIR})
-target_link_libraries(bench_pivx PRIVATE
+target_link_libraries(bench_rupx PRIVATE
         SERVER_A
         CLI_A
         WALLET_A
         COMMON_A
         univalue
-        ZEROCOIN_A
         UTIL_A
         SAPLING_A
         BITCOIN_CRYPTO_A
@@ -84,22 +83,22 @@ target_link_libraries(bench_pivx PRIVATE
         ${BerkeleyDB_LIBRARIES} ${Boost_LIBRARIES} ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY} ${LIBEVENT_LIB} ${GMP_LIBRARY} pthread
         )
 if(ZMQ_FOUND)
-    target_link_libraries(bench_pivx PRIVATE ZMQ_A ${ZMQ_LIB})
-    target_include_directories(bench_pivx PRIVATE ${ZMQ_INCLUDE_DIR})
+    target_link_libraries(bench_rupx PRIVATE ZMQ_A ${ZMQ_LIB})
+    target_include_directories(bench_rupx PRIVATE ${ZMQ_INCLUDE_DIR})
 endif()
 if(MINIUPNP_FOUND)
-    target_compile_definitions(bench_pivx PRIVATE "-DSTATICLIB -DMINIUPNP_STATICLIB")
-    target_link_libraries(bench_pivx PRIVATE ${MINIUPNP_LIBRARY})
-    target_include_directories(bench_pivx PRIVATE ${MINIUPNP_INCLUDE_DIR})
+    target_compile_definitions(bench_rupx PRIVATE "-DSTATICLIB -DMINIUPNP_STATICLIB")
+    target_link_libraries(bench_rupx PRIVATE ${MINIUPNP_LIBRARY})
+    target_include_directories(bench_rupx PRIVATE ${MINIUPNP_INCLUDE_DIR})
 endif()
 if(NAT-PMP_FOUND)
-    target_link_libraries(bench_pivx PRIVATE ${NAT-PMP_LIBRARY})
-    target_include_directories(bench_pivx PRIVATE ${NAT-PMP_INCLUDE_DIR})
+    target_link_libraries(bench_rupx PRIVATE ${NAT-PMP_LIBRARY})
+    target_include_directories(bench_rupx PRIVATE ${NAT-PMP_INCLUDE_DIR})
 endif()
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    target_link_libraries(bench_pivx PRIVATE "-framework Cocoa")
+    target_link_libraries(bench_rupx PRIVATE "-framework Cocoa")
 endif()
 
-target_link_libraries(bench_pivx PRIVATE ${sodium_LIBRARY_RELEASE} -ldl -lpthread)
+target_link_libraries(bench_rupx PRIVATE ${sodium_LIBRARY_RELEASE} -ldl -lpthread)
 

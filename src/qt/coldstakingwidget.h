@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_COLDSTAKINGWIDGET_H
-#define PIVX_QT_COLDSTAKINGWIDGET_H
+#ifndef RUPX_QT_COLDSTAKINGWIDGET_H
+#define RUPX_QT_COLDSTAKINGWIDGET_H
 
 #include "addressfilterproxymodel.h"
 #include "addressholder.h"
@@ -128,4 +128,4 @@ private:
     void setCoinControlPayAmounts();
 };
 
-#endif // PIVX_QT_COLDSTAKINGWIDGET_H
+#endif // RUPX_QT_COLDSTAKINGWIDGET_H

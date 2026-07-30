@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_OPENURIDIALOG_H
-#define PIVX_QT_OPENURIDIALOG_H
+#ifndef RUPX_QT_OPENURIDIALOG_H
+#define RUPX_QT_OPENURIDIALOG_H
 
 #include "snackbar.h"
 #include <QDialog>
@@ -33,4 +33,4 @@ private:
     void inform(const QString& str);
 };
 
-#endif // PIVX_QT_OPENURIDIALOG_H
+#endif // RUPX_QT_OPENURIDIALOG_H

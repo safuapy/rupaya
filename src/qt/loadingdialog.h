@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_LOADINGDIALOG_H
-#define PIVX_QT_LOADINGDIALOG_H
+#ifndef RUPX_QT_LOADINGDIALOG_H
+#define RUPX_QT_LOADINGDIALOG_H
 
 #include "prunnable.h"
 #include "qt/walletmodel.h"
@@ -80,4 +80,4 @@ private:
     int loading = 0;
 };
 
-#endif // PIVX_QT_LOADINGDIALOG_H
+#endif // RUPX_QT_LOADINGDIALOG_H

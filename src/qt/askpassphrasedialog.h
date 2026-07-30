@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_ASKPASSPHRASEDIALOG_H
-#define PIVX_QT_ASKPASSPHRASEDIALOG_H
+#ifndef RUPX_QT_ASKPASSPHRASEDIALOG_H
+#define RUPX_QT_ASKPASSPHRASEDIALOG_H
 
 #include "prunnable.h"
 #include "support/allocators/secure.h"
@@ -83,4 +83,4 @@ protected:
     bool eventFilter(QObject* object, QEvent* event) override;
 };
 
-#endif // PIVX_QT_ASKPASSPHRASEDIALOG_H
+#endif // RUPX_QT_ASKPASSPHRASEDIALOG_H

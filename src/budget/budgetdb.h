@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_BUDGET_BUDGETDB_H
-#define PIVX_BUDGET_BUDGETDB_H
+#ifndef RUPX_BUDGET_BUDGETDB_H
+#define RUPX_BUDGET_BUDGETDB_H
 
 #include "budget/budgetmanager.h"
 #include "fs.h"
@@ -36,4 +36,4 @@ public:
     ReadResult Read(CBudgetManager& objToLoad, bool fDryRun = false);
 };
 
-#endif // PIVX_BUDGET_BUDGETDB_H
+#endif // RUPX_BUDGET_BUDGETDB_H

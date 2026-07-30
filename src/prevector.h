@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_PREVECTOR_H
-#define PIVX_PREVECTOR_H
+#ifndef RUPX_PREVECTOR_H
+#define RUPX_PREVECTOR_H
 
 #include <assert.h>
 #include <stdlib.h>
@@ -533,4 +533,4 @@ public:
 };
 #pragma pack(pop)
 
-#endif // PIVX_PREVECTOR_H
+#endif // RUPX_PREVECTOR_H

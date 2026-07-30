@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_ZMQ_ZMQPUBLISHNOTIFIER_H
-#define PIVX_ZMQ_ZMQPUBLISHNOTIFIER_H
+#ifndef RUPX_ZMQ_ZMQPUBLISHNOTIFIER_H
+#define RUPX_ZMQ_ZMQPUBLISHNOTIFIER_H
 
 #include "zmqabstractnotifier.h"
 
@@ -52,4 +52,4 @@ public:
     bool NotifyTransaction(const CTransaction &transaction);
 };
 
-#endif // PIVX_ZMQ_ZMQPUBLISHNOTIFIER_H
+#endif // RUPX_ZMQ_ZMQPUBLISHNOTIFIER_H

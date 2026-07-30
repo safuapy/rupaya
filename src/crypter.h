@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_CRYPTER_H
-#define PIVX_CRYPTER_H
+#ifndef RUPX_CRYPTER_H
+#define RUPX_CRYPTER_H
 
 #include "keystore.h"
 #include "serialize.h"
@@ -175,4 +175,4 @@ public:
     boost::signals2::signal<void(CCryptoKeyStore* wallet)> NotifyStatusChanged;
 };
 
-#endif // PIVX_CRYPTER_H
+#endif // RUPX_CRYPTER_H

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_PROPOSALCARD_H
-#define PIVX_QT_PROPOSALCARD_H
+#ifndef RUPX_QT_PROPOSALCARD_H
+#define RUPX_QT_PROPOSALCARD_H
 
 #include "governancemodel.h"
 
@@ -45,4 +45,4 @@ private:
     void setStatusAndVotes(const QString& msg, int value);
 };
 
-#endif // PIVX_QT_PROPOSALCARD_H
+#endif // RUPX_QT_PROPOSALCARD_H

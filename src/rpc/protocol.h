@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_RPC_PROTOCOL_H
-#define PIVX_RPC_PROTOCOL_H
+#ifndef RUPX_RPC_PROTOCOL_H
+#define RUPX_RPC_PROTOCOL_H
 
 #include "fs.h"
 
@@ -94,4 +94,4 @@ bool GetAuthCookie(std::string *cookie_out);
 /** Delete RPC authentication cookie from disk */
 void DeleteAuthCookie();
 
-#endif // PIVX_RPC_PROTOCOL_H
+#endif // RUPX_RPC_PROTOCOL_H

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_TEST_LIBRUST_JSON_TEST_VECTORS_H
-#define PIVX_TEST_LIBRUST_JSON_TEST_VECTORS_H
+#ifndef RUPX_TEST_LIBRUST_JSON_TEST_VECTORS_H
+#define RUPX_TEST_LIBRUST_JSON_TEST_VECTORS_H
 
 #include "utilstrencodings.h"
 #include "version.h"
@@ -58,4 +58,4 @@ void expect_test_vector(T& v, const U& expected)
     #endif
 }
 
-#endif // PIVX_TEST_LIBRUST_JSON_TEST_VECTORS_H
+#endif // RUPX_TEST_LIBRUST_JSON_TEST_VECTORS_H

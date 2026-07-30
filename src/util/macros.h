@@ -2,10 +2,10 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_UTIL_MACROS_H
-#define PIVX_UTIL_MACROS_H
+#ifndef RUPX_UTIL_MACROS_H
+#define RUPX_UTIL_MACROS_H
 
 #define PASTE(x, y) x ## y
 #define PASTE2(x, y) PASTE(x, y)
 
-#endif // PIVX_UTIL_MACROS_H
+#endif // RUPX_UTIL_MACROS_H

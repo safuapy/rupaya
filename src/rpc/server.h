@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_RPC_SERVER_H
-#define PIVX_RPC_SERVER_H
+#ifndef RUPX_RPC_SERVER_H
+#define RUPX_RPC_SERVER_H
 
 #include "amount.h"
 #include "rpc/protocol.h"
@@ -203,4 +203,4 @@ void StopRPC();
 std::string JSONRPCExecBatch(const UniValue& vReq);
 void RPCNotifyBlockChange(bool fInitialDownload, const CBlockIndex* pindex);
 
-#endif // PIVX_RPC_SERVER_H
+#endif // RUPX_RPC_SERVER_H

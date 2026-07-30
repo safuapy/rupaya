@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_MNINFODIALOG_H
-#define PIVX_QT_MNINFODIALOG_H
+#ifndef RUPX_QT_MNINFODIALOG_H
+#define RUPX_QT_MNINFODIALOG_H
 
 #include "focuseddialog.h"
 #include "snackbar.h"
@@ -40,4 +40,4 @@ private:
     void copyInform(const QString& copyStr, const QString& message);
 };
 
-#endif // PIVX_QT_MNINFODIALOG_H
+#endif // RUPX_QT_MNINFODIALOG_H

@@ -4,8 +4,8 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 
-#ifndef PIVX_SUPPORT_ALLOCATORS_SECURE_H
-#define PIVX_SUPPORT_ALLOCATORS_SECURE_H
+#ifndef RUPX_SUPPORT_ALLOCATORS_SECURE_H
+#define RUPX_SUPPORT_ALLOCATORS_SECURE_H
 
 #include "support/lockedpool.h"
 #include "support/cleanse.h"
@@ -60,4 +60,4 @@ struct secure_allocator : public std::allocator<T> {
 // This is exactly like std::string, but with a custom allocator.
 typedef std::basic_string<char, std::char_traits<char>, secure_allocator<char> > SecureString;
 
-#endif // PIVX_SUPPORT_ALLOCATORS_SECURE_H
+#endif // RUPX_SUPPORT_ALLOCATORS_SECURE_H

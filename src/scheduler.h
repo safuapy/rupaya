@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_SCHEDULER_H
-#define PIVX_SCHEDULER_H
+#ifndef RUPX_SCHEDULER_H
+#define RUPX_SCHEDULER_H
 
 //
 // NOTE:
@@ -125,4 +125,4 @@ public:
     size_t CallbacksPending();
 };
 
-#endif // PIVX_SCHEDULER_H
+#endif // RUPX_SCHEDULER_H

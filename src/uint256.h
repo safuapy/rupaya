@@ -5,8 +5,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_UINT256_H
-#define PIVX_UINT256_H
+#ifndef RUPX_UINT256_H
+#define RUPX_UINT256_H
 
 #include "crypto/common.h"
 
@@ -220,4 +220,4 @@ namespace std {
     };
 }
 
-#endif // PIVX_UINT256_H
+#endif // RUPX_UINT256_H

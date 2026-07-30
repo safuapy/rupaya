@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_UTIL_THREADNAMES_H
-#define PIVX_UTIL_THREADNAMES_H
+#ifndef RUPX_UTIL_THREADNAMES_H
+#define RUPX_UTIL_THREADNAMES_H
 
 #include <string>
 
@@ -28,4 +28,4 @@ namespace ctpl {
 }
 void RenameThreadPool(ctpl::thread_pool& tp, const char* baseName);
 
-#endif // PIVX_UTIL_THREADNAMES_H
+#endif // RUPX_UTIL_THREADNAMES_H

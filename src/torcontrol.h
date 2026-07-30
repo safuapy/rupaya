@@ -6,8 +6,8 @@
 /**
  * Functionality for communicating with Tor.
  */
-#ifndef PIVX_TORCONTROL_H
-#define PIVX_TORCONTROL_H
+#ifndef RUPX_TORCONTROL_H
+#define RUPX_TORCONTROL_H
 
 #include <string>
 
@@ -18,4 +18,4 @@ void StartTorControl();
 void InterruptTorControl();
 void StopTorControl();
 
-#endif // PIVX_TORCONTROL_H
+#endif // RUPX_TORCONTROL_H

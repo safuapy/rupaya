@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_SETTINGS_BITTOOLWIDGET_H
-#define PIVX_QT_SETTINGS_BITTOOLWIDGET_H
+#ifndef RUPX_QT_SETTINGS_BITTOOLWIDGET_H
+#define RUPX_QT_SETTINGS_BITTOOLWIDGET_H
 
 #include "contactsdropdown.h"
 #include "key.h"
@@ -44,4 +44,4 @@ private:
     void resizeMenu();
 };
 
-#endif // PIVX_QT_SETTINGS_BITTOOLWIDGET_H
+#endif // RUPX_QT_SETTINGS_BITTOOLWIDGET_H

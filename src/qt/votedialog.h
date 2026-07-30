@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_VOTEDIALOG_H
-#define PIVX_QT_VOTEDIALOG_H
+#ifndef RUPX_QT_VOTEDIALOG_H
+#define RUPX_QT_VOTEDIALOG_H
 
 #include <QDialog>
 #include <QCheckBox>
@@ -62,4 +62,4 @@ private:
     void updateMnSelectionNum();
 };
 
-#endif // PIVX_QT_VOTEDIALOG_H
+#endif // RUPX_QT_VOTEDIALOG_H

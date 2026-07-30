@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_CREATEPROPOSALDIALOG_H
-#define PIVX_QT_CREATEPROPOSALDIALOG_H
+#ifndef RUPX_QT_CREATEPROPOSALDIALOG_H
+#define RUPX_QT_CREATEPROPOSALDIALOG_H
 
 #include <QDialog>
 
@@ -64,4 +64,4 @@ private:
     void inform(const QString& text);
 };
 
-#endif // PIVX_QT_CREATEPROPOSALDIALOG_H
+#endif // RUPX_QT_CREATEPROPOSALDIALOG_H

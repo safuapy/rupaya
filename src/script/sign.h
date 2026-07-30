@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_SCRIPT_SIGN_H
-#define PIVX_SCRIPT_SIGN_H
+#ifndef RUPX_SCRIPT_SIGN_H
+#define RUPX_SCRIPT_SIGN_H
 
 #include "script/interpreter.h"
 
@@ -125,4 +125,4 @@ void UpdateTransaction(CMutableTransaction& tx, unsigned int nIn, const Signatur
   * Solvability is unrelated to whether we consider this output to be ours. */
 bool IsSolvable(const CKeyStore& store, const CScript& script, bool fColdStaking);
 
-#endif // PIVX_SCRIPT_SIGN_H
+#endif // RUPX_SCRIPT_SIGN_H

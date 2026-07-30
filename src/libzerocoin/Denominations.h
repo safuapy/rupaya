@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_LIBZEROCOIN_DENOMINATIONS_H
-#define PIVX_LIBZEROCOIN_DENOMINATIONS_H
+#ifndef RUPX_LIBZEROCOIN_DENOMINATIONS_H
+#define RUPX_LIBZEROCOIN_DENOMINATIONS_H
 
 #include <cstdint>
 #include <string>
@@ -38,4 +38,4 @@ CoinDenomination get_denomination(std::string denomAmount);
 int64_t get_amount(std::string denomAmount);
 
 } /* namespace libzerocoin */
-#endif // PIVX_LIBZEROCOIN_DENOMINATIONS_H
+#endif // RUPX_LIBZEROCOIN_DENOMINATIONS_H

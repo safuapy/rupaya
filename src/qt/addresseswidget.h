@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_ADDRESSESWIDGET_H
-#define PIVX_QT_ADDRESSESWIDGET_H
+#ifndef RUPX_QT_ADDRESSESWIDGET_H
+#define RUPX_QT_ADDRESSESWIDGET_H
 
 #include "addresstablemodel.h"
 #include "furabstractlistitemdelegate.h"
@@ -65,4 +65,4 @@ private:
     void sortAddresses();
 };
 
-#endif // PIVX_QT_ADDRESSESWIDGET_H
+#endif // RUPX_QT_ADDRESSESWIDGET_H

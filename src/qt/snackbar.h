@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_SNACKBAR_H
-#define PIVX_QT_SNACKBAR_H
+#ifndef RUPX_QT_SNACKBAR_H
+#define RUPX_QT_SNACKBAR_H
 
 #include <QDialog>
 #include <QResizeEvent>
@@ -39,4 +39,4 @@ private:
     void setTimeoutForText(const QString& text);
 };
 
-#endif // PIVX_QT_SNACKBAR_H
+#endif // RUPX_QT_SNACKBAR_H

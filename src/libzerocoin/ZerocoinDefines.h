@@ -11,8 +11,8 @@
 **/
 // Copyright (c) 2017 The PIVX Core developers
 
-#ifndef PIVX_LIBZEROCOIN_ZEROCOINDEFINES_H
-#define PIVX_LIBZEROCOIN_ZEROCOINDEFINES_H
+#ifndef RUPX_LIBZEROCOIN_ZEROCOINDEFINES_H
+#define RUPX_LIBZEROCOIN_ZEROCOINDEFINES_H
 
 #include <stdexcept>
 
@@ -38,4 +38,4 @@
 // to timing attacks. Turn off if an attacker can measure coin minting time.
 #define	ZEROCOIN_FAST_MINT 1
 
-#endif // PIVX_LIBZEROCOIN_ZEROCOINDEFINES_H
+#endif // RUPX_LIBZEROCOIN_ZEROCOINDEFINES_H

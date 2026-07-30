@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_MASTERNODE_PAYMENTS_H
-#define PIVX_MASTERNODE_PAYMENTS_H
+#ifndef RUPX_MASTERNODE_PAYMENTS_H
+#define RUPX_MASTERNODE_PAYMENTS_H
 
 #include "key.h"
 #include "masternode.h"
@@ -258,4 +258,4 @@ private:
     void RecordWinnerVote(const COutPoint& outMasternode, int nBlockHeight);
 };
 
-#endif // PIVX_MASTERNODE_PAYMENTS_H
+#endif // RUPX_MASTERNODE_PAYMENTS_H

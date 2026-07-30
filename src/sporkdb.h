@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_SPORKDB_H
-#define PIVX_SPORKDB_H
+#ifndef RUPX_SPORKDB_H
+#define RUPX_SPORKDB_H
 
 #include "fs.h"
 #include "dbwrapper.h"
@@ -25,4 +25,4 @@ public:
 };
 
 
-#endif // PIVX_SPORKDB_H
+#endif // RUPX_SPORKDB_H

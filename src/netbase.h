@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_NETBASE_H
-#define PIVX_NETBASE_H
+#ifndef RUPX_NETBASE_H
+#define RUPX_NETBASE_H
 
 #if defined(HAVE_CONFIG_H)
 #include "config/pivx-config.h"
@@ -70,4 +70,4 @@ bool SetSocketNoDelay(SOCKET& hSocket);
 struct timeval MillisToTimeval(int64_t nTimeout);
 void InterruptSocks5(bool interrupt);
 
-#endif // PIVX_NETBASE_H
+#endif // RUPX_NETBASE_H

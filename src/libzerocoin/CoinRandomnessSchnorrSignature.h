@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_LIBZEROCOIN_COINRANDOMNESSSCHNORRSIGNATURE_H
-#define PIVX_LIBZEROCOIN_COINRANDOMNESSSCHNORRSIGNATURE_H
+#ifndef RUPX_LIBZEROCOIN_COINRANDOMNESSSCHNORRSIGNATURE_H
+#define RUPX_LIBZEROCOIN_COINRANDOMNESSSCHNORRSIGNATURE_H
 
 #include "Params.h"
 #include "Coin.h"
@@ -47,4 +47,4 @@ private:
 };
 
 } /* namespace libzerocoin */
-#endif // PIVX_LIBZEROCOIN_COINRANDOMNESSSCHNORRSIGNATURE_H
+#endif // RUPX_LIBZEROCOIN_COINRANDOMNESSSCHNORRSIGNATURE_H

@@ -9,8 +9,8 @@
 /// \license    This project is released under the MIT license.
 // Copyright (c) 2017-2021 The PIVX Core developers
 
-#ifndef PIVX_LIBZEROCOIN_PARAMGENERATION_H
-#define PIVX_LIBZEROCOIN_PARAMGENERATION_H
+#ifndef RUPX_LIBZEROCOIN_PARAMGENERATION_H
+#define RUPX_LIBZEROCOIN_PARAMGENERATION_H
 
 #include "Params.h"
 
@@ -46,4 +46,4 @@ CBigNum             generateRandomPrime(uint32_t primeBitLen, const arith_uint25
 CBigNum             generateIntegerFromSeed(uint32_t numBits, const arith_uint256& seed, uint32_t *numIterations);
 }/* namespace libzerocoin */
 
-#endif // PIVX_LIBZEROCOIN_PARAMGENERATION_H
+#endif // RUPX_LIBZEROCOIN_PARAMGENERATION_H

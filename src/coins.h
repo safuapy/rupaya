@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_COINS_H
-#define PIVX_COINS_H
+#ifndef RUPX_COINS_H
+#define RUPX_COINS_H
 
 #include "compressor.h"
 #include "consensus/consensus.h" // can be removed once policy/ established
@@ -450,4 +450,4 @@ void AddCoins(CCoinsViewCache& cache, const CTransaction& tx, int nHeight, bool 
 //! Utility function to find any unspent output with a given txid.
 const Coin& AccessByTxid(const CCoinsViewCache& cache, const uint256& txid);
 
-#endif // PIVX_COINS_H
+#endif // RUPX_COINS_H

@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_BLS_BLS_WORKER_H
-#define PIVX_BLS_BLS_WORKER_H
+#ifndef RUPX_BLS_BLS_WORKER_H
+#define RUPX_BLS_BLS_WORKER_H
 
 #include "bls/bls_wrapper.h"
 #include "ctpl_stl.h"
@@ -200,4 +200,4 @@ private:
     }
 };
 
-#endif // PIVX_BLS_BLS_WORKER_H
+#endif // RUPX_BLS_BLS_WORKER_H

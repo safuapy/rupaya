@@ -8,8 +8,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_VALIDATION_H
-#define PIVX_VALIDATION_H
+#ifndef RUPX_VALIDATION_H
+#define RUPX_VALIDATION_H
 
 #if defined(HAVE_CONFIG_H)
 #include "config/pivx-config.h"
@@ -412,4 +412,4 @@ bool DumpMempool(const CTxMemPool& pool);
 /** Load the mempool from disk. */
 bool LoadMempool(CTxMemPool& pool);
 
-#endif // PIVX_VALIDATION_H
+#endif // RUPX_VALIDATION_H

@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_MASTERNODECONFIG_H
-#define PIVX_MASTERNODECONFIG_H
+#ifndef RUPX_MASTERNODECONFIG_H
+#define RUPX_MASTERNODECONFIG_H
 
 #include "sync.h"
 #include <string>
@@ -62,4 +62,4 @@ private:
 };
 
 
-#endif // PIVX_MASTERNODECONFIG_H
+#endif // RUPX_MASTERNODECONFIG_H

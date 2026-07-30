@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_VALIDATIONINTERFACE_H
-#define PIVX_VALIDATIONINTERFACE_H
+#ifndef RUPX_VALIDATIONINTERFACE_H
+#define RUPX_VALIDATIONINTERFACE_H
 
 #include "optional.h"
 #include "sapling/incrementalmerkletree.h"
@@ -196,4 +196,4 @@ public:
 
 CMainSignals& GetMainSignals();
 
-#endif // PIVX_VALIDATIONINTERFACE_H
+#endif // RUPX_VALIDATIONINTERFACE_H

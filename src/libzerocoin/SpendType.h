@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_LIBZEROCOIN_SPENDTYPE_H
-#define PIVX_LIBZEROCOIN_SPENDTYPE_H
+#ifndef RUPX_LIBZEROCOIN_SPENDTYPE_H
+#define RUPX_LIBZEROCOIN_SPENDTYPE_H
 
 #include <cstdint>
 
@@ -16,4 +16,4 @@ namespace libzerocoin {
     };
 }
 
-#endif // PIVX_LIBZEROCOIN_SPENDTYPE_H
+#endif // RUPX_LIBZEROCOIN_SPENDTYPE_H

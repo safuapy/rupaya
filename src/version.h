@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_VERSION_H
-#define PIVX_VERSION_H
+#ifndef RUPX_VERSION_H
+#define RUPX_VERSION_H
 
 /**
  * network protocol versioning
@@ -32,4 +32,4 @@ static const int LLMQS_PROTO_VERSION = 70928;
 // Make sure that none of the values above collide with
 // `ADDRV2_FORMAT`.
 
-#endif // PIVX_VERSION_H
+#endif // RUPX_VERSION_H

@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_SAPLING_NOTE_H
-#define PIVX_SAPLING_NOTE_H
+#ifndef RUPX_SAPLING_NOTE_H
+#define RUPX_SAPLING_NOTE_H
 
 #include "optional.h"
 #include "sapling/address.h"
@@ -149,4 +149,4 @@ public:
 
 }
 
-#endif // PIVX_SAPLING_NOTE_H
+#endif // RUPX_SAPLING_NOTE_H

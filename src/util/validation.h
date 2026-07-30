@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_UTIL_VALIDATION_H
-#define PIVX_UTIL_VALIDATION_H
+#ifndef RUPX_UTIL_VALIDATION_H
+#define RUPX_UTIL_VALIDATION_H
 
 #include <string>
 
@@ -16,4 +16,4 @@ std::string FormatStateMessage(const CValidationState& state);
 
 extern const std::string strMessageMagic;
 
-#endif // PIVX_UTIL_VALIDATION_H
+#endif // RUPX_UTIL_VALIDATION_H

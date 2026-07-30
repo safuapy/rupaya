@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_TXVIEWHOLDER_H
-#define PIVX_QT_TXVIEWHOLDER_H
+#ifndef RUPX_QT_TXVIEWHOLDER_H
+#define RUPX_QT_TXVIEWHOLDER_H
 
 #include "bitcoinunits.h"
 #include "furlistrow.h"
@@ -45,4 +45,4 @@ private:
     TxRow* txRow{nullptr};
 };
 
-#endif // PIVX_QT_TXVIEWHOLDER_H
+#endif // RUPX_QT_TXVIEWHOLDER_H

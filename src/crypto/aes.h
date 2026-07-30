@@ -4,8 +4,8 @@
 //
 // C++ wrapper around ctaes, a constant-time AES implementation
 
-#ifndef PIVX_CRYPTO_AES_H
-#define PIVX_CRYPTO_AES_H
+#ifndef RUPX_CRYPTO_AES_H
+#define RUPX_CRYPTO_AES_H
 
 extern "C" {
 #include "crypto/ctaes/ctaes.h"
@@ -115,4 +115,4 @@ private:
     unsigned char iv[AES_BLOCKSIZE];
 };
 
-#endif // PIVX_CRYPTO_AES_H
+#endif // RUPX_CRYPTO_AES_H

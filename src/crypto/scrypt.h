@@ -1,5 +1,5 @@
-#ifndef PIVX_CRYPTO_SCRYPT_H
-#define PIVX_CRYPTO_SCRYPT_H
+#ifndef RUPX_CRYPTO_SCRYPT_H
+#define RUPX_CRYPTO_SCRYPT_H
 
 
 #include <stdlib.h>
@@ -8,4 +8,4 @@
 
 void scrypt(const char* pass, unsigned int pLen, const char* salt, unsigned int sLen, char *output, unsigned int N, unsigned int r, unsigned int p, unsigned int dkLen);
 
-#endif // PIVX_CRYPTO_SCRYPT_H
+#endif // RUPX_CRYPTO_SCRYPT_H

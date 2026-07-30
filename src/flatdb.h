@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_FLATDB_H
-#define PIVX_FLATDB_H
+#ifndef RUPX_FLATDB_H
+#define RUPX_FLATDB_H
 
 #include "chainparams.h"
 #include "clientversion.h"
@@ -180,4 +180,4 @@ public:
 };
 
 
-#endif // PIVX_FLATDB_H
+#endif // RUPX_FLATDB_H

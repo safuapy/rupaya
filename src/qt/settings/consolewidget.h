@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_SETTINGS_CONSOLEWIDGET_H
-#define PIVX_QT_SETTINGS_CONSOLEWIDGET_H
+#ifndef RUPX_QT_SETTINGS_CONSOLEWIDGET_H
+#define RUPX_QT_SETTINGS_CONSOLEWIDGET_H
 
 #include "guiutil.h"
 #include "net.h"
@@ -71,4 +71,4 @@ private Q_SLOTS:
 
 };
 
-#endif // PIVX_QT_SETTINGS_CONSOLEWIDGET_H
+#endif // RUPX_QT_SETTINGS_CONSOLEWIDGET_H

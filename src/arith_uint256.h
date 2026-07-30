@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_ARITH_UINT256_H
-#define PIVX_ARITH_UINT256_H
+#ifndef RUPX_ARITH_UINT256_H
+#define RUPX_ARITH_UINT256_H
 
 #include <assert.h>
 #include <cstring>
@@ -385,4 +385,4 @@ arith_uint512 UintToArith512(const uint512 &);
 const arith_uint256 ARITH_UINT256_ZERO = arith_uint256();
 const arith_uint256 ARITH_UINT256_ONE = arith_uint256(1);
 
-#endif // PIVX_ARITH_UINT256_H
+#endif // RUPX_ARITH_UINT256_H

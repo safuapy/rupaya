@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_BANTABLEMODEL_H
-#define PIVX_QT_BANTABLEMODEL_H
+#ifndef RUPX_QT_BANTABLEMODEL_H
+#define RUPX_QT_BANTABLEMODEL_H
 
 #include "net.h"
 
@@ -71,4 +71,4 @@ private:
     std::unique_ptr<BanTablePriv> priv;
 };
 
-#endif // PIVX_QT_BANTABLEMODEL_H
+#endif // RUPX_QT_BANTABLEMODEL_H

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_MASTERNODESWIDGET_H
-#define PIVX_QT_MASTERNODESWIDGET_H
+#ifndef RUPX_QT_MASTERNODESWIDGET_H
+#define RUPX_QT_MASTERNODESWIDGET_H
 
 #include "coincontroldialog.h"
 #include "furabstractlistitemdelegate.h"
@@ -71,4 +71,4 @@ private:
     bool startAll(QString& failedMN, bool onlyMissing);
 };
 
-#endif // PIVX_QT_MASTERNODESWIDGET_H
+#endif // RUPX_QT_MASTERNODESWIDGET_H

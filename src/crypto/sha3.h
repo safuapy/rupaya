@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_CRYPTO_SHA3_H
-#define PIVX_CRYPTO_SHA3_H
+#ifndef RUPX_CRYPTO_SHA3_H
+#define RUPX_CRYPTO_SHA3_H
 
 #include <span.h>
 
@@ -38,4 +38,4 @@ public:
     SHA3_256& Reset();
 };
 
-#endif // PIVX_CRYPTO_SHA3_H
+#endif // RUPX_CRYPTO_SHA3_H

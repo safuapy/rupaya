@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_SCRIPT_ISMINE_H
-#define PIVX_SCRIPT_ISMINE_H
+#ifndef RUPX_SCRIPT_ISMINE_H
+#define RUPX_SCRIPT_ISMINE_H
 
 #include "destination_io.h"
 #include "key.h"
@@ -61,4 +61,4 @@ struct CachableAmount
     }
 };
 
-#endif // PIVX_SCRIPT_ISMINE_H
+#endif // RUPX_SCRIPT_ISMINE_H

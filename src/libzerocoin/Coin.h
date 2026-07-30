@@ -11,8 +11,8 @@
  **/
 // Copyright (c) 2017-2021 The PIVX Core developers
 
-#ifndef PIVX_LIBZEROCOIN_COIN_H
-#define PIVX_LIBZEROCOIN_COIN_H
+#ifndef RUPX_LIBZEROCOIN_COIN_H
+#define RUPX_LIBZEROCOIN_COIN_H
 
 #include "Denominations.h"
 #include "Params.h"
@@ -85,4 +85,4 @@ private:
 };
 
 } /* namespace libzerocoin */
-#endif // PIVX_LIBZEROCOIN_COIN_H
+#endif // RUPX_LIBZEROCOIN_COIN_H

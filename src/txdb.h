@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_TXDB_H
-#define PIVX_TXDB_H
+#ifndef RUPX_TXDB_H
+#define RUPX_TXDB_H
 
 #include "coins.h"
 #include "chain.h"
@@ -196,4 +196,4 @@ public:
     void Wipe();
 };
 
-#endif // PIVX_TXDB_H
+#endif // RUPX_TXDB_H

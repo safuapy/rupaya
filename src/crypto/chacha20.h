@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_CRYPTO_CHACHA20_H
-#define PIVX_CRYPTO_CHACHA20_H
+#ifndef RUPX_CRYPTO_CHACHA20_H
+#define RUPX_CRYPTO_CHACHA20_H
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -31,4 +31,4 @@ public:
     void Crypt(const unsigned char* input, unsigned char* output, size_t bytes);
 };
 
-#endif // PIVX_CRYPTO_CHACHA20_H
+#endif // RUPX_CRYPTO_CHACHA20_H

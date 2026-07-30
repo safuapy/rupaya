@@ -4,8 +4,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_SYNC_H
-#define PIVX_SYNC_H
+#ifndef RUPX_SYNC_H
+#define RUPX_SYNC_H
 
 #include "threadsafety.h"
 #include "util/macros.h"
@@ -342,4 +342,4 @@ public:
     }
 };
 
-#endif // PIVX_SYNC_H
+#endif // RUPX_SYNC_H

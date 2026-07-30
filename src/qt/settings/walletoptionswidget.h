@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_SETTINGS_WALLETOPTIONSWIDGET_H
-#define PIVX_QT_SETTINGS_WALLETOPTIONSWIDGET_H
+#ifndef RUPX_QT_SETTINGS_WALLETOPTIONSWIDGET_H
+#define RUPX_QT_SETTINGS_WALLETOPTIONSWIDGET_H
 
 #include "pwidget.h"
 #include <QDataWidgetMapper>
@@ -48,4 +48,4 @@ private:
     void setNetworkActivity(bool active);
 };
 
-#endif // PIVX_QT_SETTINGS_WALLETOPTIONSWIDGET_H
+#endif // RUPX_QT_SETTINGS_WALLETOPTIONSWIDGET_H

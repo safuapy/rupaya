@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_TXMEMPOOL_H
-#define PIVX_TXMEMPOOL_H
+#ifndef RUPX_TXMEMPOOL_H
+#define RUPX_TXMEMPOOL_H
 
 #include <list>
 #include <memory>
@@ -827,4 +827,4 @@ struct DisconnectedBlockTransactions {
     }
 };
 
-#endif // PIVX_TXMEMPOOL_H
+#endif // RUPX_TXMEMPOOL_H

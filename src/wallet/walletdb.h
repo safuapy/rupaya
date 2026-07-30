@@ -4,8 +4,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_WALLET_WALLETDB_H
-#define PIVX_WALLET_WALLETDB_H
+#ifndef RUPX_WALLET_WALLETDB_H
+#define RUPX_WALLET_WALLETDB_H
 
 #include "amount.h"
 #include "wallet/db.h"
@@ -238,4 +238,4 @@ bool AutoBackupWallet(CWallet& wallet, std::string& strBackupWarning, std::strin
 //! Compacts BDB state so that wallet.dat is self-contained (if there are changes)
 void MaybeCompactWalletDB();
 
-#endif // PIVX_WALLET_WALLETDB_H
+#endif // RUPX_WALLET_WALLETDB_H

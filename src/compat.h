@@ -4,8 +4,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_COMPAT_H
-#define PIVX_COMPAT_H
+#ifndef RUPX_COMPAT_H
+#define RUPX_COMPAT_H
 
 #if defined(HAVE_CONFIG_H)
 #include "config/pivx-config.h"
@@ -115,4 +115,4 @@ bool static inline IsSelectableSocket(const SOCKET& s) {
 #endif
 }
 
-#endif // PIVX_COMPAT_H
+#endif // RUPX_COMPAT_H

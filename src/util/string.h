@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_UTIL_STRING_H
-#define PIVX_UTIL_STRING_H
+#ifndef RUPX_UTIL_STRING_H
+#define RUPX_UTIL_STRING_H
 
 #include "attributes.h"
 
@@ -57,4 +57,4 @@ NODISCARD inline bool HasPrefix(const T1& obj,
            std::equal(std::begin(prefix), std::end(prefix), std::begin(obj));
 }
 
-#endif // PIVX_UTIL_STRING_H
+#endif // RUPX_UTIL_STRING_H

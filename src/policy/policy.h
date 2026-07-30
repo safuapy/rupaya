@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_POLICY_POLICY_H
-#define PIVX_POLICY_POLICY_H
+#ifndef RUPX_POLICY_POLICY_H
+#define RUPX_POLICY_POLICY_H
 
 #include "consensus/consensus.h"
 #include "feerate.h"
@@ -77,4 +77,4 @@ bool AreInputsStandard(const CTransaction& tx, const CCoinsViewCache& mapInputs)
 
 extern CFeeRate dustRelayFee;
 
-#endif // PIVX_POLICY_POLICY_H
+#endif // RUPX_POLICY_POLICY_H

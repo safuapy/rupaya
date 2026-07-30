@@ -11,8 +11,8 @@
 **/
 // Copyright (c) 2017-2021 The PIVX Core developers
 
-#ifndef PIVX_LIBZEROCOIN_PARAMS_H
-#define PIVX_LIBZEROCOIN_PARAMS_H
+#ifndef RUPX_LIBZEROCOIN_PARAMS_H
+#define RUPX_LIBZEROCOIN_PARAMS_H
 
 #include "bignum.h"
 #include "ZerocoinDefines.h"
@@ -195,4 +195,4 @@ public:
 
 } /* namespace libzerocoin */
 
-#endif // PIVX_LIBZEROCOIN_PARAMS_H
+#endif // RUPX_LIBZEROCOIN_PARAMS_H

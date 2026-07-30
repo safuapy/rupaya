@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_SETTINGS_BACKUPWALLET_H
-#define PIVX_QT_SETTINGS_BACKUPWALLET_H
+#ifndef RUPX_QT_SETTINGS_BACKUPWALLET_H
+#define RUPX_QT_SETTINGS_BACKUPWALLET_H
 
 #include "pwidget.h"
 #include <QWidget>
@@ -28,4 +28,4 @@ private:
     Ui::SettingsBackupWallet *ui;
 };
 
-#endif // PIVX_QT_SETTINGS_BACKUPWALLET_H
+#endif // RUPX_QT_SETTINGS_BACKUPWALLET_H

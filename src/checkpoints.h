@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_CHECKPOINTS_H
-#define PIVX_CHECKPOINTS_H
+#ifndef RUPX_CHECKPOINTS_H
+#define RUPX_CHECKPOINTS_H
 
 #include "uint256.h"
 
@@ -31,4 +31,4 @@ extern bool fEnabled;
 
 } //namespace Checkpoints
 
-#endif // PIVX_CHECKPOINTS_H
+#endif // RUPX_CHECKPOINTS_H

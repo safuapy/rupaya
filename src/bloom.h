@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_BLOOM_H
-#define PIVX_BLOOM_H
+#ifndef RUPX_BLOOM_H
+#define RUPX_BLOOM_H
 
 #include "serialize.h"
 
@@ -131,4 +131,4 @@ private:
     int nHashFuncs;
 };
 
-#endif // PIVX_BLOOM_H
+#endif // RUPX_BLOOM_H

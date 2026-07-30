@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_MASTERNODE_H
-#define PIVX_MASTERNODE_H
+#ifndef RUPX_MASTERNODE_H
+#define RUPX_MASTERNODE_H
 
 #include "key_io.h"
 #include "key.h"
@@ -279,4 +279,4 @@ public:
 // Returns a shared pointer to a masternode object initialized from a DMN.
 MasternodeRef MakeMasternodeRefForDMN(const CDeterministicMNCPtr& dmn);
 
-#endif // PIVX_MASTERNODE_H
+#endif // RUPX_MASTERNODE_H

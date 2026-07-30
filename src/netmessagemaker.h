@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_NETMESSAGEMAKER_H
-#define PIVX_NETMESSAGEMAKER_H
+#ifndef RUPX_NETMESSAGEMAKER_H
+#define RUPX_NETMESSAGEMAKER_H
 
 #include "serialize.h"
 
@@ -33,4 +33,4 @@ private:
     const int nVersion;
 };
 
-#endif // PIVX_NETMESSAGEMAKER_H
+#endif // RUPX_NETMESSAGEMAKER_H

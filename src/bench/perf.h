@@ -3,8 +3,8 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 /** Functions for measurement of CPU cycles */
-#ifndef PIVX_BENCH_PERF_H
-#define PIVX_BENCH_PERF_H
+#ifndef RUPX_BENCH_PERF_H
+#define RUPX_BENCH_PERF_H
 
 #include <stdint.h>
 
@@ -34,4 +34,4 @@ uint64_t perf_cpucycles(void);
 void perf_init(void);
 void perf_fini(void);
 
-#endif // PIVX_BENCH_PERF_H
+#endif // RUPX_BENCH_PERF_H

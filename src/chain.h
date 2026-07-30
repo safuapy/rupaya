@@ -7,8 +7,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_CHAIN_H
-#define PIVX_CHAIN_H
+#ifndef RUPX_CHAIN_H
+#define RUPX_CHAIN_H
 
 #include "chainparams.h"
 #include "flatfile.h"
@@ -465,4 +465,4 @@ public:
     CBlockIndex* FindEarliestAtLeast(int64_t nTime) const;
 };
 
-#endif // PIVX_CHAIN_H
+#endif // RUPX_CHAIN_H

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_DBWRAPPER_H
-#define PIVX_DBWRAPPER_H
+#ifndef RUPX_DBWRAPPER_H
+#define RUPX_DBWRAPPER_H
 
 #include "clientversion.h"
 #include "fs.h"
@@ -719,4 +719,4 @@ public:
     }
 };
 
-#endif // PIVX_DBWRAPPER_H
+#endif // RUPX_DBWRAPPER_H

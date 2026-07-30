@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_DASHBOARDWIDGET_H
-#define PIVX_QT_DASHBOARDWIDGET_H
+#ifndef RUPX_QT_DASHBOARDWIDGET_H
+#define RUPX_QT_DASHBOARDWIDGET_H
 
 #include "furabstractlistitemdelegate.h"
 #include "furlistrow.h"
@@ -191,4 +191,4 @@ private Q_SLOTS:
 
 };
 
-#endif // PIVX_QT_DASHBOARDWIDGET_H
+#endif // RUPX_QT_DASHBOARDWIDGET_H

@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_THREADSAFETY_H
-#define PIVX_THREADSAFETY_H
+#ifndef RUPX_THREADSAFETY_H
+#define RUPX_THREADSAFETY_H
 
 #ifdef __clang__
 // TL;DR Add GUARDED_BY(mutex) to member variables. The others are
@@ -52,4 +52,4 @@
 #define NO_THREAD_SAFETY_ANALYSIS
 #endif // __GNUC__
 
-#endif // PIVX_THREADSAFETY_H
+#endif // RUPX_THREADSAFETY_H

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_MEMUSAGE_H
-#define PIVX_MEMUSAGE_H
+#ifndef RUPX_MEMUSAGE_H
+#define RUPX_MEMUSAGE_H
 
 #include "indirectmap.h"
 #include "prevector.h"
@@ -243,4 +243,4 @@ static inline size_t RecursiveDynamicUsage(const std::shared_ptr<X>& p)
 
 }
 
-#endif // PIVX_MEMUSAGE_H
+#endif // RUPX_MEMUSAGE_H

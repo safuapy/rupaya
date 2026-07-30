@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_BUDGET_BUDGETUTIL_H
-#define PIVX_BUDGET_BUDGETUTIL_H
+#ifndef RUPX_BUDGET_BUDGETUTIL_H
+#define RUPX_BUDGET_BUDGETUTIL_H
 
 #include "uint256.h"
 #include "budget/budgetvote.h"
@@ -24,4 +24,4 @@ UniValue mnLocalBudgetVoteInner(bool fLegacyMN, const uint256& budgetHash, bool 
 UniValue mnBudgetVoteInner(CWallet* const pwallet, bool fLegacyMN, const uint256& budgetHash, bool fFinal,
                                   const CBudgetVote::VoteDirection& nVote, const Optional<std::string>& mnAliasFilter);
 
-#endif // PIVX_BUDGET_BUDGETUTIL_H
+#endif // RUPX_BUDGET_BUDGETUTIL_H

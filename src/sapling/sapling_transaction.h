@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_SAPLING_SAPLING_TRANSACTION_H
-#define PIVX_SAPLING_SAPLING_TRANSACTION_H
+#ifndef RUPX_SAPLING_SAPLING_TRANSACTION_H
+#define RUPX_SAPLING_SAPLING_TRANSACTION_H
 
 #include "serialize.h"
 #include "streams.h"
@@ -130,4 +130,4 @@ public:
 };
 
 
-#endif // PIVX_SAPLING_SAPLING_TRANSACTION_H
+#endif // RUPX_SAPLING_SAPLING_TRANSACTION_H

@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_MERKLEBLOCK_H
-#define PIVX_MERKLEBLOCK_H
+#ifndef RUPX_MERKLEBLOCK_H
+#define RUPX_MERKLEBLOCK_H
 
 #include "bloom.h"
 #include "primitives/block.h"
@@ -149,4 +149,4 @@ private:
 
 };
 
-#endif // PIVX_MERKLEBLOCK_H
+#endif // RUPX_MERKLEBLOCK_H

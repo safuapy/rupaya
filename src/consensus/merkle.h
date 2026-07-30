@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_CONSENSUS_MERKLE_H
-#define PIVX_CONSENSUS_MERKLE_H
+#ifndef RUPX_CONSENSUS_MERKLE_H
+#define RUPX_CONSENSUS_MERKLE_H
 
 #include <stdint.h>
 #include <vector>
@@ -29,4 +29,4 @@ uint256 BlockMerkleRoot(const CBlock& block, bool* mutated = nullptr);
  */
 std::vector<uint256> BlockMerkleBranch(const CBlock& block, uint32_t position);
 
-#endif // PIVX_CONSENSUS_MERKLE_H
+#endif // RUPX_CONSENSUS_MERKLE_H

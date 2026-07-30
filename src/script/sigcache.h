@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_SCRIPT_SIGCACHE_H
-#define PIVX_SCRIPT_SIGCACHE_H
+#ifndef RUPX_SCRIPT_SIGCACHE_H
+#define RUPX_SCRIPT_SIGCACHE_H
 
 #include "script/interpreter.h"
 
@@ -53,4 +53,4 @@ public:
 
 void InitSignatureCache();
 
-#endif // PIVX_SCRIPT_SIGCACHE_H
+#endif // RUPX_SCRIPT_SIGCACHE_H

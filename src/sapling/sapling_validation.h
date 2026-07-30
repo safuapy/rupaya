@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_SAPLING_SAPLING_VALIDATION_H
-#define PIVX_SAPLING_SAPLING_VALIDATION_H
+#ifndef RUPX_SAPLING_SAPLING_VALIDATION_H
+#define RUPX_SAPLING_SAPLING_VALIDATION_H
 
 #include "chainparams.h"
 
@@ -27,4 +27,4 @@ bool ContextualCheckTransaction(const CTransaction &tx, CValidationState &state,
 
 }; // End SaplingValidation namespace
 
-#endif // PIVX_SAPLING_SAPLING_VALIDATION_H
+#endif // RUPX_SAPLING_SAPLING_VALIDATION_H

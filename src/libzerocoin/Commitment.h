@@ -11,8 +11,8 @@
  **/
 // Copyright (c) 2017-2021 The PIVX Core developers
 
-#ifndef PIVX_LIBZEROCOIN_COMMITMENT_H
-#define PIVX_LIBZEROCOIN_COMMITMENT_H
+#ifndef RUPX_LIBZEROCOIN_COMMITMENT_H
+#define RUPX_LIBZEROCOIN_COMMITMENT_H
 
 #include "Params.h"
 #include "serialize.h"
@@ -57,4 +57,4 @@ private:
     SERIALIZE_METHODS(Commitment, obj) { READWRITE(obj.commitmentValue, obj.randomness, obj.contents); }
 };
 } /* namespace libzerocoin */
-#endif // PIVX_LIBZEROCOIN_COMMITMENT_H
+#endif // RUPX_LIBZEROCOIN_COMMITMENT_H

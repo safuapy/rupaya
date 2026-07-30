@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_THREADINTERRUPT_H
-#define PIVX_THREADINTERRUPT_H
+#ifndef RUPX_THREADINTERRUPT_H
+#define RUPX_THREADINTERRUPT_H
 
 #include <atomic>
 #include <chrono>
@@ -31,4 +31,4 @@ private:
     std::atomic<bool> flag;
 };
 
-#endif // PIVX_THREADINTERRUPT_H
+#endif // RUPX_THREADINTERRUPT_H

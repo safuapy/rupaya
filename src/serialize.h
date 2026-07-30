@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_SERIALIZE_H
-#define PIVX_SERIALIZE_H
+#ifndef RUPX_SERIALIZE_H
+#define RUPX_SERIALIZE_H
 
 #include <algorithm>
 #include <array>
@@ -1464,4 +1464,4 @@ unsigned int GetSerializeSize(const Optional<T> &item)
     }
 }
 
-#endif // PIVX_SERIALIZE_H
+#endif // RUPX_SERIALIZE_H

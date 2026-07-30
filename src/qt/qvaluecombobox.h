@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_QVALUECOMBOBOX_H
-#define PIVX_QT_QVALUECOMBOBOX_H
+#ifndef RUPX_QT_QVALUECOMBOBOX_H
+#define RUPX_QT_QVALUECOMBOBOX_H
 
 #include <QComboBox>
 #include <QVariant>
@@ -34,4 +34,4 @@ private Q_SLOTS:
     void handleSelectionChanged(int idx);
 };
 
-#endif // PIVX_QT_QVALUECOMBOBOX_H
+#endif // RUPX_QT_QVALUECOMBOBOX_H

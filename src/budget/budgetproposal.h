@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_BUDGET_BUDGETPROPOSAL_H
-#define PIVX_BUDGET_BUDGETPROPOSAL_H
+#ifndef RUPX_BUDGET_BUDGETPROPOSAL_H
+#define RUPX_BUDGET_BUDGETPROPOSAL_H
 
 #include "budget/budgetvote.h"
 #include "net.h"
@@ -156,4 +156,4 @@ public:
 
 };
 
-#endif // PIVX_BUDGET_BUDGETPROPOSAL_H
+#endif // RUPX_BUDGET_BUDGETPROPOSAL_H

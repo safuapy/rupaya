@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_SETTINGS_DISPLAYOPTIONSWIDGET_H
-#define PIVX_QT_SETTINGS_DISPLAYOPTIONSWIDGET_H
+#ifndef RUPX_QT_SETTINGS_DISPLAYOPTIONSWIDGET_H
+#define RUPX_QT_SETTINGS_DISPLAYOPTIONSWIDGET_H
 
 #include "pwidget.h"
 #include <QDataWidgetMapper>
@@ -36,4 +36,4 @@ private:
     Ui::SettingsDisplayOptionsWidget *ui;
 };
 
-#endif // PIVX_QT_SETTINGS_DISPLAYOPTIONSWIDGET_H
+#endif // RUPX_QT_SETTINGS_DISPLAYOPTIONSWIDGET_H

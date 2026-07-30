@@ -4,8 +4,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_PRIMITIVES_BLOCK_H
-#define PIVX_PRIMITIVES_BLOCK_H
+#ifndef RUPX_PRIMITIVES_BLOCK_H
+#define RUPX_PRIMITIVES_BLOCK_H
 
 #include "primitives/transaction.h"
 #include "keystore.h"
@@ -180,4 +180,4 @@ struct CBlockLocator
     }
 };
 
-#endif // PIVX_PRIMITIVES_BLOCK_H
+#endif // RUPX_PRIMITIVES_BLOCK_H

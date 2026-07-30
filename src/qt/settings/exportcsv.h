@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_SETTINGS_EXPORTCSV_H
-#define PIVX_QT_SETTINGS_EXPORTCSV_H
+#ifndef RUPX_QT_SETTINGS_EXPORTCSV_H
+#define RUPX_QT_SETTINGS_EXPORTCSV_H
 
 #include "pwidget.h"
 #include "transactionfilterproxy.h"
@@ -33,4 +33,4 @@ private:
     QSortFilterProxyModel* addressFilter{nullptr};
 };
 
-#endif // PIVX_QT_SETTINGS_EXPORTCSV_H
+#endif // RUPX_QT_SETTINGS_EXPORTCSV_H

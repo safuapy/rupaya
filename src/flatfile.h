@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_FLATFILE_H
-#define PIVX_FLATFILE_H
+#ifndef RUPX_FLATFILE_H
+#define RUPX_FLATFILE_H
 
 #include <string>
 
@@ -87,4 +87,4 @@ public:
     bool Flush(const FlatFilePos& pos, bool finalize = false);
 };
 
-#endif // PIVX_FLATFILE_H
+#endif // RUPX_FLATFILE_H

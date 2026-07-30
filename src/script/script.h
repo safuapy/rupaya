@@ -5,8 +5,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_SCRIPT_SCRIPT_H
-#define PIVX_SCRIPT_SCRIPT_H
+#ifndef RUPX_SCRIPT_SCRIPT_H
+#define RUPX_SCRIPT_SCRIPT_H
 
 #include <assert.h>
 #include <climits>
@@ -667,4 +667,4 @@ public:
 };
 
 
-#endif // PIVX_SCRIPT_SCRIPT_H
+#endif // RUPX_SCRIPT_SCRIPT_H

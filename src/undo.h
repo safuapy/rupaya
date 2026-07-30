@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_UNDO_H
-#define PIVX_UNDO_H
+#ifndef RUPX_UNDO_H
+#define RUPX_UNDO_H
 
 #include "chain.h"
 #include "compressor.h"
@@ -70,4 +70,4 @@ public:
     SERIALIZE_METHODS(CBlockUndo, obj) { READWRITE(obj.vtxundo); }
 };
 
-#endif // PIVX_UNDO_H
+#endif // RUPX_UNDO_H

@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_MASTERNODE_SYNC_H
-#define PIVX_MASTERNODE_SYNC_H
+#ifndef RUPX_MASTERNODE_SYNC_H
+#define RUPX_MASTERNODE_SYNC_H
 
 #include "net.h"    // for NodeId
 #include "uint256.h"
@@ -100,4 +100,4 @@ private:
     void syncTimeout(const std::string& reason);
 };
 
-#endif // PIVX_MASTERNODE_SYNC_H
+#endif // RUPX_MASTERNODE_SYNC_H

@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_SPORK_H
-#define PIVX_SPORK_H
+#ifndef RUPX_SPORK_H
+#define RUPX_SPORK_H
 
 #include "hash.h"
 #include "key.h"
@@ -106,4 +106,4 @@ public:
     void ProcessGetSporks(CNode* pfrom, std::string& strCommand, CDataStream& vRecv);
 };
 
-#endif // PIVX_SPORK_H
+#endif // RUPX_SPORK_H

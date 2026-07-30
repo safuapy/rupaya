@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_CHECKQUEUE_H
-#define PIVX_CHECKQUEUE_H
+#ifndef RUPX_CHECKQUEUE_H
+#define RUPX_CHECKQUEUE_H
 
 #include <algorithm>
 #include <vector>
@@ -206,4 +206,4 @@ public:
     }
 };
 
-#endif // PIVX_CHECKQUEUE_H
+#endif // RUPX_CHECKQUEUE_H

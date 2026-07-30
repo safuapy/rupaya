@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php .
 
-#ifndef PIVX_TEST_LIBRUST_UTILTEST_H
-#define PIVX_TEST_LIBRUST_UTILTEST_H
+#ifndef RUPX_TEST_LIBRUST_UTILTEST_H
+#define RUPX_TEST_LIBRUST_UTILTEST_H
 
 #include "sapling/address.h"
 #include "sapling/incrementalmerkletree.h"
@@ -74,4 +74,4 @@ CWalletTx GetValidSaplingReceive(const Consensus::Params& consensusParams,
                                  bool genNewKey = false,
                                  const CWallet* pwalletIn = nullptr);
 
-#endif // PIVX_TEST_LIBRUST_UTILTEST_H
+#endif // RUPX_TEST_LIBRUST_UTILTEST_H

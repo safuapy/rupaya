@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_NETADDRESS_H
-#define PIVX_NETADDRESS_H
+#ifndef RUPX_NETADDRESS_H
+#define RUPX_NETADDRESS_H
 
 #if defined(HAVE_CONFIG_H)
 #include "config/pivx-config.h"
@@ -511,4 +511,4 @@ public:
     }
 };
 
-#endif // PIVX_NETADDRESS_H
+#endif // RUPX_NETADDRESS_H

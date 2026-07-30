@@ -9,8 +9,8 @@
 //
 // For more information, see BIP 173.
 
-#ifndef PIVX_BECH32_H
-#define PIVX_BECH32_H
+#ifndef RUPX_BECH32_H
+#define RUPX_BECH32_H
 
 #include <stdint.h>
 #include <string>
@@ -27,4 +27,4 @@ std::pair<std::string, std::vector<uint8_t>> Decode(const std::string& str);
 
 } // namespace bech32
 
-#endif // PIVX_BECH32_H
+#endif // RUPX_BECH32_H

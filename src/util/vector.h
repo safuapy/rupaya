@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_UTIL_VECTOR_H
-#define PIVX_UTIL_VECTOR_H
+#ifndef RUPX_UTIL_VECTOR_H
+#define RUPX_UTIL_VECTOR_H
 
 #include <initializer_list>
 #include <type_traits>
@@ -48,4 +48,4 @@ inline V Cat(V v1, const V& v2)
     return v1;
 }
 
-#endif // PIVX_UTIL_VECTOR_H
+#endif // RUPX_UTIL_VECTOR_H

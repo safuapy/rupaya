@@ -4,8 +4,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_GUICONSTANTS_H
-#define PIVX_QT_GUICONSTANTS_H
+#ifndef RUPX_QT_GUICONSTANTS_H
+#define RUPX_QT_GUICONSTANTS_H
 
 /* Milliseconds between model updates */
 static const int MODEL_UPDATE_DELAY = 1000;
@@ -54,4 +54,4 @@ static const int MAX_URI_LENGTH = 255;
 #define QAPP_APP_NAME_DEFAULT "PIVX-Qt"
 #define QAPP_APP_NAME_TESTNET "PIVX-Qt-testnet"
 
-#endif // PIVX_QT_GUICONSTANTS_H
+#endif // RUPX_QT_GUICONSTANTS_H

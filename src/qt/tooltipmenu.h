@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_TOOLTIPMENU_H
-#define PIVX_QT_TOOLTIPMENU_H
+#ifndef RUPX_QT_TOOLTIPMENU_H
+#define RUPX_QT_TOOLTIPMENU_H
 
 #include "pwidget.h"
 #include <QModelIndex>
@@ -57,4 +57,4 @@ private:
     QModelIndex index;
 };
 
-#endif // PIVX_QT_TOOLTIPMENU_H
+#endif // RUPX_QT_TOOLTIPMENU_H

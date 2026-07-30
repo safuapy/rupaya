@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_POLICY_FEERATE_H
-#define PIVX_POLICY_FEERATE_H
+#ifndef RUPX_POLICY_FEERATE_H
+#define RUPX_POLICY_FEERATE_H
 
 #include "amount.h"
 #include "serialize.h"
@@ -39,4 +39,4 @@ public:
     SERIALIZE_METHODS(CFeeRate, obj) { READWRITE(obj.nSatoshisPerK); }
 };
 
-#endif // PIVX_POLICY_FEERATE_H
+#endif // RUPX_POLICY_FEERATE_H

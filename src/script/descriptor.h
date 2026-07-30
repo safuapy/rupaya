@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_SCRIPT_DESCRIPTOR_H
-#define PIVX_SCRIPT_DESCRIPTOR_H
+#ifndef RUPX_SCRIPT_DESCRIPTOR_H
+#define RUPX_SCRIPT_DESCRIPTOR_H
 
 #include <script/script.h>
 #include <script/sign.h>
@@ -52,4 +52,4 @@ struct Descriptor {
 /** Parse a descriptor string. Included private keys are put in out. Returns nullptr if parsing fails. */
 std::unique_ptr<Descriptor> Parse(const std::string& descriptor, FlatSigningProvider& out);
 
-#endif // PIVX_SCRIPT_DESCRIPTOR_H
+#endif // RUPX_SCRIPT_DESCRIPTOR_H

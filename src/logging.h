@@ -9,8 +9,8 @@
  * Server/client environment: argument handling, config file parsing,
  * logging, thread wrappers
  */
-#ifndef PIVX_LOGGING_H
-#define PIVX_LOGGING_H
+#ifndef RUPX_LOGGING_H
+#define RUPX_LOGGING_H
 
 #include "fs.h"
 #include "tinyformat.h"
@@ -190,4 +190,4 @@ public:
     }
 };
 
-#endif // PIVX_LOGGING_H
+#endif // RUPX_LOGGING_H

@@ -9,8 +9,8 @@
  * Server/client environment: argument handling, config file parsing,
  * thread wrappers
  */
-#ifndef PIVX_UTIL_SYSTEM_H
-#define PIVX_UTIL_SYSTEM_H
+#ifndef RUPX_UTIL_SYSTEM_H
+#define RUPX_UTIL_SYSTEM_H
 
 #if defined(HAVE_CONFIG_H)
 #include "config/pivx-config.h"
@@ -318,4 +318,4 @@ private:
 
 } // namespace util
 
-#endif // PIVX_UTIL_SYSTEM_H
+#endif // RUPX_UTIL_SYSTEM_H

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_CUCKOOCACHE_H
-#define PIVX_CUCKOOCACHE_H
+#ifndef RUPX_CUCKOOCACHE_H
+#define RUPX_CUCKOOCACHE_H
 
 #include <array>
 #include <algorithm>
@@ -454,4 +454,4 @@ public:
 };
 } // namespace CuckooCache
 
-#endif // PIVX_CUCKOOCACHE_H
+#endif // RUPX_CUCKOOCACHE_H

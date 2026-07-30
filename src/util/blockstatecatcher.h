@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_UTIL_BLOCKSTATECATCHER_H
-#define PIVX_UTIL_BLOCKSTATECATCHER_H
+#ifndef RUPX_UTIL_BLOCKSTATECATCHER_H
+#define RUPX_UTIL_BLOCKSTATECATCHER_H
 
 #include "consensus/validation.h"
 #include "validationinterface.h"
@@ -56,4 +56,4 @@ public:
     }
 };
 
-#endif // PIVX_UTIL_BLOCKSTATECATCHER_H
+#endif // RUPX_UTIL_BLOCKSTATECATCHER_H

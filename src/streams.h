@@ -4,8 +4,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_STREAMS_H
-#define PIVX_STREAMS_H
+#ifndef RUPX_STREAMS_H
+#define RUPX_STREAMS_H
 
 #include "serialize.h"
 #include "support/allocators/zeroafterfree.h"
@@ -703,4 +703,4 @@ public:
     }
 };
 
-#endif // PIVX_STREAMS_H
+#endif // RUPX_STREAMS_H

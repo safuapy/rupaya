@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_INIT_H
-#define PIVX_INIT_H
+#ifndef RUPX_INIT_H
+#define RUPX_INIT_H
 
 #include <string>
 
@@ -60,4 +60,4 @@ std::string HelpMessage(HelpMessageMode mode);
 /** Returns licensing information (for -version) */
 std::string LicenseInfo();
 
-#endif // PIVX_INIT_H
+#endif // RUPX_INIT_H

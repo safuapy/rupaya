@@ -4,8 +4,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_RANDOM_H
-#define PIVX_RANDOM_H
+#ifndef RUPX_RANDOM_H
+#define RUPX_RANDOM_H
 
 #include "crypto/chacha20.h"
 #include "crypto/common.h"
@@ -251,4 +251,4 @@ bool Random_SanityCheck();
  */
 void RandomInit();
 
-#endif // PIVX_RANDOM_H
+#endif // RUPX_RANDOM_H

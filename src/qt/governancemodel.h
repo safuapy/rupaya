@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_GOVERNANCEMODEL_H
-#define PIVX_QT_GOVERNANCEMODEL_H
+#ifndef RUPX_QT_GOVERNANCEMODEL_H
+#define RUPX_QT_GOVERNANCEMODEL_H
 
 #include "clientmodel.h"
 #include "operationresult.h"
@@ -165,4 +165,4 @@ private:
     ProposalInfo buildProposalInfo(const CBudgetProposal* prop, bool isPassing, bool isPending);
 };
 
-#endif // PIVX_QT_GOVERNANCEMODEL_H
+#endif // RUPX_QT_GOVERNANCEMODEL_H

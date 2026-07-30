@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_POLICY_FEES_H
-#define PIVX_POLICY_FEES_H
+#ifndef RUPX_POLICY_FEES_H
+#define RUPX_POLICY_FEES_H
 
 #include "amount.h"
 #include "feerate.h"
@@ -250,4 +250,4 @@ private:
     unsigned int trackedTxs;
     unsigned int untrackedTxs;
 };
-#endif // PIVX_POLICY_FEES_H
+#endif // RUPX_POLICY_FEES_H

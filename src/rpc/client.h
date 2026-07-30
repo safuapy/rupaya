@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_RPC_CLIENT_H
-#define PIVX_RPC_CLIENT_H
+#ifndef RUPX_RPC_CLIENT_H
+#define RUPX_RPC_CLIENT_H
 
 #include <univalue.h>
 
@@ -20,4 +20,4 @@ UniValue RPCConvertNamedValues(const std::string& strMethod, const std::vector<s
  */
 UniValue ParseNonRFCJSONValue(const std::string& strVal);
 
-#endif // PIVX_RPC_CLIENT_H
+#endif // RUPX_RPC_CLIENT_H

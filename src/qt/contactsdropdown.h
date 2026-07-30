@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_CONTACTSDROPDOWN_H
-#define PIVX_QT_CONTACTSDROPDOWN_H
+#ifndef RUPX_QT_CONTACTSDROPDOWN_H
+#define RUPX_QT_CONTACTSDROPDOWN_H
 
 #include "addressfilterproxymodel.h"
 #include "addresstablemodel.h"
@@ -49,4 +49,4 @@ private Q_SLOTS:
     void handleClick(const QModelIndex &index);
 };
 
-#endif // PIVX_QT_CONTACTSDROPDOWN_H
+#endif // RUPX_QT_CONTACTSDROPDOWN_H

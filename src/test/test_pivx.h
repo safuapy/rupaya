@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_TEST_TEST_PIVX_H
-#define PIVX_TEST_TEST_PIVX_H
+#ifndef RUPX_TEST_TEST_PIVX_H
+#define RUPX_TEST_TEST_PIVX_H
 
 #include "fs.h"
 #include "scheduler.h"
@@ -178,4 +178,4 @@ private:
     const std::string m_reason;
 };
 
-#endif // PIVX_TEST_TEST_PIVX_H
+#endif // RUPX_TEST_TEST_PIVX_H

@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_WALLETMODELTRANSACTION_H
-#define PIVX_QT_WALLETMODELTRANSACTION_H
+#ifndef RUPX_QT_WALLETMODELTRANSACTION_H
+#define RUPX_QT_WALLETMODELTRANSACTION_H
 
 #include "walletmodel.h"
 
@@ -53,4 +53,4 @@ private:
     CAmount fee;
 };
 
-#endif // PIVX_QT_WALLETMODELTRANSACTION_H
+#endif // RUPX_QT_WALLETMODELTRANSACTION_H

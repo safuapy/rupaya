@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_TEST_URITESTS_H
-#define PIVX_QT_TEST_URITESTS_H
+#ifndef RUPX_QT_TEST_URITESTS_H
+#define RUPX_QT_TEST_URITESTS_H
 
 #include <QObject>
 #include <QTest>
@@ -16,4 +16,4 @@ private Q_SLOTS:
     void uriTests();
 };
 
-#endif // PIVX_QT_TEST_URITESTS_H
+#endif // RUPX_QT_TEST_URITESTS_H

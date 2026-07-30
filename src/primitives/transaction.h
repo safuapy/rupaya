@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_PRIMITIVES_TRANSACTION_H
-#define PIVX_PRIMITIVES_TRANSACTION_H
+#ifndef RUPX_PRIMITIVES_TRANSACTION_H
+#define RUPX_PRIMITIVES_TRANSACTION_H
 
 #include "amount.h"
 #include "memusage.h"
@@ -490,4 +490,4 @@ void SetTxPayload(CMutableTransaction& tx, const T& payload)
     tx.extraPayload.emplace(ds.begin(), ds.end());
 }
 
-#endif // PIVX_PRIMITIVES_TRANSACTION_H
+#endif // RUPX_PRIMITIVES_TRANSACTION_H

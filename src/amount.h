@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_AMOUNT_H
-#define PIVX_AMOUNT_H
+#ifndef RUPX_AMOUNT_H
+#define RUPX_AMOUNT_H
 
 #include <stdint.h>
 
@@ -15,4 +15,4 @@ typedef int64_t CAmount;
 static const CAmount COIN = 100000000;
 static const CAmount CENT = 1000000;
 
-#endif // PIVX_AMOUNT_H
+#endif // RUPX_AMOUNT_H

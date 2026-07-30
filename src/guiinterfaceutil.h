@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_GUIINTERFACEUTIL_H
-#define PIVX_GUIINTERFACEUTIL_H
+#ifndef RUPX_GUIINTERFACEUTIL_H
+#define RUPX_GUIINTERFACEUTIL_H
 
 #include "guiinterface.h"
 #include "tinyformat.h"
@@ -26,4 +26,4 @@ inline static std::string AmountErrMsg(const char * const optname, const std::st
     return strprintf(_("Invalid amount for -%s=<amount>: '%s'"), optname, strValue);
 }
 
-#endif // PIVX_GUIINTERFACEUTIL_H
+#endif // RUPX_GUIINTERFACEUTIL_H

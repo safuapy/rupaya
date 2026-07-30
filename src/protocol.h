@@ -9,8 +9,8 @@
 #error This header can only be compiled as C++.
 #endif
 
-#ifndef PIVX_PROTOCOL_H
-#define PIVX_PROTOCOL_H
+#ifndef RUPX_PROTOCOL_H
+#define RUPX_PROTOCOL_H
 
 #include "netaddress.h"
 #include "serialize.h"
@@ -483,4 +483,4 @@ private:
     std::string GetCommand() const;
 };
 
-#endif // PIVX_PROTOCOL_H
+#endif // RUPX_PROTOCOL_H

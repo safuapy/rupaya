@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_BALANCEBUBBLE_H
-#define PIVX_QT_BALANCEBUBBLE_H
+#ifndef RUPX_QT_BALANCEBUBBLE_H
+#define RUPX_QT_BALANCEBUBBLE_H
 
 #include <QWidget>
 #include <QString>
@@ -32,4 +32,4 @@ private:
     QTimer* hideTimer{nullptr};
 };
 
-#endif // PIVX_QT_BALANCEBUBBLE_H
+#endif // RUPX_QT_BALANCEBUBBLE_H

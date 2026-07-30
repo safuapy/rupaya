@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_INDIRECTMAP_H
-#define PIVX_INDIRECTMAP_H
+#ifndef RUPX_INDIRECTMAP_H
+#define RUPX_INDIRECTMAP_H
 
 #include <map>
 
@@ -55,4 +55,4 @@ public:
     const_iterator cend() const     { return m.cend(); }
 };
 
-#endif // PIVX_INDIRECTMAP_H
+#endif // RUPX_INDIRECTMAP_H

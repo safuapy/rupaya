@@ -4,8 +4,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_NET_H
-#define PIVX_NET_H
+#ifndef RUPX_NET_H
+#define RUPX_NET_H
 
 #include "addrdb.h"
 #include "addrman.h"
@@ -973,4 +973,4 @@ inline std::chrono::microseconds PoissonNextSend(std::chrono::microseconds now, 
     return std::chrono::microseconds{PoissonNextSend(now.count(), average_interval.count())};
 }
 
-#endif // PIVX_NET_H
+#endif // RUPX_NET_H

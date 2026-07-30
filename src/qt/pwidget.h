@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_PWIDGET_H
-#define PIVX_QT_PWIDGET_H
+#ifndef RUPX_QT_PWIDGET_H
+#define RUPX_QT_PWIDGET_H
 
 #include "prunnable.h"
 #include "walletmodel.h"
@@ -78,4 +78,4 @@ private Q_SLOTS:
 
 };
 
-#endif // PIVX_QT_PWIDGET_H
+#endif // RUPX_QT_PWIDGET_H

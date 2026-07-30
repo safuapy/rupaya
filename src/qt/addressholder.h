@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_ADDRESSHOLDER_H
-#define PIVX_QT_ADDRESSHOLDER_H
+#ifndef RUPX_QT_ADDRESSHOLDER_H
+#define RUPX_QT_ADDRESSHOLDER_H
 
 #include "furlistrow.h"
 #include "guiutil.h"
@@ -38,4 +38,4 @@ public:
 };
 
 
-#endif // PIVX_QT_ADDRESSHOLDER_H
+#endif // RUPX_QT_ADDRESSHOLDER_H

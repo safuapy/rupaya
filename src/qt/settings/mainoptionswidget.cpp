@@ -6,7 +6,7 @@
 #include "qt/settings/forms/ui_mainoptionswidget.h"
 
 #if defined(HAVE_CONFIG_H)
-#include "config/pivx-config.h"
+#include "config/rupx-config.h"
 #endif
 
 #include "bitcoinunits.h"

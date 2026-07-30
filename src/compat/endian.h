@@ -6,7 +6,7 @@
 #define RUPX_COMPAT_ENDIAN_H
 
 #if defined(HAVE_CONFIG_H)
-#include <config/pivx-config.h>
+#include <config/rupx-config.h>
 #endif
 
 #include <compat/byteswap.h>

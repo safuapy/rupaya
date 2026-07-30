@@ -59,7 +59,7 @@
 
 
 #if defined(NDEBUG)
-#error "PIVX cannot be compiled without assertions."
+#error "Rupaya cannot be compiled without assertions."
 #endif
 
 /**
@@ -815,48 +815,21 @@ double ConvertBitsToDouble(unsigned int nBits)
 
 CAmount GetBlockValue(int nHeight)
 {
-    // Set V5.5 upgrade block for regtest as well as testnet and mainnet
-    const int nLast = Params().GetConsensus().vUpgrades[Consensus::UPGRADE_V5_5].nActivationHeight;
-
-    // Regtest block reward reduction schedule
-    if (Params().IsRegTestNet()) {
-        // Reduce regtest block value after V5.5 upgrade
-        if (nHeight > nLast) return 10 * COIN;
-        return 250 * COIN;
-    }
-    // Testnet high-inflation blocks [2, 200] with value 250k PIV
-    const bool isTestnet = Params().IsTestnet();
-    if (isTestnet && nHeight < 201 && nHeight > 1) {
-        return 250000 * COIN;
-    }
-    // Mainnet/Testnet block reward reduction schedule
-    const int nZerocoinV2 = Params().GetConsensus().vUpgrades[Consensus::UPGRADE_ZC_V2].nActivationHeight;
-    if (nHeight > nLast) return 10 * COIN;
-    if (nHeight > nZerocoinV2) return 5 * COIN;
-    if (nHeight > 648000) return 4.5 * COIN;
-    if (nHeight > 604800) return 9 * COIN;
-    if (nHeight > 561600) return 13.5 * COIN;
-    if (nHeight > 518400) return 18 * COIN;
-    if (nHeight > 475200) return 22.5 * COIN;
-    if (nHeight > 432000) return 27 * COIN;
-    if (nHeight > 388800) return 31.5 * COIN;
-    if (nHeight > 345600) return 36 * COIN;
-    if (nHeight > 302400) return 40.5 * COIN;
-    if (nHeight > 151200) return 45 * COIN;
-    if (nHeight > 86400) return 225 * COIN;
-    if (nHeight != 1) return 250 * COIN;
-    // Premine for 6 masternodes at block 1
-    return 60001 * COIN;
+    // Rupaya tokenomics:
+    // Block 1: 100M RUPX premine (entire initial supply to dev wallet)
+    if (nHeight == 1) return 100000000 * COIN;
+    // Blocks 2-100: PoW bootstrap phase, no reward
+    if (nHeight <= 100) return 0;
+    // Block 101+: PoS phase, 10 RUPX/block (~5.2% APY on 100M supply)
+    return 10 * COIN;
 }
 
 int64_t GetMasternodePayment(int nHeight)
 {
-    if (nHeight > Params().GetConsensus().vUpgrades[Consensus::UPGRADE_V5_5].nActivationHeight) {
-        return Params().GetConsensus().nNewMNBlockReward;
-    }
-
-    // Future: refactor function callers to use this line directly.
-    return Params().GetConsensus().nMNBlockReward;
+    // No MN payment during premine or PoW bootstrap phase
+    if (nHeight <= 100) return 0;
+    // PoS phase: 4 RUPX to MN (40% of 10 RUPX block reward)
+    return Params().GetConsensus().nNewMNBlockReward;
 }
 
 bool IsInitialBlockDownload()
@@ -1412,7 +1385,7 @@ static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck()
 {
-    util::ThreadRename("pivx-scriptch");
+    util::ThreadRename("rupx-scriptch");
     scriptcheckqueue.Thread();
 }
 

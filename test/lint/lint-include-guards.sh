@@ -8,7 +8,7 @@
 # Check include guards.
 
 export LC_ALL=C
-HEADER_ID_PREFIX="RUPX_"
+HEADER_ID_PREFIX="PIVX_"
 HEADER_ID_SUFFIX="_H"
 
 REGEXP_EXCLUDE_FILES_WITH_PREFIX="src/(chiabls/|crypto/ctaes/|crypto/sph_*|ctpl_stl.h|immer/|leveldb/|crc32c/|cxxtimer.h|secp256k1/|tinyformat.h|univalue/)"

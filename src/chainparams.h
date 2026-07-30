@@ -145,4 +145,4 @@ void SelectParams(const std::string& chain);
  */
 void UpdateNetworkUpgradeParameters(Consensus::UpgradeIndex idx, int nActivationHeight);
 
-#endif // RUPX_CHAINPARAMS_H
+#endif // PIVX_CHAINPARAMS_H

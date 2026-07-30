@@ -180,4 +180,4 @@ struct CBlockLocator
     }
 };
 
-#endif // RUPX_PRIMITIVES_BLOCK_H
+#endif // PIVX_PRIMITIVES_BLOCK_H

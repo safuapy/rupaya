@@ -1,55 +1,92 @@
-PIVX Core integration/staging repository
-=====================================
+Rupaya Core integration/staging repository
+==========================================
 
-[![master Actions Status](https://github.com/PIVX-Project/PIVX/workflows/CI%20Actions%20for%20PIVX/badge.svg)](https://github.com/PIVX-Project/PIVX/actions)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/PIVX-Project/pivx?color=%235c4b7d&cacheSeconds=3600)](https://github.com/PIVX-Project/PIVX/releases)
-[![GitHub Release Date](https://img.shields.io/github/release-date/PIVX-Project/pivx?color=%235c4b7d&cacheSeconds=3600)](https://github.com/PIVX-Project/PIVX/releases)
+[![master Actions Status](https://github.com/safuapy/rupaya/workflows/CI%20Actions%20for%20Rupaya/badge.svg)](https://github.com/safuapy/rupaya/actions)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/safuapy/rupaya?color=%235c4b7d&cacheSeconds=3600)](https://github.com/safuapy/rupaya/releases)
 
-## What is PIVX?
+## What is Rupaya?
 
-PIVX is an open source community-driven cryptocurrency, focused on five main aspects:
+Rupaya (RUPX) is an open source Proof-of-Stake cryptocurrency focused on:
 
-(1) User Data Protection: Through the use of SHIELD, a zk-SNARKs based privacy protocol.
+1. **Privacy** — SHIELD (zk-SNARKs based privacy protocol)
+2. **Energy Efficiency** — Proof-of-Stake consensus with masternode tier-two network
+3. **Decentralized Governance** — DAO with monthly treasury, proposals, and voting
+4. **Fast Transactions** — 60-second block times with ChainLocks
+5. **Ease of Use** — Full Qt GUI wallet for desktop platforms
 
-(2) Low environmental footprint and network participation equality: Through the use of a highly developed Proof of Stake protocol.
+## Tokenomics
 
-(3) Decentralized Governance System: A DAO built on top of the tier two Masternodes network, enabling a monthly community treasury, proposals submission and decentralized voting.
+| Parameter | Value |
+|---|---|
+| Ticker | RUPX |
+| Total Supply | 100,000,000 RUPX |
+| Block 1 (Premine) | 100,000,000 RUPX |
+| Blocks 2-100 | 0 RUPX (PoW bootstrap) |
+| Block 101+ (PoS) | 10 RUPX/block (~5.2% APY) |
+| Masternode Reward | 4 RUPX/block (40%) |
+| Staker Reward | 6 RUPX/block (60%) |
+| Block Time | 60 seconds |
+| MN Collateral | 10,000 RUPX |
 
-(4) Fast Transactions: Through the use of fast block times and the tier two network, PIVX is committed to continue researching new and better instant transactions mechanisms.
+## Chain Parameters
 
-(5) Ease of Use: PIVX is determined to offer the best possible graphical interface for a core node/wallet. A full featured graphical product for new and advanced users.
+| Parameter | Mainnet | Testnet | Regtest |
+|---|---|---|---|
+| P2P Port | 8765 | 8766 | 8767 |
+| RPC Port | 8768 | 8769 | 8770 |
+| Magic Bytes | 0x52555041 | 0x72757054 | 0x72757052 |
+| Address Prefix | R (60) | t/n (111) | t/n (111) |
+| Bech32 HRP | rs | rstest | rstest |
+| BIP44 Coin Type | 499 | 1 | 1 |
+| Data Directory | ~/.rupx | ~/.rupx/testnet | ~/.rupx/regtest |
 
-A lot more information and specs at [PIVX.org](https://www.pivx.org/). Join the community at [PIVX Discord](https://discordapp.com/invite/jzqVsJd).
+## Downloads
+
+CI build artifacts are available for each platform:
+
+- **Linux** (x86_64): `rupxd`, `rupx-cli`, `rupx-qt` — [CI Artifacts](https://github.com/safuapy/rupaya/actions)
+- **macOS**: `Rupaya-*.dmg` — [CI Artifacts](https://github.com/safuapy/rupaya/actions)
+- **Windows**: `Rupaya-*-win64-setup.exe` — [CI Artifacts](https://github.com/safuapy/rupaya/actions)
+
+> **Note:** macOS .dmg and Windows .exe are currently unsigned. For production distribution, code signing certificates (Apple Developer ID + Windows EV cert) must be configured as GitHub Actions secrets.
+
+## Build from Source
+
+See `doc/build-unix.md`, `doc/build-osx.md`, and `doc/build-windows.md` for platform-specific build instructions.
+
+Quick start (Linux/macOS):
+
+```bash
+./autogen.sh
+./configure
+make -j$(nproc)
+```
 
 ## License
-PIVX Core is released under the terms of the MIT license. See [COPYING](https://github.com/PIVX-Project/PIVX/blob/master/COPYING) for more information or see https://opensource.org/licenses/MIT.
 
-## Development Process
+Rupaya Core is released under the terms of the MIT license. See [COPYING](COPYING) for more information.
 
-The master branch is regularly built (see doc/build-*.md for instructions) and tested, but it is not guaranteed to be completely stable. [Tags](https://github.com/PIVX-Project/PIVX/tags) are created regularly from release branches to indicate new official, stable release versions of PIVX Core.
+## Development
 
-The contribution workflow is described in [CONTRIBUTING.md](https://github.com/PIVX-Project/PIVX/blob/master/CONTRIBUTING.md) and useful hints for developers can be found in [doc/developer-notes.md](https://github.com/PIVX-Project/PIVX/blob/master/doc/developer-notes.md).
+The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md) and useful hints for developers can be found in [doc/developer-notes.md](doc/developer-notes.md).
 
 ## Testing
 
-Testing and code review is the bottleneck for development; we get more pull requests than we can review and test on short notice. Please be patient and help out by testing other people's pull requests, and remember this is a security-critical project where any mistake might cost people a lot of money.
+Developers are strongly encouraged to write unit tests for new code. Unit tests can be compiled and run with:
 
-## Automated Testing
+```bash
+make check
+```
 
-Developers are strongly encouraged to write [unit tests](https://github.com/PIVX-Project/PIVX/blob/master/src/test/README.md) for new code, and to submit new unit tests for old code. Unit tests can be compiled and run (assuming they weren't disabled in configure) with: make check. Further details on running and extending unit tests can be found in [/src/test/README.md](https://github.com/PIVX-Project/PIVX/blob/master/src/test/README.md).
+Functional/regression tests:
 
-There are also regression and integration tests, written in Python. These tests can be run (if the test dependencies are installed) with: test/functional/test_runner.py`
+```bash
+test/functional/test_runner.py
+```
 
-The CI (Continuous Integration) systems make sure that every pull request is built for Windows, Linux, and macOS, and that unit/sanity tests are run automatically.
+The CI systems make sure that every pull request is built for Windows, Linux, and macOS, and that unit/sanity tests are run automatically.
 
-## Manual Quality Assurance (QA) Testing
+## Community
 
-Changes should be tested by somebody other than the developer who wrote the code. This is especially important for large or high-risk changes. It is useful to add a test plan to the pull request description if testing the changes is not straightforward.
-
-## Translations
-
-Changes to translations as well as new translations can be submitted to PIVX Core's Transifex page.
-
-Translations are periodically pulled from Transifex and merged into the git repository. See the [translation process](https://github.com/PIVX-Project/PIVX/blob/master/doc/translation_process.md) for details on how this works.
-
-Important: We do not accept translation changes as GitHub pull requests because the next pull from Transifex would automatically overwrite them again.
+- Website: [https://www.rupaya.io](https://www.rupaya.io)
+- GitHub: [https://github.com/safuapy/rupaya](https://github.com/safuapy/rupaya)

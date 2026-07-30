@@ -816,6 +816,33 @@ jobs:
           path: ${{ matrix.config.host }}-built.tar
           retention-days: 5
 
+      - name: Upload Windows Installer
+        if: matrix.config.goal == 'deploy' && matrix.config.host == 'x86_64-w64-mingw32'
+        uses: actions/upload-artifact@v7
+        with:
+          name: rupaya-win64-setup
+          path: build/rupx-${{ matrix.config.host }}/src/rupaya-*-win64-setup.exe
+          retention-days: 30
+
+      - name: Upload macOS DMG
+        if: matrix.config.goal == 'deploy' && matrix.config.host == 'x86_64-apple-darwin16'
+        uses: actions/upload-artifact@v7
+        with:
+          name: rupaya-macos-dmg
+          path: build/rupx-${{ matrix.config.host }}/src/*.dmg
+          retention-days: 30
+
+      - name: Upload Linux Binaries
+        if: matrix.config.goal == 'install' && matrix.config.host == 'x86_64-unknown-linux-gnu'
+        uses: actions/upload-artifact@v7
+        with:
+          name: rupaya-linux-x86_64
+          path: |
+            build/rupx-${{ matrix.config.host }}/src/rupxd
+            build/rupx-${{ matrix.config.host }}/src/rupx-cli
+            build/rupx-${{ matrix.config.host }}/src/rupx-qt
+          retention-days: 30
+
   # Job to run the python functional test suite for depends based linux builds.
   # Uses a build artifact from the previous job to provide rupxd/rupx-cli and the test suite files.
   test_depends_wallet:

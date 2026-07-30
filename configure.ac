@@ -7,16 +7,16 @@ define(_CLIENT_VERSION_BUILD, 0)
 define(_CLIENT_VERSION_RC, 0)
 define(_CLIENT_VERSION_IS_RELEASE, false)
 define(_COPYRIGHT_YEAR, 2024)
-AC_INIT([PIVX Core],m4_join([.], _CLIENT_VERSION_MAJOR, _CLIENT_VERSION_MINOR, _CLIENT_VERSION_REVISION, m4_if(_CLIENT_VERSION_BUILD, [0], [], _CLIENT_VERSION_BUILD))m4_if(_CLIENT_VERSION_RC, [0], [], [rc]_CLIENT_VERSION_RC),[https://github.com/pivx-project/pivx/issues],[pivx],[https://www.pivx.org/])
+AC_INIT([Rupaya Core],m4_join([.], _CLIENT_VERSION_MAJOR, _CLIENT_VERSION_MINOR, _CLIENT_VERSION_REVISION, m4_if(_CLIENT_VERSION_BUILD, [0], [], _CLIENT_VERSION_BUILD))m4_if(_CLIENT_VERSION_RC, [0], [], [rc]_CLIENT_VERSION_RC),[https://github.com/rupaya-project/rupaya/issues],[rupaya],[https://www.rupaya.io/])
 AC_CONFIG_SRCDIR([src/validation.cpp])
-AC_CONFIG_HEADERS([src/config/pivx-config.h])
+AC_CONFIG_HEADERS([src/config/rupx-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
-BITCOIN_DAEMON_NAME=pivxd
-BITCOIN_GUI_NAME=pivx-qt
-BITCOIN_CLI_NAME=pivx-cli
-BITCOIN_TX_NAME=pivx-tx
+BITCOIN_DAEMON_NAME=rupxd
+BITCOIN_GUI_NAME=rupx-qt
+BITCOIN_CLI_NAME=rupx-cli
+BITCOIN_TX_NAME=rupx-tx
 
 dnl Unless the user specified ARFLAGS, force it to be cr
 AC_ARG_VAR([ARFLAGS], [Flags for the archiver, defaults to <cr> if not set])
@@ -26,9 +26,9 @@ fi
 
 AC_CANONICAL_HOST
 
-AH_TOP([#ifndef PIV_CONFIG_H])
-AH_TOP([#define PIV_CONFIG_H])
-AH_BOTTOM([#endif //PIV_CONFIG_H])
+AH_TOP([#ifndef RUPX_CONFIG_H])
+AH_TOP([#define RUPX_CONFIG_H])
+AH_BOTTOM([#endif //RUPX_CONFIG_H])
 
 dnl faketime breaks configure and is only needed for make. Disable it here.
 unset FAKETIME

@@ -9,13 +9,13 @@
 #include <QRunnable>
 #include <QThreadPool>
 
-PWidget::PWidget(PIVXGUI* _window, QWidget *parent) : QWidget((parent) ? parent : _window), window(_window) { init(); }
+PWidget::PWidget(RupxGUI* _window, QWidget *parent) : QWidget((parent) ? parent : _window), window(_window) { init(); }
 PWidget::PWidget(PWidget* parent) : QWidget(parent), window(parent->getWindow()) { init(); }
 
 void PWidget::init()
 {
     if (window)
-        connect(window, &PIVXGUI::themeChanged, this, &PWidget::onChangeTheme);
+        connect(window, &RupxGUI::themeChanged, this, &PWidget::onChangeTheme);
 }
 
 void PWidget::setClientModel(ClientModel* model)

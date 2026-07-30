@@ -24,8 +24,6 @@
 #include <vector>
 
 #include "compat/endian.h"
-#include "libzerocoin/Denominations.h"
-#include "libzerocoin/SpendType.h"
 #include "optional.h"
 #include "prevector.h"
 #include "span.h"

@@ -90,7 +90,7 @@ void checkBudgetInputs(const UniValue& params, std::string &strProposalName, std
 
     address = DecodeDestination(params[4].get_str());
     if (!IsValidDestination(address))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid PIVX address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Rupaya address");
 
     nAmount = AmountFromValue(params[5]);
     if (nAmount < 10 * COIN)
@@ -118,15 +118,15 @@ UniValue preparebudget(const JSONRPCRequest& request)
             "2. \"url\":         (string, required) URL of proposal details (64 character limit)\n"
             "3. npayments:       (numeric, required) Total number of monthly payments\n"
             "4. start:           (numeric, required) Starting super block height\n"
-            "5. \"address\":     (string, required) PIVX address to send payments to\n"
+            "5. \"address\":     (string, required) Rupaya address to send payments to\n"
             "6. monthly_payment: (numeric, required) Monthly payment amount\n"
 
             "\nResult:\n"
             "\"xxxx\"       (string) proposal fee hash (if successful) or error message (if failed)\n"
 
             "\nExamples:\n" +
-            HelpExampleCli("preparebudget", "\"test-proposal\" \"https://forum.pivx.org/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500") +
-            HelpExampleRpc("preparebudget", "\"test-proposal\" \"https://forum.pivx.org/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500"));
+            HelpExampleCli("preparebudget", "\"test-proposal\" \"https://forum.rupaya.io/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500") +
+            HelpExampleRpc("preparebudget", "\"test-proposal\" \"https://forum.rupaya.io/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500"));
 
     LOCK2(cs_main, pwallet->cs_wallet);
 
@@ -141,7 +141,7 @@ UniValue preparebudget(const JSONRPCRequest& request)
 
     checkBudgetInputs(request.params, strProposalName, strURL, nPaymentCount, nBlockStart, address, nAmount);
 
-    // Parse PIVX address
+    // Parse Rupaya address
     CScript scriptPubKey = GetScriptForDestination(address);
 
     // create transaction 15 minutes into the future, to allow for confirmation time
@@ -182,7 +182,7 @@ UniValue submitbudget(const JSONRPCRequest& request)
             "2. \"url\":          (string, required) URL of proposal details (64 character limit)\n"
             "3. npayments:        (numeric, required) Total number of monthly payments\n"
             "4. start:            (numeric, required) Starting super block height\n"
-            "5. \"address\":      (string, required) PIVX address to send payments to\n"
+            "5. \"address\":      (string, required) Rupaya address to send payments to\n"
             "6. monthly_payment:  (numeric, required) Monthly payment amount\n"
             "7. \"fee_txid\":     (string, required) Transaction hash from preparebudget command\n"
 
@@ -190,8 +190,8 @@ UniValue submitbudget(const JSONRPCRequest& request)
             "\"xxxx\"       (string) proposal hash (if successful) or error message (if failed)\n"
 
             "\nExamples:\n" +
-            HelpExampleCli("submitbudget", "\"test-proposal\" \"https://forum.pivx.org/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500") +
-            HelpExampleRpc("submitbudget", "\"test-proposal\" \"https://forum.pivx.org/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500"));
+            HelpExampleCli("submitbudget", "\"test-proposal\" \"https://forum.rupaya.io/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500") +
+            HelpExampleRpc("submitbudget", "\"test-proposal\" \"https://forum.rupaya.io/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500"));
 
     std::string strProposalName;
     std::string strURL;
@@ -202,7 +202,7 @@ UniValue submitbudget(const JSONRPCRequest& request)
 
     checkBudgetInputs(request.params, strProposalName, strURL, nPaymentCount, nBlockStart, address, nAmount);
 
-    // Parse PIVX address
+    // Parse Rupaya address
     CScript scriptPubKey = GetScriptForDestination(address);
     const uint256& hash = ParseHashV(request.params[6], "parameter 1");
 
@@ -376,7 +376,7 @@ UniValue getbudgetprojection(const JSONRPCRequest& request)
             "    \"BlockEnd\": n,                (numeric) Proposal ending block\n"
             "    \"TotalPaymentCount\": n,       (numeric) Number of payments\n"
             "    \"RemainingPaymentCount\": n,   (numeric) Number of remaining payments\n"
-            "    \"PaymentAddress\": \"xxxx\",     (string) PIVX address of payment\n"
+            "    \"PaymentAddress\": \"xxxx\",     (string) Rupaya address of payment\n"
             "    \"Ratio\": x.xxx,               (numeric) Ratio of yeas vs nays\n"
             "    \"Yeas\": n,                    (numeric) Number of yea votes\n"
             "    \"Nays\": n,                    (numeric) Number of nay votes\n"
@@ -432,7 +432,7 @@ UniValue getbudgetinfo(const JSONRPCRequest& request)
             "    \"BlockEnd\": n,                (numeric) Proposal ending block\n"
             "    \"TotalPaymentCount\": n,       (numeric) Number of payments\n"
             "    \"RemainingPaymentCount\": n,   (numeric) Number of remaining payments\n"
-            "    \"PaymentAddress\": \"xxxx\",     (string) PIVX address of payment\n"
+            "    \"PaymentAddress\": \"xxxx\",     (string) Rupaya address of payment\n"
             "    \"Ratio\": x.xxx,               (numeric) Ratio of yeas vs nays\n"
             "    \"Yeas\": n,                    (numeric) Number of yea votes\n"
             "    \"Nays\": n,                    (numeric) Number of nay votes\n"

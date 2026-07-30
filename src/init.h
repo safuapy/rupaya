@@ -25,7 +25,7 @@ void InitLogging();
 //!Parameter interaction: change current parameters depending on various rules
 void InitParameterInteraction();
 
-/** Initialize PIVX core: Basic context setup.
+/** Initialize Rupaya core: Basic context setup.
  *  @note This can be done before daemonization. Do not call Shutdown() if this function fails.
  *  @pre Parameters should be parsed and config file should be read.
  */

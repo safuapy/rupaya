@@ -141,7 +141,7 @@ public:
 };
 
 /**
- * PIVX RPC command dispatcher.
+ * Rupaya RPC command dispatcher.
  */
 class CRPCTable
 {

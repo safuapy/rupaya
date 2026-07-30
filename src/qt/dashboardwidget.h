@@ -37,7 +37,7 @@ using namespace QtCharts;
 
 #endif
 
-class PIVXGUI;
+class RupxGUI;
 class WalletModel;
 
 namespace Ui {
@@ -96,7 +96,7 @@ class DashboardWidget : public PWidget
     Q_OBJECT
 
 public:
-    explicit DashboardWidget(PIVXGUI* _window);
+    explicit DashboardWidget(RupxGUI* _window);
     ~DashboardWidget();
 
     void loadWalletModel() override;

@@ -11,8 +11,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between pivx-cli and pivxd)
- * of a given instance of the Pivx system.
+ * CBaseChainParams defines the base parameters (shared between rupx-cli and rupxd)
+ * of a given instance of the Rupaya system.
  */
 class CBaseChainParams
 {

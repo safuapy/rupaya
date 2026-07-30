@@ -59,7 +59,7 @@ public:
 };
 
 
-AddressesWidget::AddressesWidget(PIVXGUI* parent) :
+AddressesWidget::AddressesWidget(RupxGUI* parent) :
     PWidget(parent),
     ui(new Ui::AddressesWidget)
 {

@@ -55,7 +55,7 @@
 #include <QUrlQuery>
 #include <QMouseEvent>
 
-#define URI_SCHEME "pivx"
+#define URI_SCHEME "rupx"
 
 #if defined(Q_OS_MAC)
 
@@ -133,7 +133,7 @@ void setupAddressWidget(QValidatedLineEdit* widget, QWidget* parent)
     widget->setFont(bitcoinAddressFont());
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter PIVX address (e.g. %1)").arg("D7VFR83SQbiezrW72hjcWJtcfip5krte2Z"));
+    widget->setPlaceholderText(QObject::tr("Enter Rupaya address (e.g. %1)").arg("D7VFR83SQbiezrW72hjcWJtcfip5krte2Z"));
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
     widget->setCheckValidator(new BitcoinAddressCheckValidator(parent));
 }
@@ -155,7 +155,7 @@ void updateWidgetTextAndCursorPosition(QLineEdit* widget, const QString& str)
 
 bool parseBitcoinURI(const QUrl& uri, SendCoinsRecipient* out)
 {
-    // return if URI is not valid or is no PIVX: URI
+    // return if URI is not valid or is no Rupaya: URI
     if (!uri.isValid() || uri.scheme() != QString(URI_SCHEME))
         return false;
 
@@ -204,9 +204,9 @@ bool parseBitcoinURI(const QUrl& uri, SendCoinsRecipient* out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient* out)
 {
-    // Convert pivx:// to pivx:
+    // Convert rupx:// to rupx:
     //
-    //    Cannot handle this later, because pivx:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because rupx:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
     if (uri.startsWith(URI_SCHEME "://", Qt::CaseInsensitive)) {
         uri.replace(0, std::strlen(URI_SCHEME) + 3, URI_SCHEME ":");
@@ -417,7 +417,7 @@ bool openDebugLogfile()
 
 bool openConfigfile()
 {
-    return openFile(GetConfigFile(gArgs.GetArg("-conf", PIVX_CONF_FILENAME)), true);
+    return openFile(GetConfigFile(gArgs.GetArg("-conf", RUPX_CONF_FILENAME)), true);
 }
 
 bool openMNConfigfile()
@@ -459,16 +459,16 @@ fs::path static StartupShortcutPath()
 {
     std::string chain = gArgs.GetChainName();
     if (chain == CBaseChainParams::TESTNET)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "PIVX (testnet).lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Rupaya (testnet).lnk";
     else if (chain == CBaseChainParams::REGTEST)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "PIVX (regtest).lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Rupaya (regtest).lnk";
 
-    return GetSpecialFolderPath(CSIDL_STARTUP) / "PIVX.lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / "Rupaya.lnk";
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for PIVX*.lnk
+    // check for Rupaya*.lnk
     return fs::exists(StartupShortcutPath());
 }
 
@@ -539,7 +539,7 @@ fs::path static GetAutostartDir()
 
 fs::path static GetAutostartFilePath()
 {
-    return GetAutostartDir() / "pivx.desktop";
+    return GetAutostartDir() / "rupx.desktop";
 }
 
 bool GetStartOnSystemStartup()
@@ -576,15 +576,15 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         fsbridge::ofstream optionFile(GetAutostartFilePath(), std::ios_base::out | std::ios_base::trunc);
         if (!optionFile.good())
             return false;
-        // Write a pivx.desktop file to the autostart directory:
+        // Write a rupx.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (gArgs.GetBoolArg("-testnet", false))
-            optionFile << "Name=PIVX (testnet)\n";
+            optionFile << "Name=Rupaya (testnet)\n";
         else if (gArgs.GetBoolArg("-regtest", false))
-            optionFile << "Name=PIVX (regtest)\n";
+            optionFile << "Name=Rupaya (regtest)\n";
         else
-            optionFile << "Name=PIVX\n";
+            optionFile << "Name=Rupaya\n";
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", gArgs.GetBoolArg("-testnet", false), gArgs.GetBoolArg("-regtest", false));
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";

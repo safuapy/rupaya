@@ -11,7 +11,7 @@
 
 #include <QScrollBar>
 
-NavMenuWidget::NavMenuWidget(PIVXGUI *mainWindow, QWidget *parent) :
+NavMenuWidget::NavMenuWidget(RupxGUI *mainWindow, QWidget *parent) :
     PWidget(mainWindow, parent),
     ui(new Ui::NavMenuWidget)
 {

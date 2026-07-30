@@ -105,7 +105,7 @@ bool TransactionRecord::decomposeCreditTransaction(const CWallet* wallet, const 
             sub.credit = txout.nValue;
             sub.involvesWatchAddress = mine & ISMINE_WATCH_ONLY;
             if (ExtractDestination(txout.scriptPubKey, address) && IsMine(*wallet, address)) {
-                // Received by PIVX Address
+                // Received by Rupaya Address
                 sub.type = TransactionRecord::RecvWithAddress;
                 sub.address = EncodeDestination(address);
             } else {
@@ -281,7 +281,7 @@ bool TransactionRecord::decomposeDebitTransaction(const CWallet* wallet, const C
         if (ExtractDestination(txout.scriptPubKey, address)) {
             //This is most likely only going to happen when resyncing deterministic wallet without the knowledge of the
             //private keys that the change was sent to. Do not display a "sent to" here.
-            // Sent to PIVX Address
+            // Sent to Rupaya Address
             sub.type = TransactionRecord::SendToAddress;
             sub.address = EncodeDestination(address);
         } else {

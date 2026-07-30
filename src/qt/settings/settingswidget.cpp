@@ -13,7 +13,7 @@
 #include <QDataWidgetMapper>
 #include <QScrollBar>
 
-SettingsWidget::SettingsWidget(PIVXGUI* parent) :
+SettingsWidget::SettingsWidget(RupxGUI* parent) :
     PWidget(parent),
     ui(new Ui::SettingsWidget)
 {

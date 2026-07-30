@@ -13,7 +13,7 @@
 
 class AddressFilterProxyModel;
 class TooltipMenu;
-class PIVXGUI;
+class RupxGUI;
 class WalletModel;
 
 namespace Ui {
@@ -29,7 +29,7 @@ class AddressesWidget : public PWidget
     Q_OBJECT
 
 public:
-    explicit AddressesWidget(PIVXGUI* parent);
+    explicit AddressesWidget(RupxGUI* parent);
     ~AddressesWidget();
 
     void loadWalletModel() override;

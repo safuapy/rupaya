@@ -1157,7 +1157,7 @@ bool CMasternodeMan::IsWithinDepth(const uint256& nHash, int depth) const
 void ThreadCheckMasternodes()
 {
     // Make this thread recognisable as the wallet flushing thread
-    util::ThreadRename("pivx-masternodeman");
+    util::ThreadRename("rupx-masternodeman");
     LogPrintf("Masternodes thread started\n");
 
     unsigned int c = 0;

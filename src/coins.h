@@ -385,7 +385,7 @@ public:
     size_t DynamicMemoryUsage() const;
 
     /**
-     * Amount of pivx coming in to a transaction
+     * Amount of rupaya coming in to a transaction
      * Note that lightweight clients may not know anything besides the hash of previous transactions,
      * so may not be able to calculate this.
      *
@@ -436,7 +436,7 @@ private:
 };
 
 //! Utility function to add all of a transaction's outputs to a cache.
-// PIVX: When check is false, this assumes that overwrites are never possible due to BIP34 always in effect
+// Rupaya: When check is false, this assumes that overwrites are never possible due to BIP34 always in effect
 // When check is true, the underlying view may be queried to determine whether an addition is
 // an overwrite.
 void AddCoins(CCoinsViewCache& cache, const CTransaction& tx, int nHeight, bool check = false);

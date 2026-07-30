@@ -102,7 +102,7 @@ SET(QT_SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/transactiontablemodel.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/walletmodel.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/walletmodeltransaction.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivxgui.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/rupxgui.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/loadingdialog.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/pwidget.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/focuseddialog.cpp
@@ -200,10 +200,10 @@ set_source_files_properties(${QT_TRANSLATIONS_FILES} PROPERTIES OUTPUT_LOCATION 
 QT5_ADD_TRANSLATION(QM ${QT_TRANSLATIONS_FILES})
 add_custom_target(translations_target ALL DEPENDS ${QM})
 
-QT5_ADD_RESOURCES(QRC_RESOURCE pivx.qrc)
-QT5_ADD_RESOURCES(QRC_LOCALE_RESOURCE pivx_locale.qrc)
+QT5_ADD_RESOURCES(QRC_RESOURCE rupx.qrc)
+QT5_ADD_RESOURCES(QRC_LOCALE_RESOURCE rupx_locale.qrc)
 
-add_executable(rupx-qt pivx.cpp ${QM} ${QRC_RESOURCE} ${QRC_LOCALE_RESOURCE})
+add_executable(rupx-qt rupx.cpp ${QM} ${QRC_RESOURCE} ${QRC_LOCALE_RESOURCE})
 add_dependencies(rupx-qt translations_target libunivalue libsecp256k1 libzcashrust leveldb crc32c bls)
 target_include_directories(rupx-qt PUBLIC ${ENDIAN_INCLUDES} ${GMP_INCLUDE_DIR} ${Boost_INCLUDE_DIRS} ${sodium_INCLUDE_DIR})
 target_link_libraries(rupx-qt

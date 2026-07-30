@@ -3130,7 +3130,7 @@ bool CWallet::CreateTransaction(const std::vector<CRecipient>& vecSend,
                 if (nChange > 0) {
                     // Fill a vout to ourself
                     // TODO: pass in scriptChange instead of reservekey so
-                    // change transaction isn't always pay-to-pivx-address
+                    // change transaction isn't always pay-to-rupx-address
                     bool combineChange = false;
 
                     // coin control: send change to custom address
@@ -4299,7 +4299,7 @@ CWallet* CWallet::CreateWalletFromFile(const std::string& name, const fs::path& 
     const bool fLegacyWallet = gArgs.GetBoolArg("-legacywallet", false);
     if (gArgs.GetBoolArg("-upgradewallet", fFirstRun && !fLegacyWallet) ||
             (!walletInstance->IsLocked() && prev_version == FEATURE_PRE_SPLIT_KEYPOOL)) {
-        if (prev_version <= FEATURE_PRE_PIVX && walletInstance->IsLocked()) {
+        if (prev_version <= FEATURE_PRE_Rupaya && walletInstance->IsLocked()) {
             // Cannot upgrade a locked wallet
             UIError(_("Cannot upgrade a locked wallet."));
             return nullptr;
@@ -4346,7 +4346,7 @@ CWallet* CWallet::CreateWalletFromFile(const std::string& name, const fs::path& 
             }
             // Create legacy wallet
             LogPrintf("Creating Pre-HD Wallet\n");
-            walletInstance->SetMaxVersion(FEATURE_PRE_PIVX);
+            walletInstance->SetMaxVersion(FEATURE_PRE_Rupaya);
         }
 
         // Top up the keypool

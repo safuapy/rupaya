@@ -28,7 +28,7 @@
 #define REQUEST_PREPARE_TX 1
 #define REQUEST_REFRESH_BALANCE 2
 
-SendWidget::SendWidget(PIVXGUI* parent) :
+SendWidget::SendWidget(RupxGUI* parent) :
     PWidget(parent),
     ui(new Ui::send),
     coinIcon(new QPushButton())
@@ -79,7 +79,7 @@ SendWidget::SendWidget(PIVXGUI* parent) :
 
     // Uri
     ui->btnUri->setTitleClassAndText("btn-title-grey", tr("Open URI"));
-    ui->btnUri->setSubTitleClassAndText("text-subtitle", tr("Parse a PIVX URI"));
+    ui->btnUri->setSubTitleClassAndText("text-subtitle", tr("Parse a Rupaya URI"));
 
     // Shield coins
     ui->btnShieldCoins->setTitleClassAndText("btn-title-grey", tr("Shield Coins"));

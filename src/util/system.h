@@ -47,12 +47,12 @@ public:
     boost::signals2::signal<std::string (const char* psz)> Translate;
 };
 
-extern const char * const PIVX_CONF_FILENAME;
-extern const char * const PIVX_PID_FILENAME;
-extern const char * const PIVX_MASTERNODE_CONF_FILENAME;
+extern const char * const RUPX_CONF_FILENAME;
+extern const char * const RUPX_PID_FILENAME;
+extern const char * const RUPX_MASTERNODE_CONF_FILENAME;
 extern const char * const DEFAULT_DEBUGLOGFILE;
 
-//PIVX only features
+//Rupaya only features
 
 extern std::atomic<bool> fMasterNode;
 
@@ -270,7 +270,7 @@ void SetThreadPriority(int nPriority);
 template <typename Callable>
 void TraceThread(const std::string name, Callable func)
 {
-    std::string s = "pivx-" + name;
+    std::string s = "rupx-" + name;
     util::ThreadRename(s.c_str());
     try {
         LogPrintf("%s thread start\n", name);

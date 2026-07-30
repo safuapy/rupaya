@@ -111,11 +111,11 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += pivxd
+  bin_PROGRAMS += rupxd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += pivx-cli pivx-tx
+  bin_PROGRAMS += rupx-cli rupx-tx
 endif
 
 LIBSAPLING_H = \
@@ -136,7 +136,7 @@ LIBSAPLING_H = \
   sapling/sapling_operation.h
 
 .PHONY: FORCE cargo-build check-symbols check-security
-# pivx core #
+# rupx core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   addrdb.h \
@@ -342,7 +342,7 @@ obj/build.h: FORCE
 	  "$(abs_top_srcdir)"
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between pivxd and pivx-qt
+# server: shared between rupxd and rupx-qt
 libbitcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(NATPMP_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_server_a_SOURCES = \
@@ -430,7 +430,7 @@ libbitcoin_zmq_a_SOURCES = \
   zmq/zmqpublishnotifier.cpp
 endif
 
-# wallet: shared between pivxd and pivx-qt, but only linked
+# wallet: shared between rupxd and rupx-qt, but only linked
 # when wallet enabled
 libbitcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -501,7 +501,7 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/sph_types.h
 
 
-# common: shared between pivxd, and pivx-qt and non-server tools
+# common: shared between rupxd, and rupx-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_common_a_SOURCES = \
@@ -619,7 +619,7 @@ libsapling_a_SOURCES += compat/glibc_compat.cpp
 AM_LDFLAGS += $(COMPAT_LDFLAGS)
 endif
 
-# cli: shared between pivx-cli and pivx-qt
+# cli: shared between rupx-cli and rupx-qt
 libbitcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_cli_a_SOURCES = \
@@ -630,16 +630,16 @@ libbitcoin_cli_a_SOURCES = \
 nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# pivxd binary #
-pivxd_SOURCES = pivxd.cpp
-pivxd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-pivxd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-pivxd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# rupxd binary #
+rupxd_SOURCES = rupxd.cpp
+rupxd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+rupxd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+rupxd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-pivxd_SOURCES += pivxd-res.rc
+rupxd_SOURCES += rupxd-res.rc
 endif
-pivxd_LDADD = \
+rupxd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_WALLET) \
   $(LIBBITCOIN_COMMON) \
@@ -655,19 +655,19 @@ pivxd_LDADD = \
   $(LIBRUSTZCASH) \
   $(LIBZCASH_LIBS)
 
-pivxd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(MINIUPNPC_LIBS) $(NATPMP_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS) $(BLS_LIBS)
+rupxd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(MINIUPNPC_LIBS) $(NATPMP_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS) $(BLS_LIBS)
 
-# pivx-cli binary #
-pivx_cli_SOURCES = pivx-cli.cpp
-pivx_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-pivx_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-pivx_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# rupx-cli binary #
+rupx_cli_SOURCES = rupx-cli.cpp
+rupx_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+rupx_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+rupx_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-pivx_cli_SOURCES += pivx-cli-res.rc
+rupx_cli_SOURCES += rupx-cli-res.rc
 endif
 
-pivx_cli_LDADD = \
+rupx_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
@@ -676,20 +676,20 @@ pivx_cli_LDADD = \
   $(LIBRUSTZCASH) \
   $(LIBZCASH_LIBS)
 
-pivx_cli_LDADD += $(BOOST_LIBS) $(EVENT_LIBS) $(BLS_LIBS)
+rupx_cli_LDADD += $(BOOST_LIBS) $(EVENT_LIBS) $(BLS_LIBS)
 #
 
-# pivx-tx binary #
-pivx_tx_SOURCES = pivx-tx.cpp
-pivx_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-pivx_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-pivx_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# rupx-tx binary #
+rupx_tx_SOURCES = rupx-tx.cpp
+rupx_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+rupx_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+rupx_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-pivx_tx_SOURCES += pivx-tx-res.rc
+rupx_tx_SOURCES += rupx-tx-res.rc
 endif
 
-pivx_tx_LDADD = \
+rupx_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -699,7 +699,7 @@ pivx_tx_LDADD = \
   $(LIBRUSTZCASH) \
   $(LIBZCASH_LIBS)
 
-pivx_tx_LDADD += $(BOOST_LIBS) $(BLS_LIBS)
+rupx_tx_LDADD += $(BOOST_LIBS) $(BLS_LIBS)
 #
 
 # bitcoinconsensus library #

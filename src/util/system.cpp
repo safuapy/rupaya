@@ -78,11 +78,11 @@
 #include <CoreFoundation/CoreFoundation.h>
 #endif
 
-const char * const PIVX_CONF_FILENAME = "pivx.conf";
-const char * const PIVX_MASTERNODE_CONF_FILENAME = "masternode.conf";
+const char * const RUPX_CONF_FILENAME = "rupx.conf";
+const char * const RUPX_MASTERNODE_CONF_FILENAME = "masternode.conf";
 
 
-// PIVX only features
+// Rupaya only features
 // Masternode
 std::atomic<bool> fMasterNode{false};
 
@@ -230,7 +230,7 @@ public:
         std::pair<bool,std::string> found_result(false, std::string());
 
         // We pass "true" to GetArgHelper in order to return the last
-        // argument value seen from the command line (so "pivxd -foo=bar
+        // argument value seen from the command line (so "rupxd -foo=bar
         // -foo=baz" gives GetArg(am,"foo")=={true,"baz"}
         found_result = GetArgHelper(am.m_override_args, arg, true);
         if (found_result.first) {
@@ -513,7 +513,7 @@ static std::string FormatException(const std::exception* pex, const char* pszThr
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(nullptr, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "pivx";
+    const char* pszModule = "rupx";
 #endif
     if (pex)
         return strprintf(
@@ -654,14 +654,14 @@ void initZKSNARKS()
         CFRelease(mainBundle);
 #else
         // Linux fallback path for debuild/ppa based installs
-        sapling_spend = "/usr/share/pivx/sapling-spend.params";
-        sapling_output = "/usr/share/pivx/sapling-output.params";
+        sapling_spend = "/usr/share/rupaya/sapling-spend.params";
+        sapling_output = "/usr/share/rupaya/sapling-output.params";
         if (fs::exists(sapling_spend) && fs::exists(sapling_output)) {
             fParamsFound = true;
         } else {
             // Linux fallback for local installs
-            sapling_spend = "/usr/local/share/pivx/sapling-spend.params";
-            sapling_output = "/usr/local/share/pivx/sapling-output.params";
+            sapling_spend = "/usr/local/share/rupaya/sapling-spend.params";
+            sapling_output = "/usr/local/share/rupaya/sapling-output.params";
         }
 #endif
         if (fs::exists(sapling_spend) && fs::exists(sapling_output))
@@ -775,7 +775,7 @@ fs::path GetConfigFile(const std::string& confPath)
 
 fs::path GetMasternodeConfigFile()
 {
-    fs::path pathConfigFile(gArgs.GetArg("-mnconf", PIVX_MASTERNODE_CONF_FILENAME));
+    fs::path pathConfigFile(gArgs.GetArg("-mnconf", RUPX_MASTERNODE_CONF_FILENAME));
     return AbsPathForConfigVal(pathConfigFile);
 }
 

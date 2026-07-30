@@ -12,7 +12,7 @@
 #include <QDialog>
 
 class WalletModel;
-class PIVXGUI;
+class RupxGUI;
 
 namespace Ui
 {

@@ -8,7 +8,7 @@
 #include "pwidget.h"
 #include <QWidget>
 
-class PIVXGUI;
+class RupxGUI;
 
 namespace Ui {
 class NavMenuWidget;
@@ -19,7 +19,7 @@ class NavMenuWidget : public PWidget
     Q_OBJECT
 
 public:
-    explicit NavMenuWidget(PIVXGUI* mainWindow, QWidget *parent = nullptr);
+    explicit NavMenuWidget(RupxGUI* mainWindow, QWidget *parent = nullptr);
     ~NavMenuWidget();
 
     void loadWalletModel() override;

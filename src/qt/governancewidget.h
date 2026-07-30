@@ -23,7 +23,7 @@ class QTimer;
 QT_END_NAMESPACE
 
 class MNModel;
-class PIVXGUI;
+class RupxGUI;
 class GovernanceModel;
 class TooltipMenu;
 
@@ -57,7 +57,7 @@ class GovernanceWidget : public PWidget
     Q_OBJECT
 
 public:
-    explicit GovernanceWidget(PIVXGUI* parent);
+    explicit GovernanceWidget(RupxGUI* parent);
     ~GovernanceWidget() override;
 
     void showEvent(QShowEvent *event) override;

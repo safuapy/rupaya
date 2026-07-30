@@ -32,7 +32,7 @@ endfunction()
 GenerateRaws(${RAW_TEST_FILES})
 
 set(BITCOIN_BENCH_SUITE
-        ${CMAKE_CURRENT_SOURCE_DIR}/bench_pivx.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/bench_rupx.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/bench.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/bench.h
         ${CMAKE_CURRENT_SOURCE_DIR}/Examples.cpp

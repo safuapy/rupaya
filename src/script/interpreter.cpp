@@ -1208,7 +1208,7 @@ uint256 SignatureHash(const CScript& scriptCode, const CTransaction& txTo, unsig
         if ((nHashType & 0x1f) != SIGHASH_SINGLE && (nHashType & 0x1f) != SIGHASH_NONE) {
             hashOutputs = cache ? cache->hashOutputs : GetOutputsHash(txTo);
         } else if ((nHashType & 0x1f) == SIGHASH_SINGLE && nIn < txTo.vout.size()) {
-            CBLAKE2bWriter ss(SER_GETHASH, 0, PIVX_OUTPUTS_HASH_PERSONALIZATION);
+            CBLAKE2bWriter ss(SER_GETHASH, 0, Rupaya_OUTPUTS_HASH_PERSONALIZATION);
             ss << txTo.vout[nIn];
             hashOutputs = ss.GetHash();
         }

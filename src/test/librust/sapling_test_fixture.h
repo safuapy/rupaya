@@ -5,7 +5,7 @@
 #ifndef RUPX_TEST_LIBRUST_SAPLING_TEST_FIXTURE_H
 #define RUPX_TEST_LIBRUST_SAPLING_TEST_FIXTURE_H
 
-#include "test/test_pivx.h"
+#include "test/test_rupx.h"
 
 /**
  * Testing setup that configures a complete environment for Sapling testing.

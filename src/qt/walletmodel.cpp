@@ -471,7 +471,7 @@ WalletModel::SendCoinsReturn WalletModel::prepareTransaction(WalletModelTransact
 
     // Pre-check input data for validity
     for (const SendCoinsRecipient& rcp : recipients) {
-        { // User-entered pivx address / amount:
+        { // User-entered rupaya address / amount:
             if (!validateAddress(rcp.address, rcp.isP2CS)) {
                 return InvalidAddress;
             }
@@ -988,7 +988,7 @@ bool WalletModel::updateAddressBookPurpose(const QString &addressStr, const std:
     bool isStaking = false, isExchange = false;
     CTxDestination address = DecodeDestination(addressStr.toStdString(), isStaking, isExchange);
     if (isStaking)
-        return error("Invalid PIVX address, cold staking address");
+        return error("Invalid Rupaya address, cold staking address");
     CKeyID keyID;
     if (!getKeyId(address, keyID))
         return false;
@@ -998,11 +998,11 @@ bool WalletModel::updateAddressBookPurpose(const QString &addressStr, const std:
 bool WalletModel::getKeyId(const CTxDestination& address, CKeyID& keyID)
 {
     if (!IsValidDestination(address))
-        return error("Invalid PIVX address");
+        return error("Invalid Rupaya address");
 
     const CKeyID* inKeyID = boost::get<CKeyID>(&address);
     if (!inKeyID)
-        return error("Unable to get KeyID from PIVX address");
+        return error("Unable to get KeyID from Rupaya address");
 
     keyID = *inKeyID;
     return true;

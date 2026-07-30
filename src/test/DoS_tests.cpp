@@ -7,7 +7,7 @@
 // Unit tests for denial-of-service detection/prevention code
 //
 
-#include "test/test_pivx.h"
+#include "test/test_rupx.h"
 
 #include "arith_uint256.h"
 #include "keystore.h"

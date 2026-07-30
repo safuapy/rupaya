@@ -2,7 +2,7 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php.
 
-#include "test/test_pivx.h"
+#include "test/test_rupx.h"
 
 #include "test/data/specialtx_invalid.json.h"
 #include "test/data/specialtx_valid.json.h"

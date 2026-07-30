@@ -19,7 +19,7 @@
 #include "settings/walletoptionswidget.h"
 #include "settings/walletrepairwidget.h"
 
-class PIVXGUI;
+class RupxGUI;
 
 QT_BEGIN_NAMESPACE
 class QDataWidgetMapper;
@@ -34,7 +34,7 @@ class SettingsWidget : public PWidget
     Q_OBJECT
 
 public:
-    explicit SettingsWidget(PIVXGUI* parent);
+    explicit SettingsWidget(RupxGUI* parent);
     ~SettingsWidget();
 
     void loadClientModel() override;

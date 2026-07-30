@@ -18,7 +18,6 @@
 #include "tinyformat.h"
 #include "uint256.h"
 #include "util/system.h"
-#include "libzerocoin/Denominations.h"
 
 #include <vector>
 

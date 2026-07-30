@@ -12,7 +12,7 @@
 #include "qtutils.h"
 #include "sendmemodialog.h"
 
-SendMultiRow::SendMultiRow(PIVXGUI* _window, PWidget *parent) :
+SendMultiRow::SendMultiRow(RupxGUI* _window, PWidget *parent) :
     PWidget(_window, parent),
     ui(new Ui::SendMultiRow),
     iconNumber(new QPushButton())

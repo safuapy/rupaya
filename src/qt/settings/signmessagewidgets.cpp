@@ -17,7 +17,7 @@
 
 #include <QClipboard>
 
-SettingsSignMessageWidgets::SettingsSignMessageWidgets(PIVXGUI* _window, QWidget *parent) :
+SettingsSignMessageWidgets::SettingsSignMessageWidgets(RupxGUI* _window, QWidget *parent) :
     PWidget(_window, parent),
     ui(new Ui::SettingsSignMessageWidgets)
 {

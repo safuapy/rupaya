@@ -5,7 +5,7 @@
 #ifndef RUPX_QT_QTUTILS_H
 #define RUPX_QT_QTUTILS_H
 
-#include "pivxgui.h"
+#include "rupxgui.h"
 
 #include <QAbstractAnimation>
 #include <QColor>
@@ -33,11 +33,11 @@ const QString RESYNC("-resync");
 extern Qt::Modifier SHORT_KEY;
 
 bool openDialog(QDialog* widget, QWidget* gui);
-void closeDialog(QDialog* widget, PIVXGUI* gui);
+void closeDialog(QDialog* widget, RupxGUI* gui);
 void openDialogFullScreen(QWidget* parent, QWidget* dialog);
-bool openDialogWithOpaqueBackgroundY(QDialog* widget, PIVXGUI* gui, double posX = 3, int posY = 5, bool hideOpaqueBackground = true);
-bool openDialogWithOpaqueBackground(QDialog* widget, PIVXGUI* gui, double posX = 3);
-bool openDialogWithOpaqueBackgroundFullScreen(QDialog* widget, PIVXGUI* gui);
+bool openDialogWithOpaqueBackgroundY(QDialog* widget, RupxGUI* gui, double posX = 3, int posY = 5, bool hideOpaqueBackground = true);
+bool openDialogWithOpaqueBackground(QDialog* widget, RupxGUI* gui, double posX = 3);
+bool openDialogWithOpaqueBackgroundFullScreen(QDialog* widget, RupxGUI* gui);
 
 //
 QPixmap encodeToQr(const QString& str, QString& errorStr, const QColor& qrColor = Qt::black);

@@ -15,7 +15,7 @@
 #include <QListView>
 #include <QSettings>
 
-SettingsDisplayOptionsWidget::SettingsDisplayOptionsWidget(PIVXGUI* _window, QWidget *parent) :
+SettingsDisplayOptionsWidget::SettingsDisplayOptionsWidget(RupxGUI* _window, QWidget *parent) :
     PWidget(_window,parent),
     ui(new Ui::SettingsDisplayOptionsWidget)
 {

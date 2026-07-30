@@ -113,7 +113,7 @@ void VoteDialog::showEvent(QShowEvent *event)
 
 void VoteDialog::onMnSelectionClicked()
 {
-    PIVXGUI* window = dynamic_cast<PIVXGUI*>(parent());
+    RupxGUI* window = dynamic_cast<RupxGUI*>(parent());
     if (!mnSelectionDialog) {
         mnSelectionDialog = new MnSelectionDialog(window);
         mnSelectionDialog->setModel(mnModel, govModel->getProposalVoteUpdateMinTime());

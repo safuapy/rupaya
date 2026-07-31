@@ -1,9 +1,9 @@
 /* src/config/rupx-config.h.  Generated from rupx-config.h.in by configure.  */
 /* src/config/rupx-config.h.in.  Generated from configure.ac by autoheader.  */
 
-#ifndef RUPX_CONFIG_H
+#ifndef RUPX_CONFIG_RUPX_CONFIG_H
 
-#define RUPX_CONFIG_H
+#define RUPX_CONFIG_RUPX_CONFIG_H
 
 /* Define if building universal (internal helper macro) */
 /* #undef AC_APPLE_UNIVERSAL_BUILD */
@@ -451,4 +451,4 @@
 /* Define to 1 on platforms where this makes time_t a 64-bit type. */
 /* #undef __MINGW_USE_VC2005_COMPAT */
 
-#endif //RUPX_CONFIG_H
+#endif //RUPX_CONFIG_RUPX_CONFIG_H

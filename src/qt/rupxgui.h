@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef RUPX_QT_RupxGUI_H
-#define RUPX_QT_RupxGUI_H
+#ifndef RUPX_QT_RUPXGUI_H
+#define RUPX_QT_RUPXGUI_H
 
 #if defined(HAVE_CONFIG_H)
 #include "config/rupx-config.h"
@@ -201,4 +201,4 @@ Q_SIGNALS:
 };
 
 
-#endif // RUPX_QT_RupxGUI_H
+#endif // RUPX_QT_RUPXGUI_H

@@ -99,7 +99,7 @@ if(CMAKE_VERSION VERSION_LESS "3.30.0")
 else()
     cmake_policy(SET CMP0167 NEW)
 endif()
-find_package(Boost COMPONENTS system filesystem chrono thread unit_test_framework REQUIRED)
+find_package(Boost COMPONENTS filesystem chrono thread unit_test_framework REQUIRED)
 
 # Other required library dependencies
 find_package(GMP REQUIRED)

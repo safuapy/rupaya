@@ -1096,7 +1096,6 @@ AX_BOOST_BASE([MINIMUM_REQUIRED_BOOST])
 if test x$want_boost = xno; then
     AC_MSG_ERROR([only libbitcoinconsensus can be built without boost])
 fi
-AX_BOOST_SYSTEM
 AX_BOOST_FILESYSTEM
 AX_BOOST_THREAD
 AX_BOOST_CHRONO
@@ -1150,7 +1149,7 @@ if test x$use_tests = xyes; then
 fi
 
 if test x$use_boost = xyes; then
-  BOOST_LIBS="$BOOST_LDFLAGS $BOOST_SYSTEM_LIB $BOOST_FILESYSTEM_LIB $BOOST_THREAD_LIB $BOOST_CHRONO_LIB"
+  BOOST_LIBS="$BOOST_LDFLAGS $BOOST_FILESYSTEM_LIB $BOOST_THREAD_LIB $BOOST_CHRONO_LIB"
 fi
 
 if test x$use_pkgconfig = xyes; then
@@ -1302,7 +1301,7 @@ dnl Additional Zcash flags
 AX_CHECK_COMPILE_FLAG([-fno-strict-aliasing], [CXXFLAGS="$CXXFLAGS -fno-strict-aliasing"])
 AX_CHECK_COMPILE_FLAG([-Wno-builtin-declaration-mismatch], [CXXFLAGS="$CXXFLAGS -Wno-builtin-declaration-mismatch"], [], [$CXXFLAG_WERROR])
 
-LIBZCASH_LIBS="$BOOST_SYSTEM_LIB $SODIUM_LIBS $RUST_LIBS"
+LIBZCASH_LIBS="$SODIUM_LIBS $RUST_LIBS"
 
 AC_MSG_CHECKING([whether to build rupxd])
 AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_bitcoind = xyes])

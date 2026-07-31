@@ -1,78 +1,78 @@
 # Copyright (c) 2018-2019 The Ion developers
-# Copyright (c) 2019 The PIVX developers
-name: pivx-core
+# Copyright (c) 2019 The Rupaya developers
+name: rupaya-core
 base: core18
 version: 5.6.99
-summary:   PIVX (Private – Instant – Verified – Transaction)
+summary:   Rupaya (Private – Instant – Verified – Transaction)
 description: |
-  PIVX is an MIT licensed,
+  Rupaya is an MIT licensed,
   open source, blockchain-based cryptocurrency with
   ultra fast transactions, low fees, high network decentralization, and
   Zero Knowledge cryptography proofs for industry-leading
   transaction anonymity.
 
-  - [Download](https://pivx.org/wp-content/uploads/2018/10/PIVX-White.pdf) PIVX White Paper PDF
+  - [Download](https://rupaya.io/wp-content/uploads/2018/10/Rupaya-White.pdf) Rupaya White Paper PDF
 grade: devel
 confinement: strict
 
 apps:
   daemon:
-    command: pivxd
+    command: rupxd
     plugs: [network, network-bind, home, removable-media]
-    desktop: pivxd.desktop
+    desktop: rupxd.desktop
     environment:
       XDG_DATA_DIRS: $SNAP_USER_DATA:$SNAP/usr/share:$XDG_DATA_DIRS
       HOME: $SNAP_USER_COMMON
   daemon-testnet:
-    command: pivxd --testnet
+    command: rupxd --testnet
     plugs: [network, network-bind, home, removable-media]
-    desktop: pivxd_testnet.desktop
+    desktop: rupxd_testnet.desktop
     environment:
       XDG_DATA_DIRS: $SNAP_USER_DATA:$SNAP/usr/share:$XDG_DATA_DIRS
       HOME: $SNAP_USER_COMMON
   qt:
-    command: desktop-launch pivx-qt
+    command: desktop-launch rupx-qt
     plugs: [network, network-bind, network-status, unity7, desktop, desktop-legacy, wayland, x11, mir, opengl, home, gsettings, removable-media, screen-inhibit-control, pulseaudio, media-hub]
-    desktop: pivx-qt.desktop
+    desktop: rupx-qt.desktop
     environment:
       QT_XKB_CONFIG_ROOT: $SNAP_USER_DATA:$SNAP/usr/share:$QT_XKB_CONFIG_ROOT
       XDG_DATA_DIRS: $SNAP_USER_DATA:$SNAP/usr/share:$XDG_DATA_DIRS
       HOME: $SNAP_USER_COMMON
   qt-testnet:
-    command: desktop-launch pivx-qt --testnet
+    command: desktop-launch rupx-qt --testnet
     plugs: [network, network-bind, network-status, unity7, desktop, desktop-legacy, wayland, x11, mir, opengl, home, gsettings, removable-media, screen-inhibit-control, pulseaudio, media-hub]
-    desktop: pivx-qt_testnet.desktop
+    desktop: rupx-qt_testnet.desktop
     environment:
       QT_XKB_CONFIG_ROOT: $SNAP_USER_DATA:$SNAP/usr/share:$QT_XKB_CONFIG_ROOT
       XDG_DATA_DIRS: $SNAP_USER_DATA:$SNAP/usr/share:$XDG_DATA_DIRS
       HOME: $SNAP_USER_COMMON
   cli:
-    command: pivx-cli
+    command: rupx-cli
     plugs: [network, network-bind, home, removable-media]
     environment:
       XDG_DATA_DIRS: $SNAP_USER_DATA:$SNAP/usr/share:$XDG_DATA_DIRS
       HOME: $SNAP_USER_COMMON
   cli-testnet:
-    command: pivx-cli --testnet
+    command: rupx-cli --testnet
     plugs: [network, network-bind, home, removable-media]
     environment:
       XDG_DATA_DIRS: $SNAP_USER_DATA:$SNAP/usr/share:$XDG_DATA_DIRS
       HOME: $SNAP_USER_COMMON
   tx:
-    command: pivx-tx
+    command: rupx-tx
     plugs: [home]
   test:
-    command: test_pivx
+    command: test_rupx
     plugs: [home]
   testqt:
-    command: test_pivx-qt
+    command: test_rupx-qt
     plugs: [home]
 
 layout:
-  /usr/share/pivx/sapling-spend.params:
-    bind-file: $SNAP/share/pivx/sapling-spend.params
-  /usr/share/pivx/sapling-output.params:
-    bind-file: $SNAP/share/pivx/sapling-output.params
+  /usr/share/rupaya/sapling-spend.params:
+    bind-file: $SNAP/share/rupaya/sapling-spend.params
+  /usr/share/rupaya/sapling-output.params:
+    bind-file: $SNAP/share/rupaya/sapling-output.params
 
 parts:
 
@@ -105,8 +105,8 @@ parts:
       - xdg-user-dirs
       - fcitx-frontend-qt5
 
-  pivx-core:
-    source: https://github.com/PIVX-Project/PIVX
+  rupaya-core:
+    source: https://github.com/Rupaya-Project/Rupaya
     source-type: git
     source-tag: master
     plugin: nil
@@ -118,7 +118,7 @@ parts:
       #    project is called ioncore because ion exists already as package. For anybody
       #    offering non official release and using own SNAP, this variable should be used
       #    default value is "false", to enable it, use your projects binary prefix
-      OVERRIDEBINPREFIX="pivx"
+      OVERRIDEBINPREFIX="rupx"
       OVERRIDEDATADIR="false"
       OVERRIDECONF="${OVERRIDEDATADIR}"
       COPYCONF=0    # copy example config into users data folder, 1 = enabled
@@ -212,8 +212,8 @@ parts:
       echo "INSTALLATION OF ${BINPREF}-${SNAPCRAFT_PROJECT_VERSION}" # run make install with a prefix where to install
       echo "+++++++++++++++++++++++++++++++++++++++++++++++"
       make install prefix=${SNAPCRAFT_PART_INSTALL}
-      install -m 0644 -D -T $SNAPCRAFT_PART_BUILD/src/qt/res/icons/bitcoin.png $SNAPCRAFT_PART_INSTALL/share/pixmaps/pivx.png
-      install -m 0644 -D -T $SNAPCRAFT_PART_BUILD/src/qt/res/icons/bitcoin_testnet.png $SNAPCRAFT_PART_INSTALL/share/pixmaps/pivx_testnet.png
+      install -m 0644 -D -T $SNAPCRAFT_PART_BUILD/src/qt/res/icons/bitcoin.png $SNAPCRAFT_PART_INSTALL/share/pixmaps/rupx.png
+      install -m 0644 -D -T $SNAPCRAFT_PART_BUILD/src/qt/res/icons/bitcoin_testnet.png $SNAPCRAFT_PART_INSTALL/share/pixmaps/rupx_testnet.png
       echo "-----------------------------------------------"
       echo "+++++++++++++++++++++++++++++++++++++++++++++++"
       echo "POST INSTALL SCRIPTS OF ${BINPREF}-${SNAPCRAFT_PROJECT_VERSION}" # run make install with a prefix where to install
@@ -247,7 +247,7 @@ parts:
       fi
       echo "-----------------------------------------------"
       echo "+++++++++++++++++++++++++++++++++++++++++++++++"
-      echo "CONFIG FILE" # create .pivx folder and copy example config - !!!warning!!!: do not copy as pivx.conf
+      echo "CONFIG FILE" # create .rupx folder and copy example config - !!!warning!!!: do not copy as rupx.conf
       echo "+++++++++++++++++++++++++++++++++++++++++++++++"
       mkdir -p ${SNAP_USER_COMMON}/.${DATADIR}
       if [ $COPYCONF = 1 ]; then

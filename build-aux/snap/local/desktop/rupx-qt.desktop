@@ -1,0 +1,15 @@
+# http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=Rupaya Core
+Comment=Rupaya Core QT main network
+GenericName=Rupaya Digital Currency QT client main network
+Exec=rupaya-core.qt %u
+Terminal=false
+Type=Application
+Icon=${SNAP}/share/pixmaps/rupx.png
+MimeType=x-scheme-handler/rupx;
+Categories=X-Office;X-Finance;
+Keywords=internet;rupx;rupx;rupx;core;wallet;qt;main;snap;launchpad;crypto;digital;currency;coin;token;rupx;
+Version=1.0

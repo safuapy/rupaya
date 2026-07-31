@@ -1,0 +1,8 @@
+/usr/bin/rupx-cli		--	gen_context(system_u:object_r:rupx_exec_t,s0)
+/usr/sbin/rupxd		--	gen_context(system_u:object_r:rupx_exec_t,s0)
+/usr/lib(64)?/rupx/rupxd		--	gen_context(system_u:object_r:rupx_exec_t,s0)
+
+/etc/rupx(/.*)?		gen_context(system_u:object_r:rupx_conf_t,s0)
+/var/lib/rupx(/.*)?		gen_context(system_u:object_r:rupx_var_lib_t,s0)
+
+(/var)?/run/rupxd(/.*)?   gen_context(system_u:object_r:rupx_var_run_t,s0)

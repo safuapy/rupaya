@@ -14,7 +14,7 @@ import random
 import time
 
 from test_framework.messages import COutPoint
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import RupxTestFramework
 from test_framework.util import (
     assert_equal,
     assert_greater_than,
@@ -24,7 +24,7 @@ from test_framework.util import (
 )
 
 
-class TiertwoReorgMempoolTest(PivxTestFramework):
+class TiertwoReorgMempoolTest(RupxTestFramework):
 
     def set_test_params(self):
         # two nodes mining on separate chains

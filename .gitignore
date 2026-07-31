@@ -8,14 +8,14 @@ reset-files.bash
 *.tar.gz
 
 *.exe
-src/pivx
-src/pivxd
-src/pivx-cli
-src/pivx-tx
-src/bench/bench_pivx
-src/test/test_pivx
-src/test/test_pivx_fuzzy
-src/qt/test/test_pivx-qt
+src/rupx
+src/rupxd
+src/rupx-cli
+src/rupx-tx
+src/bench/bench_rupx
+src/test/test_rupx
+src/test/test_rupx_fuzzy
+src/qt/test/test_rupx-qt
 src/test/fuzz/address_deserialize
 src/test/fuzz/addrman_deserialize
 src/test/fuzz/banentry_deserialize
@@ -62,8 +62,8 @@ confdefs.h
 conftest.cpp
 conftest.err
 libtool
-src/config/pivx-config.h
-src/config/pivx-config.h.in
+src/config/rupx-config.h
+src/config/rupx-config.h.in
 src/config/stamp-h1
 src/obj
 share/setup.nsi
@@ -89,7 +89,7 @@ src/qt/test/moc*.cpp
 *.pyc
 *.o
 *.o-*
-.pivx
+.rupx
 *.a
 *.pb.cc
 *.pb.h
@@ -113,8 +113,8 @@ src/qt/test/moc*.cpp
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-pivx-qt
-PIVX-Qt.app
+rupx-qt
+Rupaya-Qt.app
 background.tiff*
 
 # Rust
@@ -125,7 +125,7 @@ vendor/
 
 # Unit-tests
 Makefile.test
-pivx-qt_test
+rupx-qt_test
 src/test/buildenv.py
 
 # Resources cpp
@@ -141,7 +141,7 @@ build
 #lcov
 *.gcno
 /*.info
-test_pivx.coverage/
+test_rupx.coverage/
 total.coverage/
 coverage_percent.txt
 
@@ -171,8 +171,8 @@ moc_*
 *.tmp
 ui_*
 build*
-pivxd.*
-pivxd-new-gui.*
+rupxd.*
+rupxd-new-gui.*
 /cov-int/
 
 cppcheck.txt

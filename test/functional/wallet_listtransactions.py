@@ -8,7 +8,7 @@ from decimal import Decimal
 from io import BytesIO
 
 from test_framework.messages import CTransaction
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import RupxTestFramework
 from test_framework.util import (
     assert_array_result,
     assert_equal,
@@ -21,7 +21,7 @@ def txFromHex(hexstring):
     tx.deserialize(f)
     return tx
 
-class ListTransactionsTest(PivxTestFramework):
+class ListTransactionsTest(RupxTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         # whitelist all peers to speed up tx relay / mempool sync

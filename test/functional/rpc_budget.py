@@ -4,11 +4,11 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test RPC commands for budget proposal creation, submission, and verification."""
 
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import RupxTestFramework
 from test_framework.util import assert_equal, assert_raises_rpc_error
 import time
 
-class BudgetProposalTest(PivxTestFramework):
+class BudgetProposalTest(RupxTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
 
@@ -46,8 +46,8 @@ class BudgetProposalTest(PivxTestFramework):
         assert_raises_rpc_error(-8, "Invalid block start", self.nodes[0].preparebudget,
                                 name, scheme + url, numcycles, nextsuperblock - budgetcycleblocks, address, cycleamount)
 
-        self.log.info("Test with invalid PIVX address")
-        assert_raises_rpc_error(-5, "Invalid PIVX address", self.nodes[0].preparebudget,
+        self.log.info("Test with invalid Rupaya address")
+        assert_raises_rpc_error(-5, "Invalid Rupaya address", self.nodes[0].preparebudget,
                                 name, scheme + url, numcycles, nextsuperblock, "DBREvBPNQguwuC4YMoCG5FoH1sA2YntvZm", cycleamount)
 
         self.log.info("Test with too low amount")

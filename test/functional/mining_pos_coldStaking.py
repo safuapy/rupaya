@@ -9,7 +9,7 @@ from time import sleep
 
 from test_framework.messages import CTransaction, CTxIn, CTxOut, COIN, COutPoint
 from test_framework.script import CScript, OP_CHECKSIG
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import RupxTestFramework
 from test_framework.util import (
     assert_equal,
     assert_greater_than,
@@ -22,7 +22,7 @@ def getDelegatedUtxos(utxos):
     return [x for x in utxos if x["scriptPubKey"][:10] == '76a97b63d1' or x["scriptPubKey"][:10] == '76a97b63d2']
 
 
-class PIVX_ColdStakingTest(PivxTestFramework):
+class Rupx_ColdStakingTest(RupxTestFramework):
 
     def set_test_params(self):
         self.num_nodes = 3
@@ -471,4 +471,4 @@ class PIVX_ColdStakingTest(PivxTestFramework):
 
 
 if __name__ == '__main__':
-    PIVX_ColdStakingTest().main()
+    Rupx_ColdStakingTest().main()

@@ -38,7 +38,7 @@ IGNORED_WARNINGS=(
     "src/primitives/block.h:.* Class 'CBlock' has a constructor with 1 argument that is not explicit."
     "src/primitives/transaction.h:.* Class 'CTransaction' has a constructor with 1 argument that is not explicit."
     "src/primitives/transaction.h:.* Struct 'CMutableTransaction' has a constructor with 1 argument that is not explicit."
-    "src/libzerocoin/bignum.h:.* Class 'CBigNum' has a constructor with 1 argument that is not explicit."
+    "Class 'CBigNum' has a constructor with 1 argument that is not explicit."
     "src/qt/walletmodel.h:.* Struct 'SendCoinsReturn' has a constructor with 1 argument that is not explicit."
     "src/rpc/server.h:.* Struct 'UniValueType' has a constructor with 1 argument that is not explicit."
     "src/sapling/incrementalmerkletree.h:.* Class 'PedersenHash' has a constructor with 1 argument that is not explicit."

@@ -15,13 +15,13 @@ Test checking:
 
 import time
 
-from test_framework.test_framework import PivxTier2TestFramework
+from test_framework.test_framework import RupxTier2TestFramework
 from test_framework.util import (
     wait_until,
 )
 
 
-class MasternodeActivationTest(PivxTier2TestFramework):
+class MasternodeActivationTest(RupxTier2TestFramework):
 
     def disconnect_remotes(self):
         for i in [self.remoteOnePos, self.remoteTwoPos]:

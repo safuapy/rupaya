@@ -1,11 +1,11 @@
 Sample configuration files for:
 ```
-SystemD: pivxd.service
-Upstart: pivxd.conf
-OpenRC:  pivxd.openrc
-         pivxd.openrcconf
-CentOS:  pivxd.init
-macOS:    org.pivx.pivxd.plist
+SystemD: rupxd.service
+Upstart: rupxd.conf
+OpenRC:  rupxd.openrc
+         rupxd.openrcconf
+CentOS:  rupxd.init
+macOS:    org.rupaya.rupxd.plist
 ```
 have been made available to assist packagers in creating node packages here.
 

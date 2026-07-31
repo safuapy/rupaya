@@ -205,7 +205,7 @@ def ToHex(obj):
     return obj.serialize().hex()
 
 
-# Objects that map to pivxd objects, which can be serialized/deserialized
+# Objects that map to rupxd objects, which can be serialized/deserialized
 class CAddress:
     __slots__ = ("net", "ip", "nServices", "port", "time")
 
@@ -415,7 +415,7 @@ class CTxIn:
             % (repr(self.prevout), self.scriptSig.hex(),
                self.nSequence)
 
-    def is_zerocoinspend(self):
+    def is_zerocoinspend_removed(self):
         return self.scriptSig.hex()[:2] == "c2"
 
 
@@ -512,7 +512,7 @@ class CTransaction:
         return (
                 len(self.vin) == 1 and
                 self.vin[0].prevout == NullOutPoint and
-                (not self.vin[0].is_zerocoinspend())
+                (not self.vin[0].is_zerocoinspend_removed())
         )
 
     def is_coinstake(self):
@@ -608,7 +608,7 @@ class CBlockHeader:
         self.calc_sha256()
         return self.sha256
 
-    # PIVX
+    # Rupaya
     def solve_stake(self, stakeInputs, prevModifier):
         target0 = uint256_from_compact(self.nBits)
         loop = True
@@ -1452,7 +1452,7 @@ class msg_headers:
         self.headers = headers if headers is not None else []
 
     def deserialize(self, f):
-        # comment in pivxd indicates these should be deserialized as blocks
+        # comment in rupxd indicates these should be deserialized as blocks
         blocks = deser_vector(f, CBlock)
         for x in blocks:
             self.headers.append(CBlockHeader(x))
@@ -1574,7 +1574,7 @@ class msg_witness_blocktxn(msg_blocktxn):
         return r
 
 
-# PIVX Classes
+# Rupaya Classes
 class Masternode(object):
     __slots__ = ("idx", "owner", "operator_pk", "voting", "ipport", "payee", "operator_sk", "proTx", "collateral")
 

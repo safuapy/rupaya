@@ -8,13 +8,13 @@ Node0 generates staking addresses and sends delegations to them.
 Node1 imports and rescans. The test checks that cold utxos and staking balance is updated.
 """
 
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import RupxTestFramework
 from test_framework.util import (
     assert_equal,
     DecimalAmt,
 )
 
-class ImportStakingTest(PivxTestFramework):
+class ImportStakingTest(RupxTestFramework):
 
     def set_test_params(self):
         self.num_nodes = 2

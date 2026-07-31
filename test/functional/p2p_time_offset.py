@@ -5,7 +5,7 @@
 
 import time
 
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import RupxTestFramework
 from test_framework.util import (
     assert_equal,
     set_node_times,
@@ -13,7 +13,7 @@ from test_framework.util import (
 )
 
 
-class TimeOffsetTest(PivxTestFramework):
+class TimeOffsetTest(RupxTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 8

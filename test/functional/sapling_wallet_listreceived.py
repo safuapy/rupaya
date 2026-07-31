@@ -6,7 +6,7 @@
 
 from decimal import Decimal
 
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import RupxTestFramework
 from test_framework.util import (
     assert_equal,
     assert_false,
@@ -25,7 +25,7 @@ too_big_memo_str = "This is not an email......." * 19
 no_memo = "f6"
 
 
-class ListReceivedTest (PivxTestFramework):
+class ListReceivedTest (RupxTestFramework):
 
     def set_test_params(self):
         self.num_nodes = 4

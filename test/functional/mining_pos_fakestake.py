@@ -48,14 +48,14 @@ import time
 
 from test_framework.authproxy import JSONRPCException
 from test_framework.messages import COutPoint
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import RupxTestFramework
 from test_framework.util import (
     assert_equal,
     set_node_times
 )
 
 
-class FakeStakeTest(PivxTestFramework):
+class FakeStakeTest(RupxTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         # whitelist all peers to speed up tx relay / mempool sync

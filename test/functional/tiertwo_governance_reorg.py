@@ -7,7 +7,7 @@ from decimal import Decimal
 import os
 import time
 
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import RupxTestFramework
 from test_framework.util import (
     assert_equal,
     p2p_port,
@@ -15,7 +15,7 @@ from test_framework.util import (
 )
 
 
-class GovernanceReorgTest(PivxTestFramework):
+class GovernanceReorgTest(RupxTestFramework):
 
     def set_test_params(self):
         self.setup_clean_chain = True

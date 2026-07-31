@@ -57,15 +57,15 @@ import time
 from test_framework.blocktools import create_block, create_coinbase, create_transaction
 from test_framework.messages import CBlockHeader, CInv, msg_block, msg_headers, msg_inv
 from test_framework.mininode import mininode_lock, P2PInterface
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import RupxTestFramework
 from test_framework.util import assert_equal, assert_raises_rpc_error
 
 
-class AcceptBlockTest(PivxTestFramework):
+class AcceptBlockTest(RupxTestFramework):
     def add_options(self, parser):
         parser.add_option("--testbinary", dest="testbinary",
-                          default=os.getenv("BITCOIND", "pivxd"),
-                          help="pivxd binary to test")
+                          default=os.getenv("BITCOIND", "rupxd"),
+                          help="rupxd binary to test")
 
     def set_test_params(self):
         self.setup_clean_chain = True

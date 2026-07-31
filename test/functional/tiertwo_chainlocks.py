@@ -4,7 +4,7 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-from test_framework.test_framework import PivxDMNTestFramework
+from test_framework.test_framework import RupxDMNTestFramework
 from test_framework.util import assert_equal
 import time
 
@@ -13,11 +13,11 @@ Check quorum based Chainlocks
 '''
 
 
-class ChainLocksTest(PivxDMNTestFramework):
+class ChainLocksTest(RupxDMNTestFramework):
 
     def set_test_params(self):
         self.set_base_test_params()
-        self.extra_args = [["-nuparams=v5_shield:1", "-nuparams=PIVX_v5.5:130", "-nuparams=v6_evo:130", "-debug=llmq", "-debug=dkg", "-debug=net"]] * self.num_nodes
+        self.extra_args = [["-nuparams=v5_shield:1", "-nuparams=Rupaya_v5.5:130", "-nuparams=v6_evo:130", "-debug=llmq", "-debug=dkg", "-debug=net"]] * self.num_nodes
         self.extra_args[0].append("-sporkkey=932HEevBSujW2ud7RfB1YF91AFygbBRQj3de3LyaCRqNzKKgWXi")
 
     def run_test(self):

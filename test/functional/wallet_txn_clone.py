@@ -7,10 +7,10 @@
 import io
 
 from test_framework.messages import CTransaction, COIN
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import RupxTestFramework
 from test_framework.util import assert_equal
 
-class TxnMallTest(PivxTestFramework):
+class TxnMallTest(RupxTestFramework):
     def set_test_params(self):
         self.num_nodes = 4
 

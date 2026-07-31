@@ -1,5 +1,5 @@
 ---
-name: "pivx-dmg-signer"
+name: "rupaya-dmg-signer"
 distro: "ubuntu"
 suites:
 - "bionic"
@@ -9,10 +9,10 @@ packages:
 - "faketime"
 - "xorriso"
 remotes:
-- "url": "https://github.com/pivx-project/pivx-detached-sigs.git"
+- "url": "https://github.com/rupaya-project/rupaya-detached-sigs.git"
   "dir": "signature"
 files:
-- "pivx-osx-unsigned.tar.gz"
+- "rupaya-osx-unsigned.tar.gz"
 script: |
   set -e -o pipefail
 
@@ -31,8 +31,8 @@ script: |
     chmod +x ${WRAP_DIR}/${prog}
   done
 
-  UNSIGNED=pivx-osx-unsigned.tar.gz
-  SIGNED=pivx-osx-signed.dmg
+  UNSIGNED=rupaya-osx-unsigned.tar.gz
+  SIGNED=rupaya-osx-signed.dmg
 
   tar -xf ${UNSIGNED}
   OSX_VOLNAME="$(cat osx_volname)"

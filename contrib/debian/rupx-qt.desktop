@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Rupaya Core
+Comment=Rupaya P2P Cryptocurrency
+Comment[fr]=Rupaya, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Rupaya, eşten eşe kriptografik sanal para birimi
+Exec=rupx-qt %u
+Terminal=false
+Type=Application
+Icon=rupx128
+MimeType=x-scheme-handler/rupx;
+Categories=Office;Finance;
+StartupWMClass=Rupx-qt

@@ -6,14 +6,14 @@
 
 import os
 
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import RupxTestFramework
 from test_framework.util import (
     assert_equal,
     wait_until
 )
 
 
-class NotificationsTest(PivxTestFramework):
+class NotificationsTest(RupxTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.setup_clean_chain = True
@@ -78,7 +78,7 @@ class NotificationsTest(PivxTestFramework):
         self.nodes[1].generate(51)
         self.sync_all()
 
-        # Give pivxd 10 seconds to write the alert notification
+        # Give rupxd 10 seconds to write the alert notification
         wait_until(lambda: len(os.listdir(self.alertnotify_dir)), timeout=10)
 
         for notify_file in os.listdir(self.alertnotify_dir):

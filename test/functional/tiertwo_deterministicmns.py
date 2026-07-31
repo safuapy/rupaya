@@ -10,7 +10,7 @@ import time
 
 from test_framework.blocktools import create_block, create_coinbase
 from test_framework.messages import CTxOut, COIN
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import RupxTestFramework
 from test_framework.util import (
     assert_greater_than,
     assert_equal,
@@ -22,7 +22,7 @@ from test_framework.util import (
 )
 
 
-class DIP3Test(PivxTestFramework):
+class DIP3Test(RupxTestFramework):
 
     def set_test_params(self):
         # 1 miner, 1 controller, 6 remote mns
@@ -300,7 +300,7 @@ class DIP3Test(PivxTestFramework):
                                 miner.protx_update_service, mns[0].proTx, "",
                                 miner.getnewaddress(), mns[0].operator_sk)
         self.log.info("Trying to update the operator payee to an invalid address...")
-        assert_raises_rpc_error(-5, "invalid PIVX address InvalidPayee",
+        assert_raises_rpc_error(-5, "invalid Rupaya address InvalidPayee",
                                 miner.protx_update_service, dmn2c.proTx, "", "InvalidPayee", "")
         self.log.info("Update IP address...")
         mns[0].ipport = "127.0.0.1:1000"
@@ -334,7 +334,7 @@ class DIP3Test(PivxTestFramework):
         assert_raises_rpc_error(-1, "bad-protx-dup-key", controller.protx_update_registrar,
                                 mns[0].proTx, mns[1].operator_pk, "", "")
         self.log.info("Trying to update the payee to an invalid address...")
-        assert_raises_rpc_error(-5, "invalid PIVX address InvalidPayee", controller.protx_update_registrar,
+        assert_raises_rpc_error(-5, "invalid Rupaya address InvalidPayee", controller.protx_update_registrar,
                                 mns[0].proTx, "", "", "InvalidPayee")
         self.log.info("Update operator keys...")
         bls_keypair = self.nodes[mns[0].idx].generateblskeypair()

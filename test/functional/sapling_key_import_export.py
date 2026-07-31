@@ -7,10 +7,10 @@
 from decimal import Decimal
 from functools import reduce
 
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import RupxTestFramework
 from test_framework.util import assert_equal, assert_greater_than
 
-class SaplingkeyImportExportTest(PivxTestFramework):
+class SaplingkeyImportExportTest(RupxTestFramework):
 
     def set_test_params(self):
         self.num_nodes = 5

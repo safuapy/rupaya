@@ -5,7 +5,7 @@
 
 import time
 
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import RupxTestFramework
 from test_framework.util import (
     assert_greater_than,
     assert_greater_than_or_equal,
@@ -23,7 +23,7 @@ def timed(f):
 
 MAX_SHIELDED_BLOCKSIZE = 750000
 
-class SaplingFillBlockTest(PivxTestFramework):
+class SaplingFillBlockTest(RupxTestFramework):
 
     def set_test_params(self):
         self.num_nodes = 2

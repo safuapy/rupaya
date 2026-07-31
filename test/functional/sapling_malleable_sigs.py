@@ -8,7 +8,7 @@ from decimal import Decimal
 from io import BytesIO
 
 from test_framework.messages import CTransaction
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import RupxTestFramework
 from test_framework.util import (
     assert_equal,
     assert_raises_rpc_error,
@@ -16,7 +16,7 @@ from test_framework.util import (
 )
 
 
-class MalleableSigsTest(PivxTestFramework):
+class MalleableSigsTest(RupxTestFramework):
 
     def set_test_params(self):
         self.num_nodes = 1

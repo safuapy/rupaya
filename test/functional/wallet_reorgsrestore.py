@@ -17,11 +17,11 @@ from decimal import Decimal
 import os
 import shutil
 
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import RupxTestFramework
 from test_framework.util import assert_equal
 
 
-class ReorgsRestoreTest(PivxTestFramework):
+class ReorgsRestoreTest(RupxTestFramework):
     def set_test_params(self):
         self.num_nodes = 3
 

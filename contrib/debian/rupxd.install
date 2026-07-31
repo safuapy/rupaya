@@ -1,0 +1,3 @@
+usr/local/bin/rupxd usr/bin
+usr/local/bin/rupx-cli usr/bin
+debian/examples/rupx.conf etc/rupaya

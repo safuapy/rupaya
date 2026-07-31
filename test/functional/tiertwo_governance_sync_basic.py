@@ -14,7 +14,7 @@ Test checking:
 import time
 
 from test_framework.messages import COutPoint
-from test_framework.test_framework import PivxTier2TestFramework
+from test_framework.test_framework import RupxTier2TestFramework
 from test_framework.util import (
     assert_equal,
     assert_true,
@@ -34,7 +34,7 @@ class Proposal:
         self.feeTxId = ""
         self.proposalHash = ""
 
-class MasternodeGovernanceBasicTest(PivxTier2TestFramework):
+class MasternodeGovernanceBasicTest(RupxTier2TestFramework):
 
     def check_mns_status_legacy(self, node, txhash):
         status = node.getmasternodestatus()
@@ -198,7 +198,7 @@ class MasternodeGovernanceBasicTest(PivxTier2TestFramework):
         self.log.info("preparing budget proposal..")
         firstProposal = Proposal(
             "super-cool",
-            "https://forum.pivx.org/t/test-proposal",
+            "https://forum.rupaya.io/t/test-proposal",
             2,
             self.miner.getnewaddress(),
             300
@@ -361,7 +361,7 @@ class MasternodeGovernanceBasicTest(PivxTier2TestFramework):
         # stop and remove everything
         self.stop_node(self.ownerTwoPos)
         ownerTwoDir = os.path.join(get_datadir_path(self.options.tmpdir, self.ownerTwoPos), "regtest")
-        for entry in ['chainstate', 'blocks', 'sporks', 'evodb', 'zerocoin', "mncache.dat", "budget.dat", "mnpayments.dat", "peers.dat"]:
+        for entry in ['chainstate', 'blocks', 'sporks', 'evodb', 'zerocoin_legacy', "mncache.dat", "budget.dat", "mnpayments.dat", "peers.dat"]:
             rem_path = os.path.join(ownerTwoDir, entry)
             shutil.rmtree(rem_path) if os.path.isdir(rem_path) else os.remove(rem_path)
 

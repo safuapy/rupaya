@@ -23,7 +23,7 @@ from test_framework.mininode import (
     msg_block,
     msg_getdata,
 )
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import RupxTestFramework
 from test_framework.util import (
     assert_equal,
     wait_until,
@@ -64,11 +64,11 @@ def custom_function():
 
     If this function is more generally useful for other tests, consider
     moving it to a module in test_framework."""
-    # self.log.info("running custom_function")  # Oops! Can't run self.log outside the PivxTestFramework
+    # self.log.info("running custom_function")  # Oops! Can't run self.log outside the RupxTestFramework
     pass
 
-class ExampleTest(PivxTestFramework):
-    # Each functional test is a subclass of the PivxTestFramework class.
+class ExampleTest(RupxTestFramework):
+    # Each functional test is a subclass of the RupxTestFramework class.
 
     # Override the set_test_params(), add_options(), setup_chain(), setup_network()
     # and setup_nodes() methods to customize the test setup as required.
@@ -123,7 +123,7 @@ class ExampleTest(PivxTestFramework):
 
         Define it in a method here because you're going to use it repeatedly.
         If you think it's useful in general, consider moving it to the base
-        PivxTestFramework class so other tests can use it."""
+        RupxTestFramework class so other tests can use it."""
 
         self.log.info("Running custom_method")
 

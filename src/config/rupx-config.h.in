@@ -450,4 +450,4 @@
 /* Define to 1 on platforms where this makes time_t a 64-bit type. */
 #undef __MINGW_USE_VC2005_COMPAT
 
-#endif //RUPX_CONFIG_RUPX_CONFIG_H
+#endif // RUPX_CONFIG_RUPX_CONFIG_H

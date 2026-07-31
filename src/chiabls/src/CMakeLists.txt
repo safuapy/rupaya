@@ -1,9 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.14 FATAL_ERROR)
 set (CMAKE_CXX_STANDARD 14)
 
-# Allow fetched dependencies with old cmake_minimum_required
-set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
-
 # CMake 3.14+
 include(FetchContent)
 

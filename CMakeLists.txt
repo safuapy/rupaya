@@ -193,6 +193,9 @@ ExternalProject_Add (
         INSTALL_COMMAND ""
         )
 
+# Allow fetched dependencies and subtrees with old cmake_minimum_required
+set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
+
 set(CRC32C_BUILD_TESTS OFF CACHE BOOL "Build CRC32C's unit tests" FORCE)
 set(CRC32C_BUILD_BENCHMARKS OFF CACHE BOOL "Build CRC32C's benchmarks" FORCE)
 set(CRC32C_USE_GLOG OFF CACHE BOOL "Build CRC32C's tests with Google Logging" FORCE)

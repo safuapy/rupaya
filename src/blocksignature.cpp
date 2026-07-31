@@ -5,6 +5,7 @@
 #include "blocksignature.h"
 
 #include "script/standard.h"
+#include "util/system.h"
 
 static bool GetKeyIDFromUTXO(const CTxOut& utxo, CKeyID& keyIDRet)
 {

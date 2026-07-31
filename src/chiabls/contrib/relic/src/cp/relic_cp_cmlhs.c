@@ -96,7 +96,7 @@ int cp_cmlhs_sig(g1_t sig, g2_t z, g1_t a, g1_t c, g1_t r, g2_t s, bn_t msg,
 	g1_t t;
 	uint8_t mac[RLC_MD_LEN];
 	int len, dlen = strlen(data), result = RLC_OK;
-	uint8_t *buf = RLC_ALLOCA(uint8_t, 1 + 8 * RLC_PC_BYTES + dlen);
+	uint8_t *buf = RLC_ALLOCA(uint8_t, 1 + 4 * RLC_FP_BYTES + dlen);
 
 	bn_null(k);
 	bn_null(m);
@@ -151,7 +151,12 @@ int cp_cmlhs_sig(g1_t sig, g2_t z, g1_t a, g1_t c, g1_t r, g2_t s, bn_t msg,
 		g1_add(c, c, t);
 		g1_norm(c, c);
 
-		len = g2_size_bin(z, 0);
+		if (pc_map_is_type1()) {
+			len = 2 * RLC_FP_BYTES + 1;
+		} else {
+			len = 4 * RLC_FP_BYTES + 1;
+		}
+
 		g2_write_bin(buf, len, z, 0);
 		memcpy(buf + len, data, dlen);
 		cp_bls_sig(sig, buf, len + dlen, sk);
@@ -195,7 +200,7 @@ int cp_cmlhs_ver(g1_t r, g2_t s, g1_t sig[], g2_t z[], g1_t a[], g1_t c[],
 	gt_t e, u, v;
 	bn_t k, n;
 	int len, dlen = strlen(data), result = 1;
-	uint8_t *buf = RLC_ALLOCA(uint8_t, 1 + 8 * RLC_PC_BYTES + dlen);
+	uint8_t *buf = RLC_ALLOCA(uint8_t, 1 + 4 * RLC_FP_BYTES + dlen);
 
 	g1_null(g1);
 	g2_null(g2);
@@ -306,7 +311,7 @@ int cp_cmlhs_onv(g1_t r, g2_t s, g1_t sig[], g2_t z[], g1_t a[], g1_t c[],
 	gt_t e, u, v;
 	bn_t k, n;
 	int len, dlen = strlen(data), result = 1;
-	uint8_t *buf = RLC_ALLOCA(uint8_t, 1 + 8 * RLC_FP_BYTES + dlen);
+	uint8_t *buf = RLC_ALLOCA(uint8_t, 1 + 4 * RLC_FP_BYTES + dlen);
 
 	g1_null(g1);
 	g2_null(g2);

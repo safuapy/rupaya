@@ -83,6 +83,7 @@ void ep_blind(ep_t r, const ep_t p) {
 
 	RLC_TRY {
 		fp_new(rand);
+
 		fp_rand(rand);
 #if EP_ADD == BASIC
 		(void)rand;

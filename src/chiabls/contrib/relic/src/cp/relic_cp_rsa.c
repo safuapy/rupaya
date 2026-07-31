@@ -29,7 +29,16 @@
  * @ingroup cp
  */
 
-#include "relic.h"
+#include <string.h>
+
+#include "relic_core.h"
+#include "relic_conf.h"
+#include "relic_rand.h"
+#include "relic_bn.h"
+#include "relic_util.h"
+#include "relic_cp.h"
+#include "relic_md.h"
+#include "relic_multi.h"
 
 /*============================================================================*/
 /* Private definitions                                                        */
@@ -265,8 +274,10 @@ static int pad_pkcs1(bn_t m, int *p_len, int m_len, int k_len, int operation) {
 					} while (pad == 0);
 					bn_add_dig(m, m, pad);
 				}
-				/* Make room for the zero and real message. */
-				bn_lsh(m, m, (m_len + 1) * 8);
+				bn_lsh(m, m, 8);
+				bn_add_dig(m, m, 0);
+				/* Make room for the real message. */
+				bn_lsh(m, m, m_len * 8);
 				result = RLC_OK;
 				break;
 			case RSA_DEC:
@@ -302,8 +313,9 @@ static int pad_pkcs1(bn_t m, int *p_len, int m_len, int k_len, int operation) {
 					bn_lsh(m, m, 8);
 					bn_add_dig(m, m, RSA_PAD);
 				}
-				/* Make room for the zero and hash id. */
-				bn_lsh(m, m, 8 * (len + 1));
+				bn_lsh(m, m, 8);
+				bn_add_dig(m, m, 0);
+				bn_lsh(m, m, 8 * len);
 				bn_read_bin(t, id, len);
 				bn_add(m, m, t);
 				/* Make room for the real message. */
@@ -321,8 +333,10 @@ static int pad_pkcs1(bn_t m, int *p_len, int m_len, int k_len, int operation) {
 					bn_lsh(m, m, 8);
 					bn_add_dig(m, m, RSA_PAD);
 				}
-				/* Make room for the zero and hash. */
-				bn_lsh(m, m, 8 * (m_len + 1));
+				bn_lsh(m, m, 8);
+				bn_add_dig(m, m, 0);
+				/* Make room for the real message. */
+				bn_lsh(m, m, m_len * 8);
 				result = RLC_OK;
 				break;
 			case RSA_VER:
@@ -342,22 +356,19 @@ static int pad_pkcs1(bn_t m, int *p_len, int m_len, int k_len, int operation) {
 						} while (pad == RSA_PAD && m_len > 0);
 						/* Remove padding and trailing zero. */
 						id = hash_id(MD_MAP, &len);
-						bn_rsh(t, m, 8 * m_len);
-						bn_mod_2b(t, t, 8);
-						if (bn_is_zero(t)) {
-							m_len -= len;
-							bn_rsh(t, m, 8 * m_len);
-							int r = 0;
-							for (int i = 0; i < len; i++) {
-								pad = (uint8_t)t->dp[0];
-								r |= pad ^ id[len - i - 1];
-								bn_rsh(t, t, 8);
-							}
-							*p_len = k_len - m_len;
-							bn_mod_2b(m, m, m_len * 8);
-							if (r == 0 && m_len == RLC_MD_LEN && counter >= 8) {
-								result = RLC_OK;
-							}
+						m_len -= len;
+
+						bn_rsh(t, m, m_len * 8);
+						int r = 0;
+						for (int i = 0; i < len; i++) {
+							pad = (uint8_t)t->dp[0];
+							r |= pad ^ id[len - i - 1];
+							bn_rsh(t, t, 8);
+						}
+						*p_len = k_len - m_len;
+						bn_mod_2b(m, m, m_len * 8);
+						if (r == 0 && m_len > 0 && counter >= 8) {
+							result = RLC_OK;
 						}
 					}
 				}
@@ -379,13 +390,9 @@ static int pad_pkcs1(bn_t m, int *p_len, int m_len, int k_len, int operation) {
 						} while (pad == RSA_PAD && m_len > 0);
 						/* Remove padding and trailing zero. */
 						*p_len = k_len - m_len;
-						bn_rsh(t, m, 8 * m_len);
-						bn_mod_2b(t, t, 8);
-						if (bn_is_zero(t)) {
-							bn_mod_2b(m, m, m_len * 8);
-							if (m_len == RLC_MD_LEN && counter >= 8) {
-								result = RLC_OK;
-							}
+						bn_mod_2b(m, m, m_len * 8);
+						if (m_len > 0 && counter >= 8) {
+							result = RLC_OK;
 						}
 					}
 				}

@@ -267,6 +267,12 @@ static void find_chain(void) {
 			break;
 	}
 
+	for (i = 0; i < RLC_TERMS; i++) {
+		for (j = 0; j < RLC_FB_TABLE; j++) {
+			ctx->fb_tab_ptr[i][j] = &(ctx->fb_tab_sqr[i][j]);
+		}
+	}
+
 	u[0] = 1;
 	u[1] = 2;
 	for (i = 2; i <= ctx->chain_len; i++) {
@@ -280,7 +286,7 @@ static void find_chain(void) {
 	}
 
 	for (i = 0; i <= ctx->chain_len; i++) {
-		fb_itr_pre((fb_st *)fb_poly_tab_sqr(i), u[i]);
+		fb_itr_pre((fb_t *)fb_poly_tab_sqr(i), u[i]);
 	}
 }
 
@@ -430,10 +436,15 @@ dig_t *fb_poly_get_srz(void) {
 #endif
 }
 
-const fb_st *fb_poly_tab_sqr(int i) {
+const fb_t *fb_poly_tab_sqr(int i) {
 #if FB_INV == ITOHT || !defined(STRIP)
 	/* If ITOHT inversion is used and tables are precomputed, return them. */
-	return (const fb_st *)core_get()->fb_tab_sqr[i];
+#if ALLOC == AUTO
+	return (const fb_t *)*core_get()->fb_tab_ptr[i];
+#else
+	return (const fb_t *)core_get()->fb_tab_ptr[i];
+#endif
+
 #else
 	return NULL;
 #endif

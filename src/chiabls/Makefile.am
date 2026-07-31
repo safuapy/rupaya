@@ -1,6 +1,6 @@
 ACLOCAL_AMFLAGS = -I build-aux/m4
 
-AM_CPPFLAGS = $(SODIUM_CPPFLAGS) $(SODIUM_CFLAGS)
+AM_CPPFLAGS = $(GMP_CPPFLAGS) $(SODIUM_CPPFLAGS)
 AM_LDFLAGS = $(PTHREAD_CFLAGS) $(LIBTOOL_LDFLAGS)
 
 LIBRELIC = librelic.la
@@ -176,20 +176,7 @@ EPX_SRCS = \
   contrib/relic/src/epx/relic_ep2_neg.c \
   contrib/relic/src/epx/relic_ep2_norm.c \
   contrib/relic/src/epx/relic_ep2_pck.c \
-  contrib/relic/src/epx/relic_ep2_util.c \
-  contrib/relic/src/epx/relic_ep4_add.c \
-  contrib/relic/src/epx/relic_ep4_cmp.c \
-  contrib/relic/src/epx/relic_ep4_curve.c \
-  contrib/relic/src/epx/relic_ep4_dbl.c \
-  contrib/relic/src/epx/relic_ep4_frb.c \
-  contrib/relic/src/epx/relic_ep4_map.c \
-  contrib/relic/src/epx/relic_ep4_mul.c \
-  contrib/relic/src/epx/relic_ep4_mul_cof.c \
-  contrib/relic/src/epx/relic_ep4_mul_fix.c \
-  contrib/relic/src/epx/relic_ep4_mul_sim.c \
-  contrib/relic/src/epx/relic_ep4_neg.c \
-  contrib/relic/src/epx/relic_ep4_norm.c \
-  contrib/relic/src/epx/relic_ep4_util.c
+  contrib/relic/src/epx/relic_ep2_util.c
 
 EB_SRCS = \
   contrib/relic/src/eb/relic_eb_add.c \
@@ -245,11 +232,7 @@ PP_SRCS = \
   contrib/relic/src/pp/relic_pp_map_k12.c \
   contrib/relic/src/pp/relic_pp_map_k48.c \
   contrib/relic/src/pp/relic_pp_map_k54.c \
-  contrib/relic/src/pp/relic_pp_norm.c \
-  contrib/relic/src/pp/relic_pp_add_k24.c \
-  contrib/relic/src/pp/relic_pp_dbl_k24.c \
-  contrib/relic/src/pp/relic_pp_exp_k24.c \
-  contrib/relic/src/pp/relic_pp_map_k24.c
+  contrib/relic/src/pp/relic_pp_norm.c
 
 PC_SRCS = \
   contrib/relic/src/pc/relic_pc_core.c \
@@ -385,11 +368,6 @@ RELIC_SRCS += contrib/relic/src/cp/relic_cp_bbs.c
 RELIC_SRCS += contrib/relic/src/cp/relic_cp_zss.c
 RELIC_SRCS += contrib/relic/src/cp/relic_cp_cmlhs.c
 RELIC_SRCS += contrib/relic/src/cp/relic_cp_mklhs.c
-RELIC_SRCS += contrib/relic/src/cp/relic_cp_ers.c
-RELIC_SRCS += contrib/relic/src/cp/relic_cp_etrs.c
-RELIC_SRCS += contrib/relic/src/cp/relic_cp_pcdel.c
-RELIC_SRCS += contrib/relic/src/cp/relic_cp_pok.c
-RELIC_SRCS += contrib/relic/src/cp/relic_cp_sok.c
 endif
 
 if WITH_BC
@@ -441,7 +419,7 @@ libchiabls_la_SOURCES = \
 libchiabls_la_CPPFLAGS = $(AM_CPPFLAGS) $(CHIABLS_INCLUDES) -DBLSALLOC_SODIUM=1
 libchiabls_la_CXXFLAGS = $(AM_CXXFLAGS)
 
-libchiabls_la_LIBADD = $(LIBRELIC) $(SODIUM_LIBS)
+libchiabls_la_LIBADD = $(LIBRELIC) $(SODIUM_LIBS) $(GMP_LIBS)
 
 
 if USE_BENCH
@@ -457,7 +435,7 @@ runbench_CPPFLAGS = $(AM_CPPFLAGS) $(CHIABLS_INCLUDES)
 runbench_CXXFLAGS = $(AM_CXXFLAGS)
 runbench_LDFLAGS = $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
-runbench_LDADD = $(LIBCHIABLS) $(SODIUM_LIBS)
+runbench_LDADD = $(LIBCHIABLS) $(SODIUM_LIBS) $(GMP_LIBS)
 
 endif
 
@@ -473,7 +451,7 @@ runtest_CPPFLAGS = $(AM_CPPFLAGS) $(CHIABLS_INCLUDES) -I$(top_srcdir)/contrib/ca
 runtest_CXXFLAGS = $(AM_CXXFLAGS)
 runtest_LDFLAGS = $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
-runtest_LDADD = $(LIBCHIABLS) $(SODIUM_LIBS)
+runtest_LDADD = $(LIBCHIABLS) $(SODIUM_LIBS) $(GMP_LIBS)
 
 TESTS += runtest
 

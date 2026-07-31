@@ -27,7 +27,7 @@
  * Implementation of point compression on prime elliptic curves over quadratic
  * extensions.
  *
- * @ingroup epx
+ * @ingroup ep
  */
 
 #include "relic_core.h"

@@ -58,7 +58,6 @@ G1Element G1Element::FromBytes(const Bytes& bytes)
         }
     }
     g1_read_bin(ele.p, buffer, G1Element::SIZE + 1);
-    BLS::CheckRelicErrors();
     ele.CheckValid();
     return ele;
 }
@@ -242,7 +241,6 @@ G2Element G2Element::FromBytes(const Bytes& bytes)
     }
 
     g2_read_bin(ele.q, buffer, G2Element::SIZE + 1);
-    BLS::CheckRelicErrors();
     ele.CheckValid();
     return ele;
 }

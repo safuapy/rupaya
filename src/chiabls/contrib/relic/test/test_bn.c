@@ -180,16 +180,12 @@ static int util(void) {
 		TEST_END;
 
 		TEST_CASE("generating a random integer is consistent") {
-			do {
-				bn_rand(b, RLC_POS, RLC_BN_BITS);
-			} while (bn_is_zero(b));
+			bn_rand(b, RLC_POS, RLC_BN_BITS);
 			bn_rand_mod(a, b);
 			TEST_ASSERT(bn_sign(a) == bn_sign(b), end);
 			TEST_ASSERT(bn_is_zero(a) == 0, end);
 			TEST_ASSERT(bn_cmp(a, b) == RLC_LT, end);
-			do {
-				bn_rand(b, RLC_NEG, RLC_DIG);
-			} while (bn_bits(b) <= 1);
+			bn_rand(b, RLC_NEG, RLC_DIG);
 			bn_rand_mod(a, b);
 			TEST_ASSERT(bn_sign(a) == bn_sign(b), end);
 			TEST_ASSERT(bn_is_zero(a) == 0, end);

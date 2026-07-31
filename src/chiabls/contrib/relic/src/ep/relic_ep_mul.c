@@ -97,6 +97,10 @@ static void ep_mul_glv_imp(ep_t r, const ep_t p, const bn_t k) {
 		l = RLC_MAX(l0, l1);
 		t0 = naf0 + l - 1;
 		t1 = naf1 + l - 1;
+		for (i = l0; i < l; i++)
+			naf0[i] = 0;
+		for (i = l1; i < l; i++)
+			naf1[i] = 0;
 
 		ep_set_infty(r);
 		for (i = l - 1; i >= 0; i--, t0--, t1--) {
@@ -231,6 +235,11 @@ static void ep_mul_reg_glv(ep_t r, const ep_t p, const bn_t k) {
 	bn_t n, _k, k0, k1, v1[3], v2[3];
 	ep_t q, t[1 << (EP_WIDTH - 2)], u, v, w;
 
+	if (bn_is_zero(k)) {
+		ep_set_infty(r);
+		return;
+	}
+
 	bn_null(n);
 	bn_null(_k);
 	bn_null(k0);
@@ -265,8 +274,8 @@ static void ep_mul_reg_glv(ep_t r, const ep_t p, const bn_t k) {
 		ep_curve_get_v1(v1);
 		ep_curve_get_v2(v2);
 
-		bn_abs(_k, k);
-		if (bn_cmp(_k, n) == RLC_GT) {
+		bn_copy(_k, k);
+		if (bn_cmp_abs(_k, n) == RLC_GT) {
 			bn_mod(_k, _k, n);
 		}
 
@@ -349,7 +358,7 @@ static void ep_mul_reg_glv(ep_t r, const ep_t p, const bn_t k) {
 		/* Convert r to affine coordinates. */
 		ep_norm(r, r);
 		ep_neg(u, r);
-		dv_copy_cond(r->y, u->y, RLC_FP_DIGS, bn_sign(k) == RLC_NEG);
+		dv_copy_cond(r->y, u->y, RLC_FP_DIGS, bn_sign(_k) == RLC_NEG);
 	}
 	RLC_CATCH_ANY {
 		RLC_THROW(ERR_CAUGHT);
@@ -408,7 +417,7 @@ static void ep_mul_reg_imp(ep_t r, const ep_t p, const bn_t k) {
 
 		/* Make a copy of the scalar for processing. */
 		bn_abs(_k, k);
-		_k->dp[0] |= 1;
+		_k->dp[0] |= bn_is_even(_k);
 
 		/* Compute the regular w-NAF representation of k. */
 		l = RLC_CEIL(n, EP_WIDTH - 1) + 1;
